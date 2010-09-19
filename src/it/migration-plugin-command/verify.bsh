@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.util.regex.*;
+
+import org.codehaus.plexus.util.*;
+
+   boolean check(  )
+   {
+       File file = new File( basedir, "build.log" );
+      String log = FileUtils.fileRead( file );
+
+      String[] values = {
+              "Executing  Apache Migration MigrationStatusCommand",
+              "Executing  Apache Migration UpCommand"
+          };
+      for ( String value : values )
+      {
+          System.out.println( "Checking for occurrence of: " + value );
+          if ( log.indexOf( value ) < 0 )
+          {
+              System.out.println( "FAILED!" );
+              return false;
+          }
+      }
+      return true;
+  }
+
+  try
+  {
+      return check( );
+  }
+  catch( Throwable t )
+  {
+      t.printStackTrace();
+      return false;
+  }
+
+  return true;

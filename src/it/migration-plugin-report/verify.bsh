@@ -1,0 +1,12 @@
+import java.io.*;
+
+try
+{
+    File itRoot = new File( basedir, "target/site/migration-status-analysis.html" );
+    return itRoot.exists();
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
