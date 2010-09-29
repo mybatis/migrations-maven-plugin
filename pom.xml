@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath>../mybatis-parent/pom.xml</relativePath>
     </parent>
     <groupId>org.mybatis.maven</groupId>
