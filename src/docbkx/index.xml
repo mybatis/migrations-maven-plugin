@@ -45,5 +45,6 @@
     </bookinfo>
 
     <xi:include href="introduction.xml" />
+    <xi:include href="usage.xml" />
 
 </book>
