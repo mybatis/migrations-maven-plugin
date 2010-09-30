@@ -54,7 +54,7 @@
         <artifactId>]]><?eval ${project.artifactId}?><![CDATA[</artifactId>
         <version>]]><?eval ${project.version}?><![CDATA[</version>
         <configuration>
-            <repository>/path/to/migration/repository</repository>
+            <repository> [migration repository path] </repository>
         </configuration>
         <dependencies>
             [ add your jdbc driver depencency ]
