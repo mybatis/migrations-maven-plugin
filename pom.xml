@@ -16,21 +16,20 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-parent</artifactId>
         <version>1.0.0</version>
     </parent>
+
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>maven-migration-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <inceptionYear>2010</inceptionYear>
-
     <name>Maven myBatis migration plugin</name>
-        
-    <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle, the myBatis 3 Migration tool.
-myBatis 3 Migration Schema is a tool that helps you to manage database schema changes.</description>
+    <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
+    the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
+    schema changes.</description>
 
     <properties>
         <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
@@ -41,7 +40,7 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
         <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/trunk</connection>
         <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/trunk</developerConnection>
     </scm>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -72,7 +71,7 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pdf-plugin</artifactId>
@@ -92,6 +91,7 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
                     <indentSize>1</indentSize>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -99,7 +99,6 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
                     <arguments>-Psonatype-oss-release</arguments>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
@@ -167,4 +166,5 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>
