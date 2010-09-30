@@ -42,6 +42,14 @@
     </scm>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <targetPath>.</targetPath>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-invoker-plugin</artifactId>

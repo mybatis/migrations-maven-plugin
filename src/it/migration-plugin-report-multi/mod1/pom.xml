@@ -16,13 +16,13 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>migration-plugin-itcase</artifactId>
-		<groupId>migration-plugin-itcase</groupId>
-		<version>1</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
-	<modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>migration-plugin-itcase</artifactId>
+        <groupId>migration-plugin-itcase</groupId>
+        <version>1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
     <groupId>migration-plugin-itcase</groupId>
     <artifactId>migration-plugin-itcase-mod1</artifactId>
     <name>Mod1</name>
@@ -30,8 +30,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
+                <groupId>@project.groupId@</groupId>
+                <artifactId>@project.artifactId@</artifactId>
                 <configuration>
                     <repository>${basedir}/../itcase-rep</repository>
                     <skip>false</skip>
@@ -49,12 +49,12 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <reporting>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
+                <groupId>@project.groupId@</groupId>
+                <artifactId>@project.artifactId@</artifactId>
                 <configuration>
                     <repository>${basedir}/../itcase-rep</repository>
                     <skip>false</skip>

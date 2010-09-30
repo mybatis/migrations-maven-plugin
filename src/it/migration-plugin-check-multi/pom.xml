@@ -25,8 +25,8 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.mybatis.maven</groupId>
-                    <artifactId>maven-migration-plugin</artifactId>
+                    <groupId>@project.groupId@</groupId>
+                    <artifactId>@project.artifactId@</artifactId>
                     <version>@project.version@</version>
                     <configuration>
                         <skip>true</skip>
@@ -42,31 +42,31 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        
+
         <plugins>
                 <plugin>
-                    <groupId>org.mybatis.maven</groupId>
-                    <artifactId>maven-migration-plugin</artifactId>
+                    <groupId>@project.groupId@</groupId>
+                    <artifactId>@project.artifactId@</artifactId>
                 </plugin>
         </plugins>
-        
-        
+
+
     </build>
-    
+
     <reporting>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
+                <groupId>@project.groupId@</groupId>
+                <artifactId>@project.artifactId@</artifactId>
                 <configuration>
                         <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
     </reporting>
-    
-    
-    
+
+
+
     <modules>
         <module>mod1</module>
         <module>mod2</module>

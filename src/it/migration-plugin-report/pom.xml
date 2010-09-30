@@ -23,8 +23,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
+                <groupId>@project.groupId@</groupId>
+                <artifactId>@project.artifactId@</artifactId>
                 <version>@project.version@</version>
                 <configuration>
                     <repository>itcase-rep</repository>
@@ -43,8 +43,8 @@
     <reporting>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
+                <groupId>@project.groupId@</groupId>
+                <artifactId>@project.artifactId@</artifactId>
                 <version>@project.version@</version>
                 <configuration>
                     <repository>itcase-rep</repository>
