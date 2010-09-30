@@ -46,6 +46,7 @@
 
     <xi:include href="introduction.xml" />
     <xi:include href="usage.xml" />
+    <xi:include href="examples.xml" />
     <xi:include href="faq.xml" />
 
 </book>
