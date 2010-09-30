@@ -21,28 +21,19 @@
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../mybatis-parent/pom.xml</relativePath>
     </parent>
-    <groupId>org.mybatis.maven</groupId>
     <artifactId>maven-migration-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <inceptionYear>2010</inceptionYear>
 
     <name>Maven myBatis migration plugin</name>
-    <url>http://www.mybatis.org/</url>
         
     <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle, the myBatis 3 Migration tool.
 myBatis 3 Migration Schema is a tool that helps you to manage database schema changes.</description>
 
-    
-    <prerequisites>
-        <maven>2.0</maven>
-    </prerequisites>
-
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
     </properties>
 
     <scm>
@@ -52,14 +43,6 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
     </scm>
     
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
-                <version>1.0-beta-6</version>
-            </extension>
-        </extensions>
-
         <plugins>
             <plugin>
                 <artifactId>maven-invoker-plugin</artifactId>
@@ -109,6 +92,14 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
                     <indentSize>1</indentSize>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <arguments>-Psonatype-oss-release</arguments>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -118,17 +109,6 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
                 <version>2.5.1</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <linkXref>true</linkXref>
-                    <minimumTokens>100</minimumTokens>
-                    <targetJdk>1.5</targetJdk>
-                </configuration>
             </plugin>
         </plugins>
     </reporting>
@@ -187,68 +167,4 @@ myBatis 3 Migration Schema is a tool that helps you to manage database schema ch
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <!--
-                First change the changes.xml file adding the current release date.
-                Use this profile to create a new release and deploy artifacts:
-
-
-                mvn -Prelease release:prepare \
-                -Dusername=<svn.username> -Dpassword=<svn.pass> \
-                -Darguments=-Dgpg.keyname=<gpg.keyname>\ -Dgpg.passphrase=<gpg.passphrase>
-            -->
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>2.0</version>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.1</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <!--
-                Use this profile to create a new branch
-
-                mvn -Pbranch \
-                release:branch -DbranchName=<branchName> \
-                -Dusername=<svn.username> -Dpassword=<svn.pass>
-            -->
-            <id>branch</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>2.0</version>
-                        <configuration>
-                            <updateWorkingCopyVersions>false</updateWorkingCopyVersions>
-                            <updateBranchVersions>true</updateBranchVersions>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 </project>
