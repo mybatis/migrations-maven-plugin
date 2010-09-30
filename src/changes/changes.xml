@@ -19,9 +19,9 @@
         <author>The myBatis Team</author>
         <title>Changes</title>
     </properties>
-    
+
     <body>
-        <release version="1.0.0-SNAPSHOT" date="TBD" description="1.0-RC1 release">
+        <release version="1.0.0-RC1" date="TBD" description="1.0-RC1 release">
             <action dev="marco.speranza" type="update">
                 Imported and moved the original maven-migration-plugin codebase.
             </action>
