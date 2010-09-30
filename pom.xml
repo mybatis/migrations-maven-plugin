@@ -54,9 +54,9 @@
                         <pomInclude>**/pom.xml</pomInclude>
                     </pomIncludes>
                     <pomExcludes>
-                      <pomExclude>**/mod1/pom.xml</pomExclude>
-                      <pomExclude>**/mod2/pom.xml</pomExclude>
-                      <pomExclude>**/mod3/pom.xml</pomExclude>
+                        <pomExclude>**/mod1/pom.xml</pomExclude>
+                        <pomExclude>**/mod2/pom.xml</pomExclude>
+                        <pomExclude>**/mod3/pom.xml</pomExclude>
                      </pomExcludes>
                     <postBuildHookScript>verify.bsh</postBuildHookScript>
                 </configuration>
