@@ -30,10 +30,10 @@
                     <repository>itcase-rep</repository>
                 </configuration>
                 <dependencies>
-                    <dependency>
-                        <groupId>org.apache.derby</groupId>
-                        <artifactId>derby</artifactId>
-                        <version>10.5.3.0_1</version>
+                   <dependency>
+                        <groupId>hsqldb</groupId>
+                        <artifactId>hsqldb</artifactId>
+                        <version>1.8.0.10</version>
                     </dependency>
                 </dependencies>
             </plugin>

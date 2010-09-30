@@ -17,12 +17,7 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 
-import junit.extensions.TestSetup;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
 
 /**
  * @version $Id$
@@ -31,8 +26,8 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
 
     protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
-    
-    
+
+
     /* (non-Javadoc)
      * @see org.apache.maven.plugin.testing.AbstractMojoTestCase#setUp()
      */
@@ -41,7 +36,7 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         super.setUp();
         cleanup();
     }
-    
+
     /* (non-Javadoc)
      * @see org.codehaus.plexus.PlexusTestCase#tearDown()
      */
@@ -61,7 +56,7 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
             deleteDir(derbyDb);
         }
     }
-    
+
     protected static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
@@ -76,8 +71,8 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         // The directory is now empty so delete it
         return dir.delete();
     }
-    
-    
+
+
     protected void initEnvironment() throws Exception {
         AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("init", testPom);
         assertNotNull(mojo);
@@ -88,5 +83,5 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         assertTrue(newRep.exists());
     }
 
-    
+
 }
