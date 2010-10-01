@@ -33,7 +33,7 @@ import org.apache.ibatis.migration.commands.StatusCommand;
 public class MigrationStatusCommand extends StatusCommand {
 
     /**
-     * Extended Apache iBatis {@link StatusCommand}.
+     * Extended Apache myBatis {@link StatusCommand}.
      *
      * @param repository the ibatis migration repository path.
      * @param environment the string that represents the enviroment.

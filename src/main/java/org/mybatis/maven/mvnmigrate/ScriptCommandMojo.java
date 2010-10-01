@@ -79,7 +79,7 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
                     MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.script.sqlscript"));
                     this.getLog().info(format.format(args));
                 }
-                // TODO sysout???
+                // Print out all generated script. This is the standard migration tool behavior.
                 System.out.println("  --- CUT HERE ---");
             } else {
                 if (!this.output.exists()) {

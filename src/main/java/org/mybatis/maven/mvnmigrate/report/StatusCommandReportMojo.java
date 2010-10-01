@@ -74,7 +74,7 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
     protected List<MavenProject> reactorProjects;
 
     /**
-     * TODO fillme
+     * The project site renderer.
      *
      * @component
      * @required
@@ -116,7 +116,7 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
      * @parameter  expression="${migration.aggregate}" default-value="false"
      */
     protected boolean aggregate;
-    
+
 
     /**
      * {@inheritDoc}

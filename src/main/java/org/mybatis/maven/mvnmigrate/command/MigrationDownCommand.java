@@ -32,7 +32,7 @@ import org.apache.ibatis.migration.commands.DownCommand;
 public class MigrationDownCommand extends DownCommand {
 
     /**
-     * TODO add class description
+     * Extended Apache MyBatis {@link DownCommand}.
      *
      * @param repository
      * @param environment

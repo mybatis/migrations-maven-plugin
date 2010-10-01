@@ -55,13 +55,11 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
         init();
         int numberOfChanges = getCommand().getNumberOfChanges();
 
-        if (numberOfChanges == 0) {
-            if ( getLog().isInfoEnabled() ){
-                String[] args = { getClass().getSimpleName() };
-                MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.down.zero.change"));
-                getLog().info(format.format(args));
-                return;
-            }
+        if (numberOfChanges == 0 && getLog().isInfoEnabled()) {
+            String[] args = { getClass().getSimpleName() };
+            MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.down.zero.change"));
+            getLog().info(format.format(args));
+            return;
         }
 
         if (downSteps != null

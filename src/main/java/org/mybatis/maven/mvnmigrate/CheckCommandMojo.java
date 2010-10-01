@@ -56,10 +56,10 @@ public class CheckCommandMojo extends StatusCommandMojo {
     }
 
     /**
-     * TODO fillme
+     * Creates a user information message about all migration pending changes
      *
-     * @param changes TODO fillme
-     * @return TODO fillme
+     * @param changes List of migration changes
+     * @return User information message about all migration pending changes.
      */
     private String createLongMessage(List<Change> changes) {
         StringBuilder builder = new StringBuilder();

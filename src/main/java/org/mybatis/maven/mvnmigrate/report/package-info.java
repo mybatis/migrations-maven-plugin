@@ -15,7 +15,7 @@
  */
 
 /**
- * TODO fillme.
+ * Contains migration plugins report classes.
  *
  * @version $Id$
  */

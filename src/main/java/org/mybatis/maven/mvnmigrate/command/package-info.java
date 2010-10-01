@@ -15,7 +15,7 @@
  */
 
 /**
- * TODO fillme.
+ * Contains maven migration plugin extended classes.
  *
  * @version $Id$
  */
