@@ -19,10 +19,11 @@
     <parent>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>org.mybatis.maven</groupId>
     <artifactId>maven-migration-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>

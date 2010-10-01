@@ -28,7 +28,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mybatis</groupId>
+                <groupId>org.mybatis.maven</groupId>
                 <artifactId>maven-migration-plugin</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <configuration>
