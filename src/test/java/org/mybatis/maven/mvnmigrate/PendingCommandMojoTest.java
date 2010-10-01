@@ -15,14 +15,16 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
+import org.apache.ibatis.migration.commands.DownCommand;
+import org.apache.ibatis.migration.commands.PendingCommand;
+import org.apache.ibatis.migration.commands.UpCommand;
 
 /**
  * @version $Id$
  */
+@SuppressWarnings("unchecked")
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
-    
     /* (non-Javadoc)
      * @see com.googlecode.mvnmigrate.AbstractMigrateTestCase#setUp()
      */
@@ -31,30 +33,29 @@ public class PendingCommandMojoTest extends AbstractMigrateTestCase {
         super.setUp();
         initEnvironment();
     }
-    
-    
+
     public void testUpGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("up", testPom);
+        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) lookupMojo("up", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "upSteps", null);
         mojo.execute();
     }
 
     public void testPengingGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("pending", testPom);
+        AbstractCommandMojo<PendingCommand> mojo = (AbstractCommandMojo<PendingCommand>) lookupMojo("pending", testPom);
         assertNotNull(mojo);
         mojo.execute();
     }
 
     public void testDownGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("down", testPom);
+        AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) lookupMojo("down", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "downSteps", "1");
         mojo.execute();
     }
-    
+
     public void testALLDownGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("down", testPom);
+        AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) lookupMojo("down", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "downSteps", "ALL");
         mojo.execute();

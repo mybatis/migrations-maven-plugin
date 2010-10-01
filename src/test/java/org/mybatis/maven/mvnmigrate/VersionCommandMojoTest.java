@@ -15,32 +15,33 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
+import org.apache.ibatis.migration.commands.UpCommand;
+import org.apache.ibatis.migration.commands.VersionCommand;
 
 /**
  * @version $Id$
  */
+@SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testUpGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("up", testPom);
+        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) lookupMojo("up", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "upSteps", "1");
         mojo.execute();
     }
 
     public void testVersionGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("version", testPom);
+        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "version", "20100400000003");
         mojo.execute();
     }
 
     public void testVersionDownGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("version", testPom);
+        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "version", "20100400000001");
         mojo.execute();
     }
-
 }

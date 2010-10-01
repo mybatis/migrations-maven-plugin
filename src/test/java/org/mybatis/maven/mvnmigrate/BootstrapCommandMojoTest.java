@@ -15,15 +15,16 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
+import org.apache.ibatis.migration.commands.BootstrapCommand;
 
 /**
  * @version $Id$
  */
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
+    @SuppressWarnings("unchecked")
     public void testBootstrapGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("bootstrap", testPom);
+        AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) lookupMojo("bootstrap", testPom);
         assertNotNull(mojo);
         mojo.execute();
     }

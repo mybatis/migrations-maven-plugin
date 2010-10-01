@@ -17,6 +17,7 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 
+import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
 
 /**
@@ -47,13 +48,10 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
     }
 
     protected void cleanup() throws Exception {
-        File derbyDb = new File("target/database.dat");
-        if (derbyDb.exists()) {
-            deleteDir(derbyDb);
-        }
-        derbyDb = new File("target/init");
-        if (derbyDb.exists()) {
-            deleteDir(derbyDb);
+        File initMigrationDbFolder;
+        initMigrationDbFolder = new File("target/init");
+        if (initMigrationDbFolder.exists()) {
+            deleteDir(initMigrationDbFolder);
         }
     }
 
@@ -72,9 +70,9 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         return dir.delete();
     }
 
-
+    @SuppressWarnings("unchecked")
     protected void initEnvironment() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("init", testPom);
+        AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) lookupMojo("init", testPom);
         assertNotNull(mojo);
 
         final File newRep = new File("target/init");
@@ -82,6 +80,4 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         mojo.execute();
         assertTrue(newRep.exists());
     }
-
-
 }

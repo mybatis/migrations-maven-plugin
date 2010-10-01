@@ -17,16 +17,17 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
+import org.apache.ibatis.migration.commands.ScriptCommand;
 
 
 /**
  * @version $Id$
  */
+@SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testScriptGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("script", testPom);
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) lookupMojo("script", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "v1", "20100400000001");
         setVariableValueToObject(mojo, "v2", "20100400000003");
@@ -34,14 +35,12 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
     }
 
     public void testScriptToFileGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("script", testPom);
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) lookupMojo("script", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "v1", "20100400000001");
         setVariableValueToObject(mojo, "v2", "20100400000003");
         setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
         mojo.execute();
-
         assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
     }
-
 }

@@ -17,14 +17,15 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 
-import org.mybatis.maven.mvnmigrate.AbstractCommandMojo;
+import org.apache.ibatis.migration.commands.InitializeCommand;
+import org.apache.ibatis.migration.commands.NewCommand;
 
 /**
  * @version $Id$
  */
+@SuppressWarnings("unchecked")
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
-    
     /* (non-Javadoc)
      * @see com.googlecode.mvnmigrate.AbstractMigrateTestCase#setUp()
      */
@@ -33,10 +34,9 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
         super.setUp();
         initEnvironment();
     }
-    
-    
+
     public void testNewGoal() throws Exception {
-        AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("new", testPom);
+        AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) lookupMojo("new", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "repository", new File("target/init"));
         setVariableValueToObject(mojo, "description", "test_script");
@@ -48,7 +48,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testnewGoalRequiredValue() throws Exception {
         try {
-            AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("new", testPom);
+            AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) lookupMojo("new", testPom);
             assertNotNull(mojo);
             setVariableValueToObject(mojo, "repository", new File("target/init"));
             setVariableValueToObject(mojo, "description", null);
@@ -59,7 +59,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testnewGoalSetEmptyValue() throws Exception {
         try{
-            AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("new", testPom);
+            AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) lookupMojo("new", testPom);
             assertNotNull(mojo);
             setVariableValueToObject(mojo, "repository", new File("target/init"));
             setVariableValueToObject(mojo, "description", "");
@@ -69,7 +69,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testnewGoalInitRepAlreadyExist() throws Exception {
         try{
-            AbstractCommandMojo mojo = (AbstractCommandMojo) lookupMojo("init", testPom);
+            AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) lookupMojo("init", testPom);
             assertNotNull(mojo);
             setVariableValueToObject(mojo, "repository", new File("target/init"));
             mojo.execute();
