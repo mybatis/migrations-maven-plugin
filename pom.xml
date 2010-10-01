@@ -26,7 +26,7 @@
     <artifactId>maven-migration-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Maven myBatis migration plugin</name>
+    <name>Maven MyBatis migration plugin</name>
     <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
     the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
     schema changes.</description>
@@ -76,6 +76,31 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.googlecode.maven-gcu-plugin</groupId>
+                <artifactId>maven-gcu-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>upload</goal>
+                        </goals>
+                        <configuration>
+                            <uploads>
+                                 <upload>
+                                    <file>${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf</file>
+                                    <summary>${project.name} ${project.version} users manual</summary>
+                                    <labels>
+                                        <label>Featured</label>
+                                        <label>Type-Docs</label>
+                                    </labels>
+                                </upload>
+                            </uploads>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
