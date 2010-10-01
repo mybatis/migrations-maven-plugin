@@ -27,10 +27,8 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
 
     protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
-
-
-    /* (non-Javadoc)
-     * @see org.apache.maven.plugin.testing.AbstractMojoTestCase#setUp()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected void setUp() throws Exception {
@@ -38,8 +36,8 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         cleanup();
     }
 
-    /* (non-Javadoc)
-     * @see org.codehaus.plexus.PlexusTestCase#tearDown()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected void tearDown() throws Exception {
@@ -80,4 +78,5 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
         mojo.execute();
         assertTrue(newRep.exists());
     }
+
 }

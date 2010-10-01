@@ -32,19 +32,21 @@ import org.apache.maven.reporting.MavenReportException;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
-
 /**
  * Extends {@link AbstractMavenReport}.
+ *
  * Class to generate a maven report.
  *
  * @version $Id$
  * @goal status-report
  */
 public class StatusCommandReportMojo extends AbstractMavenReport {
-    
-    final static private File DEFAULT_REPO = new File(".");
-    final static private String DEFAULT_ENVIRONMENT = "development" ;
-    final static private boolean DEFAULT_FORCE = false;
+
+    private static final File DEFAULT_REPO = new File(".");
+
+    private static final String DEFAULT_ENVIRONMENT = "development" ;
+
+    private static final boolean DEFAULT_FORCE = false;
 
     /**
      * The Maven project to analyze.
@@ -62,17 +64,17 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
      * @readonly
      */
     private File outputDirectory;
-    
+
     /**
-      * The projects in the reactor for aggregation report.
-      *
-      * @parameter expression="${reactorProjects}"
-      * @readonly
-      */
+     * The projects in the reactor for aggregation report.
+     *
+     * @parameter expression="${reactorProjects}"
+     * @readonly
+     */
     protected List<MavenProject> reactorProjects;
 
     /**
-     *
+     * TODO fillme
      *
      * @component
      * @required
@@ -100,7 +102,7 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
      * @parameter  expression="${migration.force}" default-value="false"
      */
     protected boolean force;
-    
+
     /**
      * Skip migration actions.
      *
@@ -121,18 +123,17 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
      */
     @Override
     protected void executeReport(Locale locale) throws MavenReportException {
-        
         if ( aggregate && !project.isExecutionRoot() ){
              return;
         }
-        
+
         if (skip && !aggregate) {
             if(this.getLog().isInfoEnabled()) {
                 this.getLog().info(getBundle(locale).getString("migration.status.report.skipped"));
             }
             return;
         }
-        
+
         // Step 0: Checking pom availability
         if ("pom".equals(this.project.getPackaging()) && !aggregate) {
             if (this.getLog().isInfoEnabled()) {
@@ -149,20 +150,20 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
         }
 
         Map<MavenProject, List<Change> > aggregateReport = new HashMap<MavenProject, List<Change>>();
-        
+
         for (MavenProject mavenProject : reactorProjects) {
 
             @SuppressWarnings("unchecked")
             Map<String, ReportPlugin> reportPluginMap = mavenProject.getReporting().getReportPluginsAsMap();
             ReportPlugin plug = reportPluginMap.get(getBundle(locale).getString("migration.plugin.key"));
-            
+
             Xpp3Dom configurationDom = (Xpp3Dom) plug.getConfiguration();
-            
+
             File reactorRepo = DEFAULT_REPO;
             String reactorEnv = DEFAULT_ENVIRONMENT;
             boolean reactorForce = DEFAULT_FORCE;
             boolean skipStatusCommand = false;
-            
+
             for (int i = 0; i < configurationDom.getChildCount(); i++) {
                 Xpp3Dom child = configurationDom.getChild(i);
                 if ("repository".equalsIgnoreCase(child.getName())){
@@ -175,7 +176,7 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
                     skipStatusCommand = Boolean.valueOf(child.getValue());
                 }
             }
-            
+
             if (skipStatusCommand) {
                 continue;
             }
@@ -184,7 +185,7 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
             try {
                 List<Change> analysis = null;
                 analysis = analyzer.getMergedStatus();
-                
+
                 aggregateReport.put(mavenProject, analysis);
             } catch (RuntimeException e) {
                 throw e;
@@ -231,29 +232,35 @@ public class StatusCommandReportMojo extends AbstractMavenReport {
 
     /**
      * Return the output name of the report.
+     *
+     * @return the noutput name.
      */
     public String getOutputName() {
         return "migration-status-analysis";
     }
 
     /**
-     * Retunr the name of the report.
+     * Return the name of the report.
+     *
+     * @return the name of the report.
      */
     public String getName(Locale locale) {
         return getBundle(locale).getString("migration.status.report.name");
     }
 
     /**
-     * Retunr the description of the report.
+     * Return the description of the report.
+     *
+     * @return the description of the report.
      */
     public String getDescription(Locale locale) {
         return getBundle( locale ).getString("migration.status.report.description");
     }
 
     /**
-     * The current locale.
+     * Return the {@link ResourceBundle} given the current locale.
      *
-     * @param locale
+     * @param locale the current locale.
      */
     protected ResourceBundle getBundle(Locale locale) {
         return ResourceBundle.getBundle("migration-report", locale, this.getClass().getClassLoader());

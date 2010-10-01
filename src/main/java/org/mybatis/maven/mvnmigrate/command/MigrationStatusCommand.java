@@ -35,7 +35,6 @@ public class MigrationStatusCommand extends StatusCommand {
     /**
      * Extended Apache iBatis {@link StatusCommand}.
      *
-     *
      * @param repository the ibatis migration repository path.
      * @param environment the string that represents the enviroment.
      * @param true to force the sql script exeution in case of error.
@@ -59,9 +58,9 @@ public class MigrationStatusCommand extends StatusCommand {
         }
         return false;
     }
-    
+
     /**
-     * Return the number of pending migration contains into the list..
+     * Return the number of pending migration contains into the list.
      *
      * @return Return the number of pending migration contains into the list.
      */
@@ -76,7 +75,7 @@ public class MigrationStatusCommand extends StatusCommand {
     }
 
     /**
-     * Retrieves the current status of database and return a list of {@link Change}
+     * Retrieves the current status of database and return a list of {@link Change}.
      *
      * @return list of databese {@link Change}
      */

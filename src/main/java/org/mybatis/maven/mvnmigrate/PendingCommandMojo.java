@@ -26,16 +26,10 @@ import org.apache.ibatis.migration.commands.PendingCommand;
 public class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
 
     /**
-     * Creates a instance of  pending command mojo.
-     */
-    public PendingCommandMojo() {
-    }
-    
-    /**
      * {@inheritDoc}
      */
     @Override
-    PendingCommand createCommandClass() {
+    protected PendingCommand createCommandClass() {
         return new PendingCommand(repository, environment, force);
     }
 

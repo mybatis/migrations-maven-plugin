@@ -21,7 +21,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.mybatis.maven.mvnmigrate.command.MigrationDownCommand;
 
-
 /**
  * Goal which execute the ibatis migration status command.
  *
@@ -38,20 +37,13 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
     protected String downSteps;
 
     /**
-     * Creates a instance of  Down command mojo.
-     */
-    public DownCommandMojo() {
-    }
-
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    MigrationDownCommand createCommandClass() {
+    protected MigrationDownCommand createCommandClass() {
         return new MigrationDownCommand(repository, environment, force);
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -62,7 +54,7 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
         }
         init();
         int numberOfChanges = getCommand().getNumberOfChanges();
-        
+
         if (numberOfChanges == 0) {
             if ( getLog().isInfoEnabled() ){
                 String[] args = { getClass().getSimpleName() };
@@ -71,7 +63,7 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
                 return;
             }
         }
-        
+
         if (downSteps != null
                 && ("ALL".equalsIgnoreCase(downSteps) || getCommand()
                         .parseParameter(1, downSteps) > numberOfChanges)) {

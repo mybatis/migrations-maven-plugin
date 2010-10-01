@@ -26,17 +26,11 @@ import org.apache.ibatis.migration.commands.BootstrapCommand;
 public class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {
 
     /**
-     * Bootstrap mojo constructor.
-     */
-    public BootstrapCommandMojo() {
-    }
-
-    
-    /* (non-Javadoc)
-     * @see com.googlecode.mvnmigrate.AbstractCommandMojo#createCommandClass()
+     * {@inheritDoc}
      */
     @Override
-    BootstrapCommand createCommandClass() {
+    protected BootstrapCommand createCommandClass() {
         return new BootstrapCommand(repository, environment, force);
     }
+
 }

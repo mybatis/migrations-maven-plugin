@@ -44,4 +44,5 @@ public class VersionCommandMojoTest extends AbstractMigrateTestCase {
         setVariableValueToObject(mojo, "version", "20100400000001");
         mojo.execute();
     }
+
 }

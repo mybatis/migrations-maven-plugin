@@ -27,7 +27,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
 
-
 /**
  * Provides to an abstract class that extends {@link AbstractMojo}.
  *
@@ -36,7 +35,7 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
 abstract public class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
     protected Locale locale = Locale.ENGLISH;
-    
+
     /**
      * Location of migrate repository.
      *
@@ -69,17 +68,7 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
      * The command to execute.
      */
     private T command;
-    
-    
-    
-    /**
-     * 
-     */
-    public AbstractCommandMojo() {
-        super();
-    }    
-       
-    
+
     /**
      * execute the command.
      */
@@ -88,12 +77,11 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
         init();
         command.execute();
     }
-    
 
     /**
-     * Initialize the ibatis command.
+     * Initialize the MyBatis Migration command.
      */
-    protected void init() throws MojoFailureException  {
+    protected void init() throws MojoFailureException {
 
         try {
             this.command = createCommandClass();
@@ -116,6 +104,7 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
 
     /**
      * Return the command.
+     *
      * @return {@link BaseCommand} the command created.
      */
     protected T getCommand() {
@@ -124,6 +113,7 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
 
     /**
      * Test if the skip flag is setted.
+     *
      * @return the skip flag.
      */
     protected boolean isSkip() {
@@ -143,13 +133,12 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
     protected ResourceBundle getBundle(Locale locale) {
         return ResourceBundle.getBundle("migration-plugin", locale, this.getClass().getClassLoader());
     }
-    
+
     /**
      * Creates the specific mojo command.
      * 
      * @return The command created.
      */
-    abstract T createCommandClass();
+    protected abstract T createCommandClass();
+
 }
-
-

@@ -17,8 +17,6 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
-
-
 /**
  * Goal which execute the ibatis migration status command.
  *
@@ -28,16 +26,10 @@ import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 public class StatusCommandMojo extends AbstractCommandMojo<MigrationStatusCommand> {
 
     /**
-     * Creates a instance of  status command mojo.
-     */
-    public StatusCommandMojo() {
-    }
-    
-    /* (non-Javadoc)
-     * @see com.googlecode.mvnmigrate.AbstractCommandMojo#createCommandClass()
+     * {@inheritDoc}
      */
     @Override
-    MigrationStatusCommand createCommandClass() {
+    protected MigrationStatusCommand createCommandClass() {
         return new MigrationStatusCommand(repository, environment, force);
     }
 

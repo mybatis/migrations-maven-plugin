@@ -26,13 +26,14 @@ import org.apache.ibatis.migration.commands.DownCommand;
  * Extended {@link DownCommand} class.
  *
  * Used for retrieve information about migration status.
- * * 
- * @author Marco Speranza
+ *
  * @version $Id$
  */
 public class MigrationDownCommand extends DownCommand {
 
     /**
+     * TODO add class description
+     *
      * @param repository
      * @param environment
      * @param force
@@ -44,6 +45,7 @@ public class MigrationDownCommand extends DownCommand {
 
     /**
      * Return number of changes applayed to the changelog table.
+     *
      * @return The number of changes.
      */
     public int getNumberOfChanges() {
@@ -56,9 +58,10 @@ public class MigrationDownCommand extends DownCommand {
         }
         return numberOfChanges;
     }
-    
+
     /**
      * Retrun the number of steps parsed from params.
+     *
      * @param defaultSteps de default number of steps
      * @param params the argument list.
      * @return the parsed number.
@@ -66,4 +69,5 @@ public class MigrationDownCommand extends DownCommand {
     public int parseParameter(int defaultSteps, String... params) {
         return super.getStepCountParameter(defaultSteps, params);
     }
+
 }

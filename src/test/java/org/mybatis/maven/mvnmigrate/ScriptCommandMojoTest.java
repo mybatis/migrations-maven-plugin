@@ -19,7 +19,6 @@ import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
 
-
 /**
  * @version $Id$
  */
@@ -43,4 +42,5 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
         mojo.execute();
         assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
     }
+
 }

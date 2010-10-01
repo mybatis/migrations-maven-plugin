@@ -26,8 +26,8 @@ import org.apache.ibatis.migration.commands.NewCommand;
 @SuppressWarnings("unchecked")
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
-    /* (non-Javadoc)
-     * @see com.googlecode.mvnmigrate.AbstractMigrateTestCase#setUp()
+    /**
+     * {@inheritDoc}
      */
     @Override
     protected void setUp() throws Exception {

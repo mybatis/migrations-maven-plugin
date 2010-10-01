@@ -13,26 +13,10 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.mybatis.maven.mvnmigrate;
-
-import org.apache.ibatis.migration.commands.InitializeCommand;
 
 /**
- * Goal which executes the MyBatis migration init command.
- *
- * Init command creates a new migrate repository into 'repository' location.
+ * TODO fillme.
  *
  * @version $Id$
- * @goal init
  */
-public class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected InitializeCommand createCommandClass() {
-        return new InitializeCommand(repository, environment, force);
-    }
-
-}
+package org.mybatis.maven.mvnmigrate.report;

@@ -36,19 +36,13 @@ public class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
     protected String version;
 
     /**
-     * Creates a instance of  version command mojo.
-     */
-    public VersionCommandMojo() {
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    VersionCommand createCommandClass() {
+    protected VersionCommand createCommandClass() {
         return new VersionCommand(repository, environment, force);
     }
-    
+
     /**
      * {@inheritDoc}
      */

@@ -23,7 +23,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
-
 /**
  * Goal which check the presence of pending migration.
  *
@@ -57,8 +56,10 @@ public class CheckCommandMojo extends StatusCommandMojo {
     }
 
     /**
-     * @param changes
-     * @return
+     * TODO fillme
+     *
+     * @param changes TODO fillme
+     * @return TODO fillme
      */
     private String createLongMessage(List<Change> changes) {
         StringBuilder builder = new StringBuilder();
@@ -70,9 +71,10 @@ public class CheckCommandMojo extends StatusCommandMojo {
         }
         return builder.toString();
     }
-    
+
     @Override
     public String toString() {
         return getBundle(locale).getString("migration.plugin.name") + " " + this.getClass().getSimpleName();
     }
+
 }

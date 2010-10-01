@@ -35,16 +35,10 @@ public class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
     protected String upSteps;
 
     /**
-     * Creates a instance of  up command mojo.
-     */
-    public UpCommandMojo() {
-    }
-    
-    /**
      * {@inheritDoc}
      */
     @Override
-    UpCommand createCommandClass() {
+    protected UpCommand createCommandClass() {
         return new UpCommand(repository, environment, force);
     }
 

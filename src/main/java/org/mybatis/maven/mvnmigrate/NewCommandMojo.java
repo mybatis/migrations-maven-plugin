@@ -36,20 +36,13 @@ public class NewCommandMojo extends AbstractCommandMojo <NewCommand>{
     protected String description;
 
     /**
-     * Creates a instance of  new command mojo.
-     */
-    public NewCommandMojo() {
-    }
-
-
-    /**
      * {@inheritDoc}
      */
     @Override
-    NewCommand createCommandClass() {
+    protected NewCommand createCommandClass() {
         return new NewCommand(repository, environment, force);
     }
-    
+
     /**
      * {@inheritDoc}
      */

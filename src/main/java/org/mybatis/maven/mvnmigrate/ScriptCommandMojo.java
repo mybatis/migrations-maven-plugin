@@ -54,16 +54,10 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
     protected File output;
 
     /**
-     * Creates a instance of  script command mojo.
-     */
-    public ScriptCommandMojo() {
-    }
-    
-    /**
      * {@inheritDoc}
      */
     @Override
-    ScriptCommand createCommandClass() {
+    protected ScriptCommand createCommandClass() {
         return new ScriptCommand(repository, environment, force);
     }
 
@@ -76,7 +70,7 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
 
         try {
             init();
-            
+
             if (this.output == null) {
                 // Set the default System.out PrintStream
                 this.getCommand().setPrintStream(System.out);
@@ -85,6 +79,7 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
                     MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.script.sqlscript"));
                     this.getLog().info(format.format(args));
                 }
+                // TODO sysout???
                 System.out.println("  --- CUT HERE ---");
             } else {
                 if (!this.output.exists()) {
