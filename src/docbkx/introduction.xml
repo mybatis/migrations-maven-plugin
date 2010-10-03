@@ -25,14 +25,32 @@
     <section id="introduction.why-mybatis-guice">
         <title>Why a Maven Plugin - Motivation</title>
         <para>
-            FILLME
+             Increasingly into our projects, we use <emphasis>Apache Maven</emphasis>, 
+             <emphasis>MyBatis</emphasis> framework and <emphasis>myBatis migration tool</emphasis>
+             to maintain our database structure. 
+             So in order to have a fully integrated tool we started to implement a solution that 
+             integrates <emphasis> mybatis migration tool </emphasis> into a standard <emphasis>Apache Maven</emphasis>
+            build life cycle.
+        </para>
+        <para>
+            The aim of <emphasis>mybatis maven-migration-plugin</emphasis> is to perform a complete porting of all
+             <emphasis>mybatis migration tool</emphasis> commands to standard maven plugin.
         </para>
     </section>
 
     <section id="introduction.story">
         <title>A little bit of history</title>
         <para>
-            FILLME
+            The mybatys maven-migration-plugin was born in April 2010 after a skype conference with Marco Speranza and 
+            Simone Tripodi where we was looking for a solution to integrate mybatis migration tool to our softrware build life cycle.
+            The project was created and maintained by the <ulink url="http://www.99soft.org/">99soft.org</ulink> and posted
+            on Google code with the name maven-migrate-plugin<ulink url="http://www.99soft.org/projects/maven-migration-plugin/1.0/">
+            maven-migrate-plugin</ulink>.
+        </para>
+        <para>
+            In September 2010 Simone Tripodi and Clinton Begin has accepted Marco Speranza to join into MyBatis community
+            and bringing with him the <emphasis>maven-migration-plugin</emphasis>
+            code base to become an official MyBatis subproject.
         </para>
         <para>
             By that day, the MyBatis Migration Maven Plugin project is maintained by the MyBatis.org team.
