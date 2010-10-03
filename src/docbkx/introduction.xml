@@ -22,35 +22,34 @@
 <chapter id="introduction">
     <title>Introduction</title>
 
-    <section id="introduction.why-mybatis-guice">
+    <section id="introduction.why-mybatis-migration">
         <title>Why a Maven Plugin - Motivation</title>
         <para>
-             Increasingly into our projects, we use <emphasis>Apache Maven</emphasis>, 
-             <emphasis>MyBatis</emphasis> framework and <emphasis>myBatis migration tool</emphasis>
-             to maintain our database structure. 
-             So in order to have a fully integrated tool we started to implement a solution that 
-             integrates <emphasis> mybatis migration tool </emphasis> into a standard <emphasis>Apache Maven</emphasis>
+            Being <emphasis>Apache Maven</emphasis> users to manage projects lyfecycle, and being at the same time
+            <emphasis>MyBatis</emphasis> framework and <emphasis>MyBatis Migration tool</emphasis> to maintain the
+            database structure, in order to have a fully integrated tool we started implementing a solution that
+            mixes the <emphasis>MyBatis Migration tool</emphasis> power into a standard <emphasis>Apache Maven</emphasis>
             build life cycle.
         </para>
         <para>
-            The aim of <emphasis>mybatis maven-migration-plugin</emphasis> is to perform a complete porting of all
-             <emphasis>mybatis migration tool</emphasis> commands to standard maven plugin.
+            The <emphasis>MyBatis maven-migration-plugin</emphasis> aims to perform a complete porting of all
+            <emphasis>MyBatis Migration tool</emphasis> commands to a standard Maven plugin.
         </para>
     </section>
 
     <section id="introduction.story">
         <title>A little bit of history</title>
         <para>
-            The mybatys maven-migration-plugin was born in April 2010 after a skype conference with Marco Speranza and 
-            Simone Tripodi where we was looking for a solution to integrate mybatis migration tool to our softrware build life cycle.
-            The project was created and maintained by the <ulink url="http://www.99soft.org/">99soft.org</ulink> and posted
-            on Google code with the name maven-migrate-plugin<ulink url="http://www.99soft.org/projects/maven-migration-plugin/1.0/">
-            maven-migrate-plugin</ulink>.
+            The MyBatis maven-migration-plugin was born in April 2010 after a Skype conference between Marco Speranza
+            and Simone Tripodi where both were looking for a solution to integrate MyBatis Migration tool into the
+            softrware build life cycle.
+            The project was created and maintained by <ulink url="http://www.99soft.org/">99soft.org</ulink> and posted
+            on Google Code with the name <ulink url="http://www.99soft.org/projects/maven-migration-plugin/1.1/">maven-migrate-plugin</ulink>.
         </para>
         <para>
-            In September 2010 Simone Tripodi and Clinton Begin has accepted Marco Speranza to join into MyBatis community
-            and bringing with him the <emphasis>maven-migration-plugin</emphasis>
-            code base to become an official MyBatis subproject.
+            In September 2010 Simone proposed Marco as new MyBatis community member, Clinton Begin and the team accepted
+            letting him bringing the <emphasis>maven-migration-plugin</emphasis> code base to become an official
+            MyBatis subproject.
         </para>
         <para>
             By that day, the MyBatis Migration Maven Plugin project is maintained by the MyBatis.org team.
