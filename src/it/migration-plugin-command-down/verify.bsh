@@ -10,10 +10,10 @@ import org.codehaus.plexus.util.*;
       String log = FileUtils.fileRead( file );
 
       String[] values = {
-              "Executing  Apache Migration MigrationStatusCommand",
-              "Executing  Apache Migration UpCommand",
+              "Executing  MyBatis Migration Schema MigrationStatusCommand",
+              "Executing  MyBatis Migration Schema UpCommand",
               "(f) downSteps = ALL",
-              "Executing  Apache Migration MigrationDownCommand",
+              "Executing  MyBatis Migration Schema MigrationDownCommand",
               "Changelog doesn't exist. No further migrations will be undone (normal for the last migration)."
           };
       for ( String value : values )

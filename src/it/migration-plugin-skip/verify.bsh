@@ -10,7 +10,7 @@ import org.codehaus.plexus.util.*;
       String log = FileUtils.fileRead( file );
 
       String[] values = {
-              "Apache Migration command plugin skipped!"
+              "MyBatis Migration Schema command plugin skipped!"
           };
       for ( String value : values )
       {
