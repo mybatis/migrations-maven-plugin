@@ -39,7 +39,7 @@
                             migration:bootstrap
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration bootstrap command.</td>
+                        <td>Goal which execute the MyBatis migration bootstrap command.</td>
                     </tr>
                     <tr>
                         <td>
@@ -53,7 +53,7 @@
                             migration:down
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration status command.</td>
+                        <td>Goal which execute the MyBatis migration status command.</td>
                     </tr>
                     <tr>
                         <td>
@@ -67,28 +67,28 @@
                             migration:new
                         </td>
                         <td>No</td>
-                        <td>Goal which executes the myBatis migration new command.</td>
+                        <td>Goal which executes the MyBatis migration new command.</td>
                     </tr>
                     <tr>
                         <td>
                             migration:pending
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration pending command.</td>
+                        <td>Goal which execute the MyBatis migration pending command.</td>
                     </tr>
                     <tr>
                         <td>
                             migration:script
                         </td>
                         <td>No</td>
-                        <td>Goal which executes the myBatis migration script command.</td>
+                        <td>Goal which executes the MyBatis migration script command.</td>
                     </tr>
                     <tr>
                         <td>
                             migration:status
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration status command.</td>
+                        <td>Goal which execute the MyBatis migration status command.</td>
                     </tr>
                     <tr>
                         <td>
@@ -104,14 +104,14 @@
                             migration:up
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration status command.</td>
+                        <td>Goal which execute the MyBatis migration status command.</td>
                     </tr>
                     <tr>
                         <td>
                             migration:version
                         </td>
                         <td>No</td>
-                        <td>Goal which execute the myBatis migration version command.</td>
+                        <td>Goal which execute the MyBatis migration version command.</td>
                     </tr>
                 </tbody>
             </table>
