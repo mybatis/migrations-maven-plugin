@@ -99,6 +99,10 @@
                                     <labels>
                                         <label>Featured</label>
                                         <label>Type-Docs</label>
+                                        <label>Product-Maven</label>
+                                        <label>Project-${project.artifactId}</label>
+                                        <label>Version-${project.version}</label>
+                                        <label>Build-${implementation.build}</label>
                                     </labels>
                                 </upload>
                             </uploads>
