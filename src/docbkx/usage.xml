@@ -122,8 +122,8 @@
         </para>
     </section>
 
-    <section id="usage.site">
-        <title>Site report</title>
+    <section id="usage.site.m2">
+        <title>Site report for Maven 2 projects</title>
         <para>
             You can configure your <literal>pom.xml</literal> to create a simple report of your database status:
 
@@ -166,6 +166,63 @@
         </plugin>
     </plugins>
 </reporting>]]></programlisting>
+
+            once the plugin is configured, users can invoke:
+
+            <screen><![CDATA[mvn site]]></screen>
+        </para>
+    </section>
+
+
+     <section id="usage.site.m3">
+        <title>Site report for Maven 3 projects</title>
+        <para>
+            You can configure your <literal>pom.xml</literal> to create a simple report of your database status:
+
+            <programlisting language="xml"><![CDATA[...
+<build>
+    ...
+    <plugins>
+        <plugin>
+            <groupId>]]><?eval ${project.groupId}?><![CDATA[</groupId>
+            <artifactId>]]><?eval ${project.artifactId}?><![CDATA[</artifactId>
+            <version>]]><?eval ${project.version}?><![CDATA[</version>
+            <configuration>
+                <repository> [migration repository path] </repository>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>migration-chack</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency> [your jdbc dependency] </dependency>
+            </dependencies>
+        </plugin>
+        <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-site-plugin</artifactId>
+             <version>3.0-beta-3</version>
+             <configuration>
+                   <reportPlugins>
+                       <plugin>
+                           <groupId>]]><?eval ${project.groupId}?><![CDATA[</groupId>
+                           <artifactId>]]><?eval ${project.artifactId}?><![CDATA[</artifactId>
+                           <version>]]><?eval ${project.version}?><![CDATA[</version>
+                           <configuration>
+                               <repository> [migration repository path] </repository>
+                           </configuration>
+                       </plugin>
+                   </reportPlugins>
+               </configuration>
+           </plugin>
+    </plugins>
+    ...
+]]></programlisting>
 
             once the plugin is configured, users can invoke:
 
