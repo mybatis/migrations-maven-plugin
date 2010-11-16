@@ -68,14 +68,15 @@
     <section id="introduction.m2orm3">
         <title>Maven 3 and site generation</title>
         <para>
-        A significan difference between M2 and M3 is site generation.
-        If you have been using the reporting section of the pom.xml file to generate code
-        reports you shuld migrate this feature into Maven 3.
-        Indeed, the reporting and reportSets sections have been deprecated (it won't cause
-        an error with Maven 3, it will just be ignored), and have been replaced by a reportPlugins
-        section in the configuration block of the maven-site-plugin itself.
+        A significant difference between M2 and M3 is site generation.
+        If you are used to configure the <literal>pom</literal> reporting section to generate code
+        reports, you should migrate this feature to Maven 3.
+        Indeed, the <literal>reporting</literal> and <literal>reportSets</literal> sections have been deprecated
+        (it won't cause an error with Maven 3, they will just be ignored), and have been replaced by the
+        <literal>reportPlugins</literal> section in the configuration block of the <literal>maven-site-plugin</literal>
+        itself.
 
-        A tipical Maven 2 pom.xml file looks like this:
+        A typical Maven 2 <literal>pom.xml</literal> file looks like this:
 
        <programlisting language="xml"><![CDATA[...
 <reporting>
@@ -93,8 +94,8 @@
 ...]]></programlisting>
 
 
-        If you are using M3 for your project, you shuld add the follow snippet in order to
-        generate MyBatis Migration Plugin site automatically.
+        If you are using M3 for your project, users have to add the following snippet in order to
+        generate MyBatis Migration Plugin report automatically.
 
              <programlisting language="xml"><![CDATA[...
 <build>
