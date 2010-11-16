@@ -44,7 +44,7 @@ public final class MigrationDownCommand extends DownCommand {
     }
 
     /**
-     * Return number of changes applayed to the changelog table.
+     * Return number of changes applied to the changelog table.
      *
      * @return The number of changes.
      */
@@ -60,9 +60,9 @@ public final class MigrationDownCommand extends DownCommand {
     }
 
     /**
-     * Retrun the number of steps parsed from params.
+     * Return the number of steps parsed from parameters.
      *
-     * @param defaultSteps de default number of steps
+     * @param defaultSteps the default number of steps
      * @param params the argument list.
      * @return the parsed number.
      */
