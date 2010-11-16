@@ -33,11 +33,11 @@ import org.apache.ibatis.migration.commands.StatusCommand;
 public final class MigrationStatusCommand extends StatusCommand {
 
     /**
-     * Extended Apache myBatis {@link StatusCommand}.
+     * Extended MyBatis {@link StatusCommand}.
      *
-     * @param repository the ibatis migration repository path.
-     * @param environment the string that represents the enviroment.
-     * @param true to force the sql script exeution in case of error.
+     * @param repository the MyBatis migration repository path.
+     * @param environment the string that represents the environment.
+     * @param true to force the SQL script execution in case of error.
      */
     public MigrationStatusCommand(File repository, String environment,
             boolean force) {
