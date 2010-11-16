@@ -25,7 +25,7 @@ import org.apache.ibatis.migration.commands.InitializeCommand;
  * @version $Id$
  * @goal init
  */
-public class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
+public final class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
 
     /**
      * {@inheritDoc}

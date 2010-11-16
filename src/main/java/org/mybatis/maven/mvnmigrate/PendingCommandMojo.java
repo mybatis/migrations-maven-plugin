@@ -23,7 +23,7 @@ import org.apache.ibatis.migration.commands.PendingCommand;
  * @version $Id$
  * @goal pending
  */
-public class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
+public final class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
 
     /**
      * {@inheritDoc}

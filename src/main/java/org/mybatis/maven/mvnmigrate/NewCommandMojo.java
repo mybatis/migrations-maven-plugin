@@ -25,7 +25,7 @@ import org.apache.maven.plugin.MojoFailureException;
  * @version $Id$
  * @goal new
  */
-public class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
+public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
 
     /**
      * New file description.
@@ -33,7 +33,7 @@ public class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
      * @parameter expression="${migration.description}"
      * @required
      */
-    protected String description;
+    private String description;
 
     /**
      * {@inheritDoc}

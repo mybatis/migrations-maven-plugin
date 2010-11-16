@@ -23,7 +23,7 @@ import org.apache.ibatis.migration.commands.BootstrapCommand;
  * @version $Id$
  * @goal bootstrap
  */
-public class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {
+public final class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {
 
     /**
      * {@inheritDoc}

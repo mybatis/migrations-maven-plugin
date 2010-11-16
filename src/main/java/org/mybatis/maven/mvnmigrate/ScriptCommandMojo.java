@@ -29,14 +29,14 @@ import org.apache.maven.plugin.MojoFailureException;
  * @version $Id$
  * @goal script
  */
-public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
+public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
 
     /**
      * Initial version
      *
      * @parameter expression="${migration.v1}"
      */
-    protected String v1;
+    private String v1;
 
     /**
      * Final version.
@@ -44,14 +44,14 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
      * @parameter expression="${migration.v2}"
      * @required
      */
-    protected String v2;
+    private String v2;
 
     /**
      * The output file to be create.
      *
      * @parameter expression="${migration.output}"
      */
-    protected File output;
+    private File output;
 
     /**
      * {@inheritDoc}

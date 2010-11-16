@@ -25,7 +25,7 @@ import org.apache.maven.plugin.MojoFailureException;
  * @version $Id$
  * @goal version
  */
-public class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
+public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
 
     /**
      * Version string.
@@ -33,7 +33,7 @@ public class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
      * @parameter expression="${migration.version}"
      * @required
      */
-    protected String version;
+    private String version;
 
     /**
      * {@inheritDoc}

@@ -30,7 +30,7 @@ import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
  * @phase test
  * @version $Id$
  */
-public class CheckCommandMojo extends StatusCommandMojo {
+public final class CheckCommandMojo extends StatusCommandMojo {
 
     private static final String LINE_SEPARATOR = System.getProperty("line.separator","\n");
 

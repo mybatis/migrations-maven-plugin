@@ -27,14 +27,14 @@ import org.mybatis.maven.mvnmigrate.command.MigrationDownCommand;
  * @version $Id$
  * @goal down
  */
-public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
+public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
 
     /**
      * Steps to do. (type ALL to apply all down steps, default: 1 step)
      *
      * @parameter expression="${migration.down.steps}"
      */
-    protected String downSteps;
+    private String downSteps;
 
     /**
      * {@inheritDoc}

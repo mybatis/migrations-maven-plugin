@@ -25,14 +25,14 @@ import org.apache.maven.plugin.MojoFailureException;
  * @version $Id$
  * @goal up
  */
-public class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
+public final class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
 
     /**
      * Steps to do (default all steps).
      *
      * @parameter expression="${migration.up.steps}"
      */
-    protected String upSteps;
+    private String upSteps;
 
     /**
      * {@inheritDoc}
