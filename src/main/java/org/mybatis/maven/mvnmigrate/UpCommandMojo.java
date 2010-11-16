@@ -39,7 +39,7 @@ public class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
      */
     @Override
     protected UpCommand createCommandClass() {
-        return new UpCommand(repository, environment, force);
+        return new UpCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
     /**

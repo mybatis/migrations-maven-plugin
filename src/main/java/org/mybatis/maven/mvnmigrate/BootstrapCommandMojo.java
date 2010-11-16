@@ -30,7 +30,7 @@ public class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> 
      */
     @Override
     protected BootstrapCommand createCommandClass() {
-        return new BootstrapCommand(repository, environment, force);
+        return new BootstrapCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
 }

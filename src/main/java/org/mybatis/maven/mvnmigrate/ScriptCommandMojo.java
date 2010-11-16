@@ -58,7 +58,7 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
      */
     @Override
     protected ScriptCommand createCommandClass() {
-        return new ScriptCommand(repository, environment, force);
+        return new ScriptCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
     /**
@@ -76,7 +76,7 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
                 this.getCommand().setPrintStream(System.out);
                 if (this.getLog().isInfoEnabled()) {
                     String[] args = { this.v1, this.v2 };
-                    MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.script.sqlscript"));
+                    MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
                     this.getLog().info(format.format(args));
                 }
                 // Print out all generated script. This is the standard migration tool behavior.
@@ -95,11 +95,11 @@ public class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
             if (this.getLog().isInfoEnabled()) {
                 if (this.output != null) {
                     File[] args = { this.output };
-                    MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.create.file"));
+                    MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.create.file"));
                     this.getLog().info(format.format(args));
                 } else {
                     String[] args = { this.v1, this.v2 };
-                    MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.script.sqlscript"));
+                    MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
                     this.getLog().info(format.format(args));
                 }
             }

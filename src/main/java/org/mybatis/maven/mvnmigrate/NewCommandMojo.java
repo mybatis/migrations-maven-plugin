@@ -25,7 +25,7 @@ import org.apache.maven.plugin.MojoFailureException;
  * @version $Id$
  * @goal new
  */
-public class NewCommandMojo extends AbstractCommandMojo <NewCommand>{
+public class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
 
     /**
      * New file description.
@@ -40,7 +40,7 @@ public class NewCommandMojo extends AbstractCommandMojo <NewCommand>{
      */
     @Override
     protected NewCommand createCommandClass() {
-        return new NewCommand(repository, environment, force);
+        return new NewCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
     /**

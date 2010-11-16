@@ -49,7 +49,7 @@ public class CheckCommandMojo extends StatusCommandMojo {
             int pendings = mcommand.getNumberOfPending(changes);
             if ( pendings > 0 ) {
                 Integer[] args = { pendings };
-                MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.check.failed"));
+                MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.check.failed"));
                 throw new MojoFailureException(this, LINE_SEPARATOR + format.format(args), createLongMessage(changes));
             }
         }
@@ -74,7 +74,7 @@ public class CheckCommandMojo extends StatusCommandMojo {
 
     @Override
     public String toString() {
-        return getBundle(locale).getString("migration.plugin.name") + " " + this.getClass().getSimpleName();
+        return getBundle(this.getLocale()).getString("migration.plugin.name") + " " + this.getClass().getSimpleName();
     }
 
 }

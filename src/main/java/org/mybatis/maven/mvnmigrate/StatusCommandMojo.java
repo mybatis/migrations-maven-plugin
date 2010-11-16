@@ -30,7 +30,7 @@ public class StatusCommandMojo extends AbstractCommandMojo<MigrationStatusComman
      */
     @Override
     protected MigrationStatusCommand createCommandClass() {
-        return new MigrationStatusCommand(repository, environment, force);
+        return new MigrationStatusCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
 }

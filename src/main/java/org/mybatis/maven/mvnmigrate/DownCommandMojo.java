@@ -41,7 +41,7 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
      */
     @Override
     protected MigrationDownCommand createCommandClass() {
-        return new MigrationDownCommand(repository, environment, force);
+        return new MigrationDownCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
     /**
@@ -57,7 +57,7 @@ public class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
 
         if (numberOfChanges == 0 && getLog().isInfoEnabled()) {
             String[] args = { getClass().getSimpleName() };
-            MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.down.zero.change"));
+            MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.down.zero.change"));
             getLog().info(format.format(args));
             return;
         }

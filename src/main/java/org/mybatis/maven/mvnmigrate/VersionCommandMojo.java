@@ -40,7 +40,7 @@ public class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
      */
     @Override
     protected VersionCommand createCommandClass() {
-        return new VersionCommand(repository, environment, force);
+        return new VersionCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
     /**

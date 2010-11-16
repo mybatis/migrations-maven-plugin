@@ -32,7 +32,7 @@ public class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
      */
     @Override
     protected InitializeCommand createCommandClass() {
-        return new InitializeCommand(repository, environment, force);
+        return new InitializeCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
 }

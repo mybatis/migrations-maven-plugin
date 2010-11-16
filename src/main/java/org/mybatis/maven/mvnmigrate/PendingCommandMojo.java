@@ -30,7 +30,7 @@ public class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
      */
     @Override
     protected PendingCommand createCommandClass() {
-        return new PendingCommand(repository, environment, force);
+        return new PendingCommand(this.getRepository(), this.getEnvironment(), this.isForce());
     }
 
 }

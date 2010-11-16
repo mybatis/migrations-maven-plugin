@@ -34,35 +34,35 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
  */
 abstract public class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
-    protected Locale locale = Locale.ENGLISH;
+    private Locale locale = Locale.ENGLISH;
 
     /**
      * Location of migrate repository.
      *
      * @parameter expression="${migration.path}" default-value="."
      */
-    protected File repository;
+    private File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
      *
      * @parameter expression="${migration.env}" default-value="development"
      */
-    protected String environment;
+    private String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
      *
      * @parameter  expression="${migration.force}" default-value="false"
      */
-    protected boolean force;
+    private boolean force;
 
     /**
      * Skip migration actions.
      *
      * @parameter  expression="${migration.skip}" default-value="false"
      */
-    protected boolean skip;
+    private boolean skip;
 
     /**
      * The command to execute.
@@ -82,24 +82,39 @@ abstract public class AbstractCommandMojo<T extends BaseCommand> extends Abstrac
      * Initialize the MyBatis Migration command.
      */
     protected void init() throws MojoFailureException {
-
         try {
             this.command = createCommandClass();
             final PrintStream out = new PrintStream(new MavenOutputStream(getLog()));
             this.command.setPrintStream(out);
             this.command.setDriverClassLoader(getClass().getClassLoader());
+
             if (getLog().isInfoEnabled()){
                 String[] args = { this.command.getClass().getSimpleName(), getBundle(locale).getString("migration.plugin.name") };
                 MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command"));
                 getLog().info(format.format(args));
             }
-
         } catch (RuntimeException e) {
             throw e;
         } catch (Exception e) {
             throw new MojoFailureException(this, e.getMessage(), e
                     .getLocalizedMessage());
         }
+    }
+
+    protected Locale getLocale() {
+        return locale;
+    }
+
+    protected File getRepository() {
+        return repository;
+    }
+
+    protected String getEnvironment() {
+        return environment;
+    }
+
+    protected boolean isForce() {
+        return force;
     }
 
     /**
