@@ -52,4 +52,38 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+         <profile>
+                 <!-- Profilo usato in automatico quando si utilizza maven 3-->
+              <id>maven-3</id>
+              <activation>
+                <file>
+                  <!--  This employs that the basedir expression is only recognized by Maven 3.x (see MNG-2363) -->
+                  <exists>${basedir}</exists>
+                </file>
+              </activation>
+              <build>
+                  <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <version>3.0-beta-3</version>
+                        <configuration>
+                            <reportPlugins>
+                                <plugin>
+                                    <groupId>@project.groupId@</groupId>
+                                    <artifactId>@project.artifactId@</artifactId>
+                                    <version>@project.version@</version>
+                                    <configuration>
+                                        <repository>itcase-rep</repository>
+                                    </configuration>
+                                </plugin>
+                            </reportPlugins>
+                        </configuration>
+                    </plugin>
+                </plugins>
+              </build>
+          </profile>
+    </profiles>
 </project>
