@@ -25,11 +25,11 @@ import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.project.MavenProject;
 
 /**
- * View of staus report.
+ * View of status report.
  *
  * @version $Id$
  */
-public class MigrationStatusReportView {
+public final class MigrationStatusReportView {
 
     /**
      * Generates the report.

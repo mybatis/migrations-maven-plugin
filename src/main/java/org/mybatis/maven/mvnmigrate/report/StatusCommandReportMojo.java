@@ -35,12 +35,12 @@ import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 /**
  * Extends {@link AbstractMavenReport}.
  *
- * Class to generate a maven report.
+ * Class to generate a Maven report.
  *
  * @version $Id$
  * @goal status-report
  */
-public class StatusCommandReportMojo extends AbstractMavenReport {
+public final class StatusCommandReportMojo extends AbstractMavenReport {
 
     private static final File DEFAULT_REPO = new File(".");
 
