@@ -30,7 +30,7 @@ import org.apache.ibatis.migration.commands.StatusCommand;
  *
  * @version $Id$
  */
-public class MigrationStatusCommand extends StatusCommand {
+public final class MigrationStatusCommand extends StatusCommand {
 
     /**
      * Extended Apache myBatis {@link StatusCommand}.

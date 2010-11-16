@@ -29,7 +29,7 @@ import org.apache.ibatis.migration.commands.DownCommand;
  *
  * @version $Id$
  */
-public class MigrationDownCommand extends DownCommand {
+public final class MigrationDownCommand extends DownCommand {
 
     /**
      * Extended Apache MyBatis {@link DownCommand}.
