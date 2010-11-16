@@ -69,7 +69,6 @@
 
     <profiles>
          <profile>
-                 <!-- Profilo usato in automatico quando si utilizza maven 3-->
               <id>maven-3</id>
               <activation>
                 <file>
