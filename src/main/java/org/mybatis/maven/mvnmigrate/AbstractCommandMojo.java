@@ -32,7 +32,7 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
  *
  * @version $Id$
  */
-abstract public class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
+abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
     private Locale locale = Locale.ENGLISH;
 
