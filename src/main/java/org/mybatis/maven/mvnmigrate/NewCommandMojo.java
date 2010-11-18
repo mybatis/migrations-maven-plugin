@@ -34,13 +34,20 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
      * @required
      */
     private String description;
+    
+    /**
+     * New file based on template.
+     *
+     * @parameter expression="${migration.template}"
+     */
+    private String template;
 
     /**
      * {@inheritDoc}
      */
     @Override
     protected NewCommand createCommandClass() {
-        return new NewCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+        return new NewCommand(this.getRepository(), this.getEnvironment(), template, this.isForce());
     }
 
     /**

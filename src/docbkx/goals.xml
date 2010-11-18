@@ -215,6 +215,12 @@
                             <td>migration.description</td>
                             <td>New file description.</td>
                         </tr>
+                        <tr>
+                            <td>template</td>
+                            <td>No default value!</td>
+                            <td>migration.template</td>
+                            <td>Alternative template file description.</td>
+                        </tr>
                     </tbody>
                 </table>
             </para>
