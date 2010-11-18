@@ -26,7 +26,7 @@
     <groupId>org.mybatis.maven</groupId>
     <artifactId>maven-migration-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>Maven MyBatis migration plugin</name>
     <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
     the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
@@ -38,9 +38,9 @@
     </properties>
 
     <scm>
-        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/tags/maven-migration-plugin-1.0.0</url>
-        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/tags/maven-migration-plugin-1.0.0</connection>
-        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/tags/maven-migration-plugin-1.0.0</developerConnection>
+        <url>scm:svn:http://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/trunk</url>
+        <connection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/trunk</connection>
+        <developerConnection>scm:svn:https://mybatis.googlecode.com/svn/sub-projects/maven-migration-plugin/trunk</developerConnection>
     </scm>
 
     <build>
