@@ -141,7 +141,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.3</version>
         </dependency>
 
         <!-- Dependencies for Analyze-report mojo -->
