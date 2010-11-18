@@ -34,7 +34,7 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
      * @required
      */
     private String description;
-    
+
     /**
      * New file based on template.
      *
@@ -47,7 +47,7 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
      */
     @Override
     protected NewCommand createCommandClass() {
-        return new NewCommand(this.getRepository(), this.getEnvironment(), template, this.isForce());
+        return new NewCommand(this.getRepository(), this.getEnvironment(), this.template, this.isForce());
     }
 
     /**
@@ -60,7 +60,7 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
         }
 
         init();
-        getCommand().execute(description);
+        getCommand().execute(this.description);
     }
 
 }
