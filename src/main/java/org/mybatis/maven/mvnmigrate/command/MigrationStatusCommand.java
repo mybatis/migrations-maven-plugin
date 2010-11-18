@@ -77,9 +77,8 @@ public final class MigrationStatusCommand extends StatusCommand {
     /**
      * Retrieves the current status of database and return a list of {@link Change}.
      *
-     * @return list of databese {@link Change}
+     * @return list of database {@link Change}
      */
-    @SuppressWarnings("unchecked")
     public List<Change> getMergedStatus() {
         this.setDriverClassLoader(getClass().getClassLoader());
 
