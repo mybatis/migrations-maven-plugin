@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2010-2011 The myBatis Team
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+  version: $Id: index.xml 4107 2011-11-27 15:36:58Z simone.tripodi $
+-->
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  title="Frequently Asked Questions"
+  toplink="false">
+
+    <part id="General">
+        <faq id="faq.what">
+            <question>What is MyBatis Migration Schema?</question>
+            <answer>
+                <p>MyBatis Migrations Schema is a tool that will change the way you manage changes to your database.
+            You can watch an amazing introductive <a href="http://mybatis.org/migrations_video.html">video</a>!!!</p>
+            </answer>
+        </faq>
+
+        <faq id="faq.how.jdbc">
+            <question>How can I configure my JDBC connection?</question>
+            <answer><p>Users can configure their preferred JDBC connection in this way:</p>
+            <source><![CDATA[<plugins>
+  <plugin>
+    <groupId>org.mybatis.maven</groupId>
+    <artifactId>maven-migration-plugin</artifactId>
+    <version>X.X</version>
+    <configuration>
+      <repository> [your migration repository] </repository>
+    </configuration>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.derby</groupId>
+        <artifactId>derby</artifactId>
+        <version>10.5.3.0_1</version>
+      </dependency>
+    </dependencies>
+  </plugin>
+<plugins>]]></source></answer>
+        </faq>
+
+        <faq id="faq.how.skip">
+            <question>How can I skip the migration goals?</question>
+            <answer><p>
+Simply setting the property <code>migration.skip</code> to <code>true</code>, i.e.</p>
+            <pre><![CDATA[mvn -Dmigration.skip=true clean test]]></pre></answer>
+        </faq>
+    </part>
+</faqs>
