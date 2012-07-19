@@ -15,16 +15,16 @@
  */
 package org.mybatis.maven.mvnmigrate.command;
 
-import java.io.File;
-import java.util.List;
-
 import org.apache.ibatis.migration.Change;
 import org.apache.ibatis.migration.MigrationException;
 import org.apache.ibatis.migration.commands.DownCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
+
+import java.util.List;
 
 /**
  * Extended {@link DownCommand} class.
- *
+ * <p/>
  * Used for retrieve information about migration status.
  *
  * @version $Id$
@@ -33,14 +33,9 @@ public final class MigrationDownCommand extends DownCommand {
 
     /**
      * Extended Apache MyBatis {@link DownCommand}.
-     *
-     * @param repository
-     * @param environment
-     * @param force
      */
-    public MigrationDownCommand(File repository, String environment,
-            boolean force) {
-        super(repository, environment, force);
+    public MigrationDownCommand(SelectedOptions aOptions) {
+        super(aOptions);
     }
 
     /**

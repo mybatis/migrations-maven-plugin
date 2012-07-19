@@ -20,6 +20,7 @@ import java.io.PrintStream;
 import java.text.MessageFormat;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -55,10 +56,11 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
 
     /**
      * {@inheritDoc}
+     * @param options
      */
     @Override
-    protected ScriptCommand createCommandClass() {
-        return new ScriptCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected ScriptCommand createCommandClass(SelectedOptions options) {
+        return new ScriptCommand(options);
     }
 
     /**

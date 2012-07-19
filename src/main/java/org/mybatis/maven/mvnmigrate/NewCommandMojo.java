@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.NewCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -44,10 +45,11 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
 
     /**
      * {@inheritDoc}
+     * @param options
      */
     @Override
-    protected NewCommand createCommandClass() {
-        return new NewCommand(this.getRepository(), this.getEnvironment(), this.template, this.isForce());
+    protected NewCommand createCommandClass(SelectedOptions options) {
+        return new NewCommand(options);
     }
 
     /**

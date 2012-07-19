@@ -15,14 +15,8 @@
  */
 package org.mybatis.maven.mvnmigrate.report;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
-
 import org.apache.ibatis.migration.Change;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.model.ReportPlugin;
@@ -32,9 +26,16 @@ import org.apache.maven.reporting.MavenReportException;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
+
 /**
  * Extends {@link AbstractMavenReport}.
- *
+ * <p/>
  * Class to generate a Maven report.
  *
  * @version $Id$
@@ -44,7 +45,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
     private static final File DEFAULT_REPO = new File(".");
 
-    private static final String DEFAULT_ENVIRONMENT = "development" ;
+    private static final String DEFAULT_ENVIRONMENT = "development";
 
     private static final boolean DEFAULT_FORCE = false;
 
@@ -99,36 +100,34 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * Forces script to continue even if SQL errors are encountered.
      *
-     * @parameter  expression="${migration.force}" default-value="false"
+     * @parameter expression="${migration.force}" default-value="false"
      */
     protected boolean force;
 
     /**
      * Skip migration actions.
      *
-     * @parameter  expression="${migration.skip}" default-value="false"
+     * @parameter expression="${migration.skip}" default-value="false"
      */
     protected boolean skip;
 
     /**
      * Aggregate report results.
      *
-     * @parameter  expression="${migration.aggregate}" default-value="false"
+     * @parameter expression="${migration.aggregate}" default-value="false"
      */
     protected boolean aggregate;
 
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected void executeReport(Locale locale) throws MavenReportException {
-        if ( aggregate && !project.isExecutionRoot() ){
-             return;
+        if (aggregate && !project.isExecutionRoot()) {
+            return;
         }
 
         if (skip && !aggregate) {
-            if(this.getLog().isInfoEnabled()) {
+            if (this.getLog().isInfoEnabled()) {
                 this.getLog().info(getBundle(locale).getString("migration.status.report.skipped"));
             }
             return;
@@ -144,12 +143,14 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
         if (this.outputDirectory == null || !this.outputDirectory.exists()) {
             if (this.getLog().isInfoEnabled()) {
-                this.getLog().info(getBundle(locale).getString(getBundle(locale).getString("migration.status.report.skipped.no.target")));
+                this.getLog()
+                    .info(getBundle(locale).getString(getBundle(locale).getString(
+                        "migration.status.report.skipped.no.target")));
             }
             return;
         }
 
-        Map<MavenProject, List<Change> > aggregateReport = new HashMap<MavenProject, List<Change>>();
+        Map<MavenProject, List<Change>> aggregateReport = new HashMap<MavenProject, List<Change>>();
 
         for (MavenProject mavenProject : reactorProjects) {
 
@@ -166,13 +167,13 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
             for (int i = 0; i < configurationDom.getChildCount(); i++) {
                 Xpp3Dom child = configurationDom.getChild(i);
-                if ("repository".equalsIgnoreCase(child.getName())){
+                if ("repository".equalsIgnoreCase(child.getName())) {
                     reactorRepo = new File(child.getValue());
-                }else if ("enviroment".equalsIgnoreCase(child.getName())){
+                } else if ("enviroment".equalsIgnoreCase(child.getName())) {
                     reactorEnv = child.getValue();
-                }else if ("force".equalsIgnoreCase(child.getName())){
+                } else if ("force".equalsIgnoreCase(child.getName())) {
                     reactorForce = Boolean.valueOf(child.getValue());
-                }else if ("skip".equalsIgnoreCase(child.getName())){
+                } else if ("skip".equalsIgnoreCase(child.getName())) {
                     skipStatusCommand = Boolean.valueOf(child.getValue());
                 }
             }
@@ -181,7 +182,12 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
                 continue;
             }
 
-            MigrationStatusCommand analyzer = new MigrationStatusCommand(reactorRepo, reactorEnv, reactorForce);
+            final SelectedOptions options = new SelectedOptions();
+            options.getPaths().setBasePath(reactorRepo);
+            options.setEnvironment(reactorEnv);
+            options.setForce(reactorForce);
+
+            MigrationStatusCommand analyzer = new MigrationStatusCommand(options);
             try {
                 List<Change> analysis = null;
                 analysis = analyzer.getMergedStatus();
@@ -196,35 +202,29 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
         // Step 2: Create sink and bundle
         Sink sink = getSink();
-        ResourceBundle bundle = getBundle( locale );
+        ResourceBundle bundle = getBundle(locale);
 
         // Step 3: Generate the report
         MigrationStatusReportView view = new MigrationStatusReportView();
-        view.generateReport( aggregateReport, sink, bundle, aggregate);
+        view.generateReport(aggregateReport, sink, bundle, aggregate);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected String getOutputDirectory() {
         if (this.getLog().isInfoEnabled()) {
-            this.getLog().info( outputDirectory.toString() );
+            this.getLog().info(outputDirectory.toString());
         }
         return this.outputDirectory.toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected MavenProject getProject() {
         return this.project;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     protected Renderer getSiteRenderer() {
         return this.siteRenderer;
@@ -254,7 +254,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
      * @return the description of the report.
      */
     public String getDescription(Locale locale) {
-        return getBundle( locale ).getString("migration.status.report.description");
+        return getBundle(locale).getString("migration.status.report.description");
     }
 
     /**

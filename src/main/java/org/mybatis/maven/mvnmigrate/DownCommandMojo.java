@@ -15,11 +15,12 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import java.text.MessageFormat;
-
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.mybatis.maven.mvnmigrate.command.MigrationDownCommand;
+
+import java.text.MessageFormat;
 
 /**
  * Goal which execute the ibatis migration status command.
@@ -38,15 +39,15 @@ public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownComm
 
     /**
      * {@inheritDoc}
+     *
+     * @param options
      */
     @Override
-    protected MigrationDownCommand createCommandClass() {
-        return new MigrationDownCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected MigrationDownCommand createCommandClass(SelectedOptions options) {
+        return new MigrationDownCommand(options);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         if (isSkip()) {
@@ -56,15 +57,16 @@ public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownComm
         int numberOfChanges = getCommand().getNumberOfChanges();
 
         if (numberOfChanges == 0 && getLog().isInfoEnabled()) {
-            String[] args = { getClass().getSimpleName() };
-            MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.down.zero.change"));
+            String[] args = {getClass().getSimpleName()};
+            MessageFormat format =
+                new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.down.zero.change"));
             getLog().info(format.format(args));
             return;
         }
 
         if (downSteps != null
-                && ("ALL".equalsIgnoreCase(downSteps) || getCommand()
-                        .parseParameter(1, downSteps) > numberOfChanges)) {
+            && ("ALL".equalsIgnoreCase(downSteps) || getCommand()
+                                                         .parseParameter(1, downSteps) > numberOfChanges)) {
             downSteps = "" + numberOfChanges;
         }
         getCommand().execute(downSteps);

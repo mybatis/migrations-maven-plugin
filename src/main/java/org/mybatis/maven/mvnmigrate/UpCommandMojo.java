@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.UpCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -36,15 +37,15 @@ public final class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
 
     /**
      * {@inheritDoc}
+     *
+     * @param options
      */
     @Override
-    protected UpCommand createCommandClass() {
-        return new UpCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected UpCommand createCommandClass(SelectedOptions options) {
+        return new UpCommand(options);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         if (isSkip()) {

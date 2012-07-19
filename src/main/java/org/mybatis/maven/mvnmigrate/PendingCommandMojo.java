@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.PendingCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 
 /**
  * Goal which execute the ibatis migration pending command.
@@ -29,8 +30,8 @@ public final class PendingCommandMojo extends AbstractCommandMojo<PendingCommand
      * {@inheritDoc}
      */
     @Override
-    protected PendingCommand createCommandClass() {
-        return new PendingCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected PendingCommand createCommandClass(SelectedOptions options) {
+        return new PendingCommand(options);
     }
 
 }

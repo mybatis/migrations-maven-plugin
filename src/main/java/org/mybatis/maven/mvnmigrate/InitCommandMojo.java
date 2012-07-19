@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 
 /**
  * Goal which executes the MyBatis migration init command.
@@ -29,10 +30,11 @@ public final class InitCommandMojo extends AbstractCommandMojo<InitializeCommand
 
     /**
      * {@inheritDoc}
+     * @param options
      */
     @Override
-    protected InitializeCommand createCommandClass() {
-        return new InitializeCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected InitializeCommand createCommandClass(SelectedOptions options) {
+        return new InitializeCommand(options);
     }
 
 }

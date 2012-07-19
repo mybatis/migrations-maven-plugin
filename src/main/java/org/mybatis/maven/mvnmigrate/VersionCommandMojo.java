@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.VersionCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
@@ -37,15 +38,15 @@ public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand
 
     /**
      * {@inheritDoc}
+     *
+     * @param options
      */
     @Override
-    protected VersionCommand createCommandClass() {
-        return new VersionCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected VersionCommand createCommandClass(SelectedOptions options) {
+        return new VersionCommand(options);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         if (isSkip()) {

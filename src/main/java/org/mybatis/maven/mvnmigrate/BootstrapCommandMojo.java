@@ -16,6 +16,7 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.BootstrapCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 
 /**
  * Goal which execute the ibatis migration bootstrap command.
@@ -27,10 +28,11 @@ public final class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCom
 
     /**
      * {@inheritDoc}
+     * @param options
      */
     @Override
-    protected BootstrapCommand createCommandClass() {
-        return new BootstrapCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected BootstrapCommand createCommandClass(SelectedOptions options) {
+        return new BootstrapCommand(options);
     }
 
 }

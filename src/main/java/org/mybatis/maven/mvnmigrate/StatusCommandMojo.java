@@ -15,6 +15,7 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
 /**
@@ -27,10 +28,11 @@ public class StatusCommandMojo extends AbstractCommandMojo<MigrationStatusComman
 
     /**
      * {@inheritDoc}
+     * @param options
      */
     @Override
-    protected MigrationStatusCommand createCommandClass() {
-        return new MigrationStatusCommand(this.getRepository(), this.getEnvironment(), this.isForce());
+    protected MigrationStatusCommand createCommandClass(SelectedOptions options) {
+        return new MigrationStatusCommand(options);
     }
 
 }

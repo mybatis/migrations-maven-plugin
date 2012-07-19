@@ -22,6 +22,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.apache.ibatis.migration.commands.BaseCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -83,7 +84,12 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
      */
     protected void init() throws MojoFailureException {
         try {
-            this.command = createCommandClass();
+            final SelectedOptions options = new SelectedOptions();
+            options.getPaths().setBasePath(this.getRepository());
+            options.setEnvironment(this.getEnvironment());
+            options.setForce(this.isForce());
+
+            this.command = createCommandClass(options);
             final PrintStream out = new PrintStream(new MavenOutputStream(getLog()));
             this.command.setPrintStream(out);
             this.command.setDriverClassLoader(getClass().getClassLoader());
@@ -153,7 +159,8 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
      * Creates the specific mojo command.
      * 
      * @return The command created.
+     * @param options
      */
-    protected abstract T createCommandClass();
+    protected abstract T createCommandClass(SelectedOptions options);
 
 }

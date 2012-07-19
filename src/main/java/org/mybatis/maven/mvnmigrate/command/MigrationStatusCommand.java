@@ -15,33 +15,26 @@
  */
 package org.mybatis.maven.mvnmigrate.command;
 
-import java.io.File;
+import org.apache.ibatis.migration.Change;
+import org.apache.ibatis.migration.commands.StatusCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.ibatis.migration.Change;
-import org.apache.ibatis.migration.commands.StatusCommand;
-
 /**
  * Extended {@link StatusCommand} class.
- *
+ * <p/>
  * Used for retrieve information about migration status.
  *
  * @version $Id$
  */
 public final class MigrationStatusCommand extends StatusCommand {
 
-    /**
-     * Extended MyBatis {@link StatusCommand}.
-     *
-     * @param repository the MyBatis migration repository path.
-     * @param environment the string that represents the environment.
-     * @param true to force the SQL script execution in case of error.
-     */
-    public MigrationStatusCommand(File repository, String environment,
-            boolean force) {
-        super(repository, environment, force);
+    /** Extended MyBatis {@link StatusCommand}. */
+    public MigrationStatusCommand(SelectedOptions options) {
+        super(options);
     }
 
     /**
