@@ -1,0 +1,3 @@
+Migration Maven plugin is an Apache Maven plugin that aims to integrate, into the Maven life cycle,
+the MyBatis 3 Migration tool.
+MyBatis 3 Migration Schema is a tool that helps you to manage database schema changes.
