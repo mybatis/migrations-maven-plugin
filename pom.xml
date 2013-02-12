@@ -24,7 +24,7 @@
   </parent>
 
   <groupId>org.mybatis.maven</groupId>
-  <artifactId>migration-maven-plugin</artifactId>
+  <artifactId>migrations-maven-plugin</artifactId>
   <version>1.1.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
@@ -32,7 +32,7 @@
   <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
   the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
   schema changes.</description>
-  <url>http://www.mybatis.org/migration-maven-plugin</url>
+  <url>http://www.mybatis.org/migrations-maven-plugin</url>
 
   <properties>
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
@@ -40,16 +40,15 @@
   </properties>
 
   <scm>
-    <url>http://github.com/mybatis/migration-maven-plugin</url>
-    <connection>scm:git:ssh://github.com/mybatis/migration-maven-plugin.git</connection>
-    <developerConnection>scm:git:git+ssh://git@github.com/mybatis/migration-maven-plugin.git</developerConnection>
+    <url>http://github.com/mybatis/migrations-maven-plugin</url>
+    <connection>scm:git:ssh://github.com/mybatis/migrations-maven-plugin.git</connection>
+    <developerConnection>scm:git:git+ssh://git@github.com/mybatis/migrations-maven-plugin.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
-    <!-- Cannot define in parent ATM, see COMMONSSITE-26 -->
     <site>
-      <id>mybatis.site</id>
-      <url>ftp://${mybatis.host}/${project.artifactId}/${project.version}</url>
+      <id>github</id>
+      <url>gitsite:git@github.com/mybatis/migrations-maven-plugin.git</url>
     </site>
   </distributionManagement>
 
