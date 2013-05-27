@@ -36,7 +36,6 @@
 
   <properties>
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
-    <gcu.product>Maven</gcu.product>
   </properties>
 
   <scm>
@@ -103,35 +102,6 @@
               <goal>integration-test</goal>
               <goal>verify</goal>
             </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>com.googlecode.maven-gcu-plugin</groupId>
-        <artifactId>maven-gcu-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>deploy</phase>
-            <goals>
-              <goal>upload</goal>
-            </goals>
-            <configuration>
-              <uploads>
-                 <upload>
-                  <file>${project.build.directory}/docbkx/pdf/${project.artifactId}-${project.version}-reference.pdf</file>
-                  <summary>${project.name} ${project.version} users manual</summary>
-                  <labels>
-                    <label>Featured</label>
-                    <label>Type-Docs</label>
-                    <label>Product-Maven</label>
-                    <label>Project-${project.artifactId}</label>
-                    <label>Version-${project.version}</label>
-                    <label>Build-${implementation.build}</label>
-                  </labels>
-                </upload>
-              </uploads>
-            </configuration>
           </execution>
         </executions>
       </plugin>
