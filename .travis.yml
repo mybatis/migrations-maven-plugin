@@ -3,7 +3,6 @@ jdk:
   - oraclejdk7
   - openjdk7
   - openjdk6
-script: "mvn verify"
 after_success:
   - "git clone -b travis `git config --get remote.origin.url` target/travis"
   - "mvn deploy --settings target/travis/settings.xml"
