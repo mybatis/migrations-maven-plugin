@@ -34,27 +34,34 @@ public class PendingCommandMojoTest extends AbstractMigrateTestCase {
         initEnvironment();
     }
 
-    public void testUpGoal() throws Exception {
+    public void testUpPendingDownAllDown() throws Exception {
+      runUpGoal();
+      runPendingGoal();
+      runDownGoal();
+      runALLDownGoal();
+    }
+
+    protected void runUpGoal() throws Exception {
         AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) lookupMojo("up", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "upSteps", null);
         mojo.execute();
     }
 
-    public void testPengingGoal() throws Exception {
+    protected void runPendingGoal() throws Exception {
         AbstractCommandMojo<PendingCommand> mojo = (AbstractCommandMojo<PendingCommand>) lookupMojo("pending", testPom);
         assertNotNull(mojo);
         mojo.execute();
     }
 
-    public void testDownGoal() throws Exception {
+    protected void runDownGoal() throws Exception {
         AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) lookupMojo("down", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "downSteps", "1");
         mojo.execute();
     }
 
-    public void testALLDownGoal() throws Exception {
+    protected void runALLDownGoal() throws Exception {
         AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) lookupMojo("down", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "downSteps", "ALL");
