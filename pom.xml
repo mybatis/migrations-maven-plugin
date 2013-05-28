@@ -113,6 +113,14 @@
           <arguments>-Prelease</arguments>
         </configuration>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <goalPrefix>migration</goalPrefix>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
