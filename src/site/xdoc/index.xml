@@ -37,22 +37,22 @@
             build life cycle.
         </p>
         <p>
-            The <i>MyBatis maven-migration-plugin</i> aims to perform a complete porting of all
+            The <i>MyBatis migrations-maven-plugin</i> aims to perform a complete porting of all
             <i>MyBatis Migration tool</i> commands to a standard Maven plugin.
         </p>
     </section>
 
     <section name="A little bit of history">
         <p>
-            The MyBatis maven-migration-plugin was born in April 2010 after a Skype conference between Marco Speranza
+            The MyBatis migrations-maven-plugin was born in April 2010 after a Skype conference between Marco Speranza
             and Simone Tripodi where both were looking for a solution to integrate MyBatis Migration tool into the
             softrware build life cycle.
             The project was created and maintained by <a href="http://www.99soft.org/">99soft.org</a> and posted
-            on Google Code with the name <a href="http://www.99soft.org/projects/maven-migration-plugin/1.1/">maven-migrate-plugin</a>.
+            on Google Code with the name <a href="http://www.99soft.org/projects/migrations-maven-plugin/1.1/">maven-migrate-plugin</a>.
         </p>
         <p>
             In September 2010 Simone proposed Marco as new MyBatis community member, Clinton Begin and the team accepted
-            letting him bringing the <i>maven-migration-plugin</i> code base to become an official
+            letting him bringing the <i>migrations-maven-plugin</i> code base to become an official
             MyBatis subproject.
         </p>
         <p>
@@ -84,7 +84,7 @@
   <plugins>
     <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
       <version>X.X</version>
       <configuration>
         <repository> [migration repository path] </repository>
@@ -106,7 +106,7 @@
          <reportPlugins>
            <plugin>
              <groupId>org.mybatis.maven</groupId>
-             <artifactId>maven-migration-plugin</artifactId>
+             <artifactId>migrations-maven-plugin</artifactId>
              <version>X.X</version>
              <configuration>
                <repository> [migration repository path] </repository>

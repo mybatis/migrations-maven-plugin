@@ -49,7 +49,7 @@
             <source><![CDATA[<plugins>
   <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
       <version>X.X</version>
       <configuration>
           <repository> [migration repository path] </repository>
@@ -86,7 +86,7 @@
 
             <source><![CDATA[<plugin>
   <groupId>org.mybatis.maven</groupId>
-  <artifactId>maven-migration-plugin</artifactId>
+  <artifactId>migrations-maven-plugin</artifactId>
   <version>X.X</version>
   <configuration>
       <repository> [migration repository path] </repository>
@@ -124,7 +124,7 @@
   <plugins>
     <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
       <version>X.X</version>
       <configuration>
         <repository> [migration repository path] </repository>
@@ -149,7 +149,7 @@
   <plugins>
     <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
       <version>X.X</version>
       <configuration>
         <repository> [migration repository path] </repository>
@@ -173,7 +173,7 @@
   <plugins>
     <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
       <version>X.X</version>
       <configuration>
         <repository> [migration repository path] </repository>
@@ -199,7 +199,7 @@
          <reportPlugins>
            <plugin>
              <groupId>org.mybatis.maven</groupId>
-             <artifactId>maven-migration-plugin</artifactId>
+             <artifactId>migrations-maven-plugin</artifactId>
              <version>X.X</version>
              <configuration>
                <repository> [migration repository path] </repository>

@@ -36,7 +36,7 @@
             <source><![CDATA[<plugins>
   <plugin>
     <groupId>org.mybatis.maven</groupId>
-    <artifactId>maven-migration-plugin</artifactId>
+    <artifactId>migrations-maven-plugin</artifactId>
     <version>X.X</version>
     <dependencies>
       [ add your jdbc driver depencency ]
@@ -63,7 +63,7 @@
     <plugins>
       <plugin>
         <groupId>org.mybatis.maven</groupId>
-        <artifactId>maven-migration-plugin</artifactId>
+        <artifactId>migrations-maven-plugin</artifactId>
         <version>X.X</version>
         <dependencies>
           [ add your jdbc driver depencency ]
@@ -78,7 +78,7 @@
   <plugins>
     <plugin>
       <groupId>org.mybatis.maven</groupId>
-      <artifactId>maven-migration-plugin</artifactId>
+      <artifactId>migrations-maven-plugin</artifactId>
     </plugin>
   </plugins>
 </build>]]></source>
@@ -88,7 +88,7 @@
             <source><![CDATA[<plugins>
   <plugin>
     <groupId>org.mybatis.maven</groupId>
-    <artifactId>maven-migration-plugin</artifactId>
+    <artifactId>migrations-maven-plugin</artifactId>
     <configuration>
       <repository> [migration repository path] </repository>
       <skip>false</skip>

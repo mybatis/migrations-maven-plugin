@@ -39,7 +39,7 @@
             <source><![CDATA[<plugins>
   <plugin>
     <groupId>org.mybatis.maven</groupId>
-    <artifactId>maven-migration-plugin</artifactId>
+    <artifactId>migrations-maven-plugin</artifactId>
     <version>X.X</version>
     <configuration>
       <repository> [your migration repository] </repository>
