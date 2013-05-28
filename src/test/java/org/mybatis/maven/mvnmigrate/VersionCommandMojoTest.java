@@ -24,21 +24,27 @@ import org.apache.ibatis.migration.commands.VersionCommand;
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
 
-    public void testUpGoal() throws Exception {
+    public void testUpVersionVersionDownGoal() throws Exception {
+        runUpGoal();
+        runVersionGoal();
+        runVersionDownGoal();
+    }
+
+    protected void runUpGoal() throws Exception {
         AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) lookupMojo("up", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "upSteps", "1");
         mojo.execute();
     }
 
-    public void testVersionGoal() throws Exception {
+    protected void runVersionGoal() throws Exception {
         AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "version", "20100400000003");
         mojo.execute();
     }
 
-    public void testVersionDownGoal() throws Exception {
+    protected void runVersionDownGoal() throws Exception {
         AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
         assertNotNull(mojo);
         setVariableValueToObject(mojo, "version", "20100400000001");
