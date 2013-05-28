@@ -29,8 +29,8 @@
         <plugins>
             <plugin>
                 <groupId>org.mybatis.maven</groupId>
-                <artifactId>maven-migration-plugin</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <artifactId>migrations-maven-plugin</artifactId>
+                <version>1.1.0-SNAPSHOT</version>
                 <configuration>
                     <repository>src/test/resources/unit/basic-test/migrate-repository</repository>
                     <environment>development</environment>

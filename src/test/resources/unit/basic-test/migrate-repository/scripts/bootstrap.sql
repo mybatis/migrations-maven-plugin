@@ -52,6 +52,8 @@
 -- use the migrations and the changelog for all future
 -- database change management.
 
+DROP TABLE test_bootstrap IF EXISTS;
+
 CREATE TABLE test_bootstrap (
     ID NUMERIC(20,0) NOT NULL,
     APPLIED_AT VARCHAR(25) NOT NULL,
