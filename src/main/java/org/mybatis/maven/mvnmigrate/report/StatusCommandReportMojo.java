@@ -169,7 +169,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
                 Xpp3Dom child = configurationDom.getChild(i);
                 if ("repository".equalsIgnoreCase(child.getName())) {
                     reactorRepo = new File(child.getValue());
-                } else if ("enviroment".equalsIgnoreCase(child.getName())) {
+                } else if ("environment".equalsIgnoreCase(child.getName())) {
                     reactorEnv = child.getValue();
                 } else if ("force".equalsIgnoreCase(child.getName())) {
                     reactorForce = Boolean.valueOf(child.getValue());
