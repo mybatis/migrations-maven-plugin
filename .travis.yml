@@ -6,6 +6,7 @@ jdk:
 after_success:
   - "git clone -b travis `git config --get remote.origin.url` target/travis"
   - "mvn deploy -Dmaven.test.skip=true -Dinvoker.skip=true --settings target/travis/settings.xml"
+after_failure: "/home/travis/build/mybatis/migrations-maven-plugin/target/it/migration-plugin-*/build.log"
 
 branches:
   except:
