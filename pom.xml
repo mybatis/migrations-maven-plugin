@@ -79,7 +79,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-invoker-plugin</artifactId>
-        <version>1.5</version>
+        <version>1.8</version>
         <configuration>
           <debug>false</debug>
           <projectsDirectory>src/it</projectsDirectory>
