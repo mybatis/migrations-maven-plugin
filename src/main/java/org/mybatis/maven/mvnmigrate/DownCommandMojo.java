@@ -15,12 +15,10 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
+import org.apache.ibatis.migration.commands.DownCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.mybatis.maven.mvnmigrate.command.MigrationDownCommand;
-
-import java.text.MessageFormat;
 
 /**
  * Goal which execute the ibatis migration status command.
@@ -28,7 +26,7 @@ import java.text.MessageFormat;
  * @version $Id$
  * @goal down
  */
-public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownCommand> {
+public final class DownCommandMojo extends AbstractCommandMojo<DownCommand> {
 
     /**
      * Steps to do. (type ALL to apply all down steps, default: 1 step)
@@ -43,8 +41,8 @@ public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownComm
      * @param options
      */
     @Override
-    protected MigrationDownCommand createCommandClass(SelectedOptions options) {
-        return new MigrationDownCommand(options);
+    protected DownCommand createCommandClass(SelectedOptions options) {
+        return new DownCommand(options);
     }
 
     /** {@inheritDoc} */
@@ -54,22 +52,8 @@ public final class DownCommandMojo extends AbstractCommandMojo<MigrationDownComm
             return;
         }
         init();
-        int numberOfChanges = getCommand().getNumberOfChanges();
 
-        if (numberOfChanges == 0 && getLog().isInfoEnabled()) {
-            String[] args = {getClass().getSimpleName()};
-            MessageFormat format =
-                new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.down.zero.change"));
-            getLog().info(format.format(args));
-            return;
-        }
-
-        if (downSteps != null
-            && ("ALL".equalsIgnoreCase(downSteps) || getCommand()
-                                                         .parseParameter(1, downSteps) > numberOfChanges)) {
-            downSteps = "" + numberOfChanges;
-        }
-        getCommand().execute(downSteps);
+        getCommand().execute(downSteps == null || "ALL".equalsIgnoreCase(downSteps) ? "999999" : "1");
     }
 
 }

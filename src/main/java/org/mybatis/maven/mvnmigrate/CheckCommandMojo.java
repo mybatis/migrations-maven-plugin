@@ -19,9 +19,10 @@ import java.text.MessageFormat;
 import java.util.List;
 
 import org.apache.ibatis.migration.Change;
+import org.apache.ibatis.migration.commands.StatusCommand;
+import org.apache.ibatis.migration.operations.StatusOperation;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
 
 /**
  * Goal which check the presence of pending migration.
@@ -43,10 +44,12 @@ public final class CheckCommandMojo extends StatusCommandMojo {
 
         init();
 
-        if (getCommand() instanceof MigrationStatusCommand) {
-            MigrationStatusCommand  mcommand = (MigrationStatusCommand) getCommand();
-            List<Change> changes = mcommand.getMergedStatus();
-            int pendings = mcommand.getNumberOfPending(changes);
+        if (getCommand() instanceof StatusCommand) {
+            StatusCommand command = (StatusCommand)getCommand();
+            command.execute();
+            StatusOperation operation = command.getOperation();
+            List<Change> changes = operation.getCurrentStatus();
+            int pendings = operation.getPendingCount();
             if ( pendings > 0 ) {
                 Integer[] args = { pendings };
                 MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.check.failed"));

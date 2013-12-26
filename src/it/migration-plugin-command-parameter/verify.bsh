@@ -10,7 +10,7 @@ import org.codehaus.plexus.util.*;
       String log = FileUtils.fileRead( file );
 
       String[] values = {
-              "Executing  MyBatis Migration Schema MigrationStatusCommand",
+              "Executing  MyBatis Migration Schema StatusCommand",
               "Executing  MyBatis Migration Schema UpCommand",
               "[DEBUG]   (f) upSteps = 1"
           };

@@ -15,7 +15,16 @@
  */
 package org.mybatis.maven.mvnmigrate.report;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
+
 import org.apache.ibatis.migration.Change;
+import org.apache.ibatis.migration.commands.StatusCommand;
+import org.apache.ibatis.migration.operations.StatusOperation;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.doxia.siterenderer.Renderer;
@@ -24,14 +33,6 @@ import org.apache.maven.project.MavenProject;
 import org.apache.maven.reporting.AbstractMavenReport;
 import org.apache.maven.reporting.MavenReportException;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
-import org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
 
 /**
  * Extends {@link AbstractMavenReport}.
@@ -187,10 +188,11 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
             options.setEnvironment(reactorEnv);
             options.setForce(reactorForce);
 
-            MigrationStatusCommand analyzer = new MigrationStatusCommand(options);
+            StatusCommand analyzer = new StatusCommand(options);
             try {
-                List<Change> analysis = null;
-                analysis = analyzer.getMergedStatus();
+                analyzer.execute();
+                StatusOperation operation = analyzer.getOperation();
+                List<Change> analysis = operation.getCurrentStatus();
 
                 aggregateReport.put(mavenProject, analysis);
             } catch (RuntimeException e) {
