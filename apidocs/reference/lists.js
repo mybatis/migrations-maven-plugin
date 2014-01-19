@@ -10,13 +10,10 @@ var DATA = [
       { id:8, label:"org.mybatis.maven.mvnmigrate.StatusCommandMojo", link:"org/mybatis/maven/mvnmigrate/StatusCommandMojo.html", type:"class" },
       { id:9, label:"org.mybatis.maven.mvnmigrate.UpCommandMojo", link:"org/mybatis/maven/mvnmigrate/UpCommandMojo.html", type:"class" },
       { id:10, label:"org.mybatis.maven.mvnmigrate.VersionCommandMojo", link:"org/mybatis/maven/mvnmigrate/VersionCommandMojo.html", type:"class" },
-      { id:11, label:"org.mybatis.maven.mvnmigrate.command", link:"org/mybatis/maven/mvnmigrate/command/package-summary.html", type:"package" },
-      { id:12, label:"org.mybatis.maven.mvnmigrate.command.MigrationDownCommand", link:"org/mybatis/maven/mvnmigrate/command/MigrationDownCommand.html", type:"class" },
-      { id:13, label:"org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand", link:"org/mybatis/maven/mvnmigrate/command/MigrationStatusCommand.html", type:"class" },
-      { id:14, label:"org.mybatis.maven.mvnmigrate.report", link:"org/mybatis/maven/mvnmigrate/report/package-summary.html", type:"package" },
-      { id:15, label:"org.mybatis.maven.mvnmigrate.report.MigrationStatusReportView", link:"org/mybatis/maven/mvnmigrate/report/MigrationStatusReportView.html", type:"class" },
-      { id:16, label:"org.mybatis.maven.mvnmigrate.report.StatusCommandReportMojo", link:"org/mybatis/maven/mvnmigrate/report/StatusCommandReportMojo.html", type:"class" },
-      { id:17, label:"org.mybatis.maven.mvnmigrate.util", link:"org/mybatis/maven/mvnmigrate/util/package-summary.html", type:"package" },
-      { id:18, label:"org.mybatis.maven.mvnmigrate.util.MavenOutputStream", link:"org/mybatis/maven/mvnmigrate/util/MavenOutputStream.html", type:"class" }
+      { id:11, label:"org.mybatis.maven.mvnmigrate.report", link:"org/mybatis/maven/mvnmigrate/report/package-summary.html", type:"package" },
+      { id:12, label:"org.mybatis.maven.mvnmigrate.report.MigrationStatusReportView", link:"org/mybatis/maven/mvnmigrate/report/MigrationStatusReportView.html", type:"class" },
+      { id:13, label:"org.mybatis.maven.mvnmigrate.report.StatusCommandReportMojo", link:"org/mybatis/maven/mvnmigrate/report/StatusCommandReportMojo.html", type:"class" },
+      { id:14, label:"org.mybatis.maven.mvnmigrate.util", link:"org/mybatis/maven/mvnmigrate/util/package-summary.html", type:"package" },
+      { id:15, label:"org.mybatis.maven.mvnmigrate.util.MavenOutputStream", link:"org/mybatis/maven/mvnmigrate/util/MavenOutputStream.html", type:"class" }
 
     ];

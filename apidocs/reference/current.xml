@@ -277,7 +277,7 @@
 >
 </constructor>
 <method name="createCommandClass"
- return="org.mybatis.maven.mvnmigrate.command.MigrationDownCommand"
+ return="org.apache.ibatis.migration.commands.DownCommand"
  abstract="false"
  native="false"
  synchronized="false"
@@ -917,7 +917,7 @@
 >
 </constructor>
 <method name="createCommandClass"
- return="org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand"
+ return="org.apache.ibatis.migration.commands.StatusCommand"
  abstract="false"
  native="false"
  synchronized="false"
@@ -1279,108 +1279,6 @@
  deprecated="not deprecated"
  visibility="protected"
 >
-</method>
-</class>
-</package>
-<package name="org.mybatis.maven.mvnmigrate.command"
->
-<class name="MigrationDownCommand"
- extends="org.apache.ibatis.migration.commands.DownCommand"
- abstract="false"
- static="false"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="MigrationDownCommand"
- type="org.mybatis.maven.mvnmigrate.command.MigrationDownCommand"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="aOptions" type="org.apache.ibatis.migration.options.SelectedOptions">
-</parameter>
-</constructor>
-<method name="getNumberOfChanges"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="parseParameter"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="defaultSteps" type="int">
-</parameter>
-<parameter name="params" type="java.lang.String...">
-</parameter>
-</method>
-</class>
-<class name="MigrationStatusCommand"
- extends="org.apache.ibatis.migration.commands.StatusCommand"
- abstract="false"
- static="false"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="MigrationStatusCommand"
- type="org.mybatis.maven.mvnmigrate.command.MigrationStatusCommand"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="options" type="org.apache.ibatis.migration.options.SelectedOptions">
-</parameter>
-</constructor>
-<method name="checkPending"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="getMergedStatus"
- return="java.util.List&lt;org.apache.ibatis.migration.Change&gt;"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="getNumberOfPending"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="changes" type="java.util.List&lt;org.apache.ibatis.migration.Change&gt;">
-</parameter>
 </method>
 </class>
 </package>
