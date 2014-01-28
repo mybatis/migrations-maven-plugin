@@ -53,7 +53,16 @@ public final class DownCommandMojo extends AbstractCommandMojo<DownCommand> {
         }
         init();
 
-        getCommand().execute(downSteps == null || "ALL".equalsIgnoreCase(downSteps) ? "999999" : "1");
+        // default downsteps to 1 if not specified on command line
+        if (downSteps == null) {
+            downSteps = "1";
+        }
+ 
+        if ("ALL".equalsIgnoreCase(downSteps)) {
+            downSteps = "999999";
+        }
+
+        getCommand().execute(downSteps);
     }
 
 }
