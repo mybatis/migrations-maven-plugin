@@ -18,40 +18,50 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
-import org.apache.maven.plugin.testing.AbstractMojoTestCase;
+import org.apache.maven.plugin.testing.MojoRule;
+import org.junit.Assert;
+import org.junit.Rule;
 
 /**
  * @version $Id$
  */
-abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
+public abstract class AbstractMigrateTestCase {
 
-    protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+    // TODO There is no BaseDir for Junit4 version.  Does not seem to be needed and maven site points to other method call that doesn't exist.
+    //      Leave this for now until we can determine this is needed or not.
+    // protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+	protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        cleanup();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-        cleanup();
-    }
-
-    protected void cleanup() throws Exception {
-        File initMigrationDbFolder;
-        initMigrationDbFolder = new File("target/init");
-        if (initMigrationDbFolder.exists()) {
-            deleteDir(initMigrationDbFolder);
+    @Rule
+    public MojoRule rule = new MojoRule() {
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected void before() throws Exception {
+            cleanup();
         }
-    }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected void after() {
+            try {
+                cleanup();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        protected void cleanup() throws Exception {
+            File initMigrationDbFolder;
+            initMigrationDbFolder = new File("target/init");
+            if (initMigrationDbFolder.exists()) {
+                deleteDir(initMigrationDbFolder);
+            }
+        }
+    };
 
     protected static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
@@ -70,13 +80,13 @@ abstract public class AbstractMigrateTestCase extends AbstractMojoTestCase {
 
     @SuppressWarnings("unchecked")
     protected void initEnvironment() throws Exception {
-        AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) lookupMojo("init", testPom);
-        assertNotNull(mojo);
+        AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);
+        Assert.assertNotNull(mojo);
 
         final File newRep = new File("target/init");
-        setVariableValueToObject(mojo, "repository", newRep);
+        rule.setVariableValueToObject(mojo, "repository", newRep);
         mojo.execute();
-        assertTrue(newRep.exists());
+        Assert.assertTrue(newRep.exists());
     }
 
 }

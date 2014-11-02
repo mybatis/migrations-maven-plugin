@@ -17,6 +17,7 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.apache.ibatis.migration.commands.VersionCommand;
+import org.junit.Assert;
 
 /**
  * @version $Id$
@@ -31,23 +32,23 @@ public class VersionCommandMojoTest extends AbstractMigrateTestCase {
     }
 
     protected void runUpGoal() throws Exception {
-        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) lookupMojo("up", testPom);
-        assertNotNull(mojo);
-        setVariableValueToObject(mojo, "upSteps", "1");
+        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "upSteps", "1");
         mojo.execute();
     }
 
     protected void runVersionGoal() throws Exception {
-        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
-        assertNotNull(mojo);
-        setVariableValueToObject(mojo, "version", "20100400000003");
+        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "version", "20100400000003");
         mojo.execute();
     }
 
     protected void runVersionDownGoal() throws Exception {
-        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) lookupMojo("version", testPom);
-        assertNotNull(mojo);
-        setVariableValueToObject(mojo, "version", "20100400000001");
+        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "version", "20100400000001");
         mojo.execute();
     }
 
