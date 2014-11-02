@@ -2,7 +2,7 @@ MYBATIS Migration Maven Plugin
 ==============================
 
 [![Build Status](https://travis-ci.org/mybatis/migrations-maven-plugin.svg?branch=master)](https://travis-ci.org/mybatis/migrations-maven-plugin)
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/org.mybatis.maven/migration-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.mybatis.maven/migration-maven-plugin)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/org.mybatis.maven/migrations-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.mybatis.maven/migrations-maven-plugin)
 
 ![migrations-maven-plugin](http://mybatis.github.io/images/mybatis-logo.png)
 
