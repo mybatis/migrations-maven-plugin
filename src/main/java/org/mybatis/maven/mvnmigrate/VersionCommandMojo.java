@@ -31,7 +31,7 @@ public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand
     /**
      * Version string.
      *
-     * @parameter expression="${migration.version}"
+     * @parameter property="migration.version"
      * @required
      */
     private String version;

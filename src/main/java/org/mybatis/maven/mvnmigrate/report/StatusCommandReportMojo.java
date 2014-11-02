@@ -53,7 +53,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * The Maven project to analyze.
      *
-     * @parameter expression="${project}"
+     * @parameter property="project"
      * @required
      * @readonly
      */
@@ -62,7 +62,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * Target folder.
      *
-     * @parameter expression="${project.build.directory}"
+     * @parameter property="project.build.directory"
      * @readonly
      */
     private File outputDirectory;
@@ -70,7 +70,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * The projects in the reactor for aggregation report.
      *
-     * @parameter expression="${reactorProjects}"
+     * @parameter property"reactorProjects"
      * @readonly
      */
     protected List<MavenProject> reactorProjects;
@@ -87,35 +87,35 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * Location of migrate repository.
      *
-     * @parameter expression="${migration.path}" default-value="."
+     * @parameter property="migration.path" default-value="."
      */
     protected File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
      *
-     * @parameter expression="${migration.env}" default-value="development"
+     * @parameter property="migration.env" default-value="development"
      */
     protected String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
      *
-     * @parameter expression="${migration.force}" default-value="false"
+     * @parameter property="migration.force" default-value="false"
      */
     protected boolean force;
 
     /**
      * Skip migration actions.
      *
-     * @parameter expression="${migration.skip}" default-value="false"
+     * @parameter property="migration.skip" default-value="false"
      */
     protected boolean skip;
 
     /**
      * Aggregate report results.
      *
-     * @parameter expression="${migration.aggregate}" default-value="false"
+     * @parameter property="migration.aggregate" default-value="false"
      */
     protected boolean aggregate;
 
@@ -155,7 +155,6 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
         for (MavenProject mavenProject : reactorProjects) {
 
-            @SuppressWarnings("unchecked")
             Map<String, ReportPlugin> reportPluginMap = mavenProject.getReporting().getReportPluginsAsMap();
             ReportPlugin plug = reportPluginMap.get(getBundle(locale).getString("migration.plugin.key"));
 
