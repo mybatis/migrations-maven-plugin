@@ -70,7 +70,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     /**
      * The projects in the reactor for aggregation report.
      *
-     * @parameter property"reactorProjects"
+     * @parameter property="reactorProjects"
      * @readonly
      */
     protected List<MavenProject> reactorProjects;
