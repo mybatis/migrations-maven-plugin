@@ -22,3 +22,5 @@ target/*
 .project
 .classpath
 projectFilesBackup/*
+mybatis-migration_TEST.log
+mybatis-migration_TEST.properties

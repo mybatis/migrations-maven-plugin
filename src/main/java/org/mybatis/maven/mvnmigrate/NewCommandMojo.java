@@ -31,7 +31,7 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
     /**
      * New file description.
      *
-     * @parameter expression="${migration.description}"
+     * @parameter property="migration.description"
      * @required
      */
     private String description;
@@ -39,7 +39,7 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
     /**
      * New file based on template.
      *
-     * @parameter expression="${migration.template}"
+     * @parameter property="migration.template"
      */
     private String template;
 

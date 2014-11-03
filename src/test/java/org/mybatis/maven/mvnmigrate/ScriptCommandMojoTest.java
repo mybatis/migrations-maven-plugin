@@ -18,6 +18,7 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
+import org.junit.Assert;
 
 /**
  * @version $Id$
@@ -26,21 +27,21 @@ import org.apache.ibatis.migration.commands.ScriptCommand;
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 
     public void testScriptGoal() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) lookupMojo("script", testPom);
-        assertNotNull(mojo);
-        setVariableValueToObject(mojo, "v1", "20100400000001");
-        setVariableValueToObject(mojo, "v2", "20100400000003");
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "v1", "20100400000001");
+        rule.setVariableValueToObject(mojo, "v2", "20100400000003");
         mojo.execute();
     }
 
     public void testScriptToFileGoal() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) lookupMojo("script", testPom);
-        assertNotNull(mojo);
-        setVariableValueToObject(mojo, "v1", "20100400000001");
-        setVariableValueToObject(mojo, "v2", "20100400000003");
-        setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "v1", "20100400000001");
+        rule.setVariableValueToObject(mojo, "v2", "20100400000003");
+        rule.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
         mojo.execute();
-        assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
+        Assert.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
     }
 
 }

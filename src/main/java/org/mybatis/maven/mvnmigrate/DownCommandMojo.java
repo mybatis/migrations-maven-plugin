@@ -31,7 +31,7 @@ public final class DownCommandMojo extends AbstractCommandMojo<DownCommand> {
     /**
      * Steps to do. (type ALL to apply all down steps, default: 1 step)
      *
-     * @parameter expression="${migration.down.steps}"
+     * @parameter property="migration.down.steps"
      */
     private String downSteps;
 

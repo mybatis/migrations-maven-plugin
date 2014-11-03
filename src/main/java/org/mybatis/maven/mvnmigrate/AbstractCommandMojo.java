@@ -40,28 +40,28 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
     /**
      * Location of migrate repository.
      *
-     * @parameter expression="${migration.path}" default-value="."
+     * @parameter property="migration.path" default-value="."
      */
     private File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
      *
-     * @parameter expression="${migration.env}" default-value="development"
+     * @parameter property="migration.env" default-value="development"
      */
     private String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
      *
-     * @parameter  expression="${migration.force}" default-value="false"
+     * @parameter  property="migration.force" default-value="false"
      */
     private boolean force;
 
     /**
      * Skip migration actions.
      *
-     * @parameter  expression="${migration.skip}" default-value="false"
+     * @parameter  property="migration.skip" default-value="false"
      */
     private boolean skip;
 

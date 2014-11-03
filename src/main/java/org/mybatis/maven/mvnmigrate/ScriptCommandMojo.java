@@ -35,14 +35,14 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
     /**
      * Initial version
      *
-     * @parameter expression="${migration.v1}"
+     * @parameter property="migration.v1"
      */
     private String v1;
 
     /**
      * Final version.
      *
-     * @parameter expression="${migration.v2}"
+     * @parameter property="migration.v2"
      * @required
      */
     private String v2;
@@ -50,7 +50,7 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
     /**
      * The output file to be create.
      *
-     * @parameter expression="${migration.output}"
+     * @parameter property="migration.output"
      */
     private File output;
 
