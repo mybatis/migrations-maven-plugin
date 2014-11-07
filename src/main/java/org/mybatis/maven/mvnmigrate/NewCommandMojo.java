@@ -19,28 +19,27 @@ import org.apache.ibatis.migration.commands.NewCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which executes the ibatis migration new command.
  *
  * @version $Id$
- * @goal new
  */
+@Mojo(name = "new")
 public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
 
     /**
      * New file description.
-     *
-     * @parameter property="migration.description"
-     * @required
      */
+	@Parameter(property="migration.description",required=true)
     private String description;
 
     /**
      * New file based on template.
-     *
-     * @parameter property="migration.template"
      */
+	@Parameter(property="migration.template")
     private String template;
 
     /**

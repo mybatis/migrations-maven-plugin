@@ -17,13 +17,14 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.StatusCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration status command.
  *
  * @version $Id$
- * @goal status
  */
+@Mojo(name = "status")
 public class StatusCommandMojo extends AbstractCommandMojo<StatusCommand> {
 
     /**

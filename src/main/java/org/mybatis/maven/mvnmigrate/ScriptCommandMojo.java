@@ -23,35 +23,33 @@ import org.apache.ibatis.migration.commands.ScriptCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which executes the ibatis migration script command.
  *
  * @version $Id$
- * @goal script
  */
+@Mojo(name = "script")
 public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {
 
     /**
-     * Initial version
-     *
-     * @parameter property="migration.v1"
+     * Initial version.
      */
+    @Parameter(property="migration.v1")
     private String v1;
 
     /**
      * Final version.
-     *
-     * @parameter property="migration.v2"
-     * @required
      */
+    @Parameter(property="migration.v2",required=true)
     private String v2;
 
     /**
      * The output file to be create.
-     *
-     * @parameter property="migration.output"
      */
+    @Parameter(property="migration.output")
     private File output;
 
     /**
@@ -68,7 +66,9 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
      */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) return;
+        if (isSkip()) {
+            return;
+        }
 
         try {
             init();

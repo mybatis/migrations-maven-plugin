@@ -19,13 +19,14 @@ import org.apache.ibatis.migration.commands.VersionCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration version command.
  *
  * @version $Id$
- * @goal version
  */
+@Mojo(name = "version")
 public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
 
     /**

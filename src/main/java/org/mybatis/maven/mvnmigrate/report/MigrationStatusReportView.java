@@ -138,7 +138,7 @@ public final class MigrationStatusReportView {
     /**
      * Calculates the percentage.
      *
-     * @param size
+     * @param size the {@link Sink} instance
      * @param nop
      * @return
      */
@@ -165,8 +165,8 @@ public final class MigrationStatusReportView {
     /**
      * Generate a table for the given dependencies iterator.
      *
-     * @param sink TODO fillme
-     * @param iter TODO fillme
+     * @param sink the {@link Sink} instance
+     * @param iter list of {@link Change}
      */
     public void generateChangesTable(Sink sink, List<Change> iter) {
         sink.table();

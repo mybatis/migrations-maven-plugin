@@ -17,6 +17,7 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which executes the MyBatis migration init command.
@@ -24,8 +25,8 @@ import org.apache.ibatis.migration.options.SelectedOptions;
  * Init command creates a new migrate repository into 'repository' location.
  *
  * @version $Id$
- * @goal init
  */
+@Mojo(name = "init")
 public final class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
 
     /**

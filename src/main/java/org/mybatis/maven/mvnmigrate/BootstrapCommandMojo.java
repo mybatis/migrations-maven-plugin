@@ -17,13 +17,14 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.BootstrapCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration bootstrap command.
  *
  * @version $Id$
- * @goal bootstrap
  */
+@Mojo(name = "bootstrap")
 public final class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {
 
     /**

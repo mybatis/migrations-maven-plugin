@@ -29,6 +29,9 @@ import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.model.ReportPlugin;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.reporting.AbstractMavenReport;
 import org.apache.maven.reporting.MavenReportException;
@@ -40,8 +43,8 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
  * Class to generate a Maven report.
  *
  * @version $Id$
- * @goal status-report
  */
+@Mojo(name = "status-report")
 public final class StatusCommandReportMojo extends AbstractMavenReport {
 
     private static final File DEFAULT_REPO = new File(".");
@@ -52,71 +55,56 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
     /**
      * The Maven project to analyze.
-     *
-     * @parameter property="project"
-     * @required
-     * @readonly
      */
+    @Parameter(property="project",required=true,readonly=true)
     private MavenProject project;
 
     /**
      * Target folder.
-     *
-     * @parameter property="project.build.directory"
-     * @readonly
      */
+    @Parameter(property="project.build.directory",readonly=true)
     private File outputDirectory;
 
     /**
      * The projects in the reactor for aggregation report.
-     *
-     * @parameter property="reactorProjects"
-     * @readonly
      */
+    @Parameter(property="reactorProjects",readonly=true)
     protected List<MavenProject> reactorProjects;
 
     /**
      * The project site renderer.
-     *
-     * @component
-     * @required
-     * @readonly
      */
+    @Component(role=Renderer.class)
     private Renderer siteRenderer;
 
     /**
      * Location of migrate repository.
-     *
-     * @parameter property="migration.path" default-value="."
      */
+    @Parameter(property="migration.path", defaultValue=".")
     protected File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
-     *
-     * @parameter property="migration.env" default-value="development"
      */
+    @Parameter(property="migration.env",defaultValue="development")
     protected String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
-     *
-     * @parameter property="migration.force" default-value="false"
      */
+    @Parameter(property="migration.force",defaultValue="false")
     protected boolean force;
 
     /**
      * Skip migration actions.
-     *
-     * @parameter property="migration.skip" default-value="false"
      */
+    @Parameter(property="migration.skip",defaultValue="false")
     protected boolean skip;
 
     /**
      * Aggregate report results.
-     *
-     * @parameter property="migration.aggregate" default-value="false"
      */
+    @Parameter(property="migration.aggregate",defaultValue="false")
     protected boolean aggregate;
 
 
