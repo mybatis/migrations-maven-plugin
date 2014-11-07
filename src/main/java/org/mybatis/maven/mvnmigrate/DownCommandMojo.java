@@ -19,20 +19,21 @@ import org.apache.ibatis.migration.commands.DownCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which execute the ibatis migration status command.
  *
  * @version $Id$
- * @goal down
  */
+@Mojo(name = "down")
 public final class DownCommandMojo extends AbstractCommandMojo<DownCommand> {
 
     /**
      * Steps to do. (type ALL to apply all down steps, default: 1 step)
-     *
-     * @parameter property="migration.down.steps"
      */
+    @Parameter(property="migration.down.steps")
     private String downSteps;
 
     /**

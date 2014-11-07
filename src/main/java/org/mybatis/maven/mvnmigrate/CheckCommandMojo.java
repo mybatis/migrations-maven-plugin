@@ -23,14 +23,15 @@ import org.apache.ibatis.migration.commands.StatusCommand;
 import org.apache.ibatis.migration.operations.StatusOperation;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which check the presence of pending migration.
  *
- * @goal check
- * @phase test
  * @version $Id$
  */
+@Mojo(name = "check", defaultPhase = LifecyclePhase.TEST)
 public final class CheckCommandMojo extends StatusCommandMojo {
 
     private static final String LINE_SEPARATOR = System.getProperty("line.separator","\n");
@@ -40,7 +41,9 @@ public final class CheckCommandMojo extends StatusCommandMojo {
      */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) return;
+        if (isSkip()) {
+            return;
+        }
 
         init();
 

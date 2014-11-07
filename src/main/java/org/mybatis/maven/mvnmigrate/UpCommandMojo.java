@@ -19,20 +19,21 @@ import org.apache.ibatis.migration.commands.UpCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which execute the ibatis migration status command.
  *
  * @version $Id$
- * @goal up
  */
+@Mojo(name = "up")
 public final class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
 
     /**
      * Steps to do (default all steps).
-     *
-     * @parameter property="migration.up.steps"
      */
+    @Parameter(property="migration.up.steps")
     private String upSteps;
 
     /**

@@ -26,6 +26,7 @@ import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
 
 /**
@@ -39,30 +40,26 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
     /**
      * Location of migrate repository.
-     *
-     * @parameter property="migration.path" default-value="."
      */
+    @Parameter(property="migration.path", defaultValue=".")
     private File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
-     *
-     * @parameter property="migration.env" default-value="development"
      */
+    @Parameter(property="migration.env", defaultValue="development")
     private String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
-     *
-     * @parameter  property="migration.force" default-value="false"
      */
+    @Parameter(property="migration.force", defaultValue="false")
     private boolean force;
 
     /**
      * Skip migration actions.
-     *
-     * @parameter  property="migration.skip" default-value="false"
      */
+    @Parameter(property="migration.skip",defaultValue="false")
     private boolean skip;
 
     /**
@@ -74,7 +71,9 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
      * execute the command.
      */
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) return;
+        if (isSkip()) {
+            return;
+        }
         init();
         command.execute();
     }
