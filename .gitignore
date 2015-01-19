@@ -15,6 +15,7 @@ atlassian-ide-plugin.xml
 *.out
 target
 target/*
+.factorypath
 .setting/
 .settings/
 .project/
