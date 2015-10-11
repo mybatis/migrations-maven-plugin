@@ -18,6 +18,7 @@ package org.mybatis.maven.mvnmigrate;
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.apache.ibatis.migration.commands.VersionCommand;
 import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @version $Id$
@@ -25,6 +26,7 @@ import org.junit.Assert;
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
 
+    @Test
     public void testUpVersionVersionDownGoal() throws Exception {
         runUpGoal();
         runVersionGoal();

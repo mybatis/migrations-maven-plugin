@@ -20,6 +20,7 @@ import org.apache.ibatis.migration.commands.PendingCommand;
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @version $Id$
@@ -28,10 +29,11 @@ import org.junit.Before;
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
     @Before
-    protected void init() throws Exception {
+    public void init() throws Exception {
         initEnvironment();
     }
 
+    @Test
     public void testUpPendingDownAllDown() throws Exception {
       runUpGoal();
       runPendingGoal();

@@ -17,6 +17,7 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.BootstrapCommand;
 import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @version $Id$
@@ -24,6 +25,7 @@ import org.junit.Assert;
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
     @SuppressWarnings("unchecked")
+    @Test
     public void testBootstrapGoal() throws Exception {
         AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) rule.lookupMojo("bootstrap", testPom);
         Assert.assertNotNull(mojo);
