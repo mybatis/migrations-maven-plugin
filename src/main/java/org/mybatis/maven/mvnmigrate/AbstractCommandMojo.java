@@ -36,30 +36,30 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
  */
 abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
-    private Locale locale = Locale.ENGLISH;
+    private final Locale locale = Locale.ENGLISH;
 
     /**
      * Location of migrate repository.
      */
-    @Parameter(property="migration.path", defaultValue=".")
+    @Parameter(property = "migration.path", defaultValue = ".")
     private File repository;
 
     /**
      * Environment to configure. Default environment is 'development'.
      */
-    @Parameter(property="migration.env", defaultValue="development")
+    @Parameter(property = "migration.env", defaultValue = "development")
     private String environment;
 
     /**
      * Forces script to continue even if SQL errors are encountered.
      */
-    @Parameter(property="migration.force", defaultValue="false")
+    @Parameter(property = "migration.force", defaultValue = "false")
     private boolean force;
 
     /**
      * Skip migration actions.
      */
-    @Parameter(property="migration.skip",defaultValue="false")
+    @Parameter(property = "migration.skip", defaultValue = "false")
     private boolean skip;
 
     /**
@@ -70,12 +70,13 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
     /**
      * execute the command.
      */
+    @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) {
+        if (this.isSkip()) {
             return;
         }
-        init();
-        command.execute();
+        this.init();
+        this.command.execute();
     }
 
     /**
@@ -88,38 +89,39 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
             options.setEnvironment(this.getEnvironment());
             options.setForce(this.isForce());
 
-            this.command = createCommandClass(options);
-            final PrintStream out = new PrintStream(new MavenOutputStream(getLog()));
+            this.command = this.createCommandClass(options);
+            final PrintStream out = new PrintStream(new MavenOutputStream(this.getLog()));
             this.command.setPrintStream(out);
-            this.command.setDriverClassLoader(getClass().getClassLoader());
+            this.command.setDriverClassLoader(this.getClass().getClassLoader());
 
-            if (getLog().isInfoEnabled()){
-                String[] args = { this.command.getClass().getSimpleName(), getBundle(locale).getString("migration.plugin.name") };
-                MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command"));
-                getLog().info(format.format(args));
+            if (this.getLog().isInfoEnabled()) {
+                final String[] args = { this.command.getClass().getSimpleName(),
+                        this.getBundle(this.locale).getString("migration.plugin.name") };
+                final MessageFormat format = new MessageFormat(
+                        this.getBundle(this.locale).getString("migration.plugin.execution.command"));
+                this.getLog().info(format.format(args));
             }
-        } catch (RuntimeException e) {
+        } catch (final RuntimeException e) {
             throw e;
-        } catch (Exception e) {
-            throw new MojoFailureException(this, e.getMessage(), e
-                    .getLocalizedMessage());
+        } catch (final Exception e) {
+            throw new MojoFailureException(this, e.getMessage(), e.getLocalizedMessage());
         }
     }
 
     protected Locale getLocale() {
-        return locale;
+        return this.locale;
     }
 
     protected File getRepository() {
-        return repository;
+        return this.repository;
     }
 
     protected String getEnvironment() {
-        return environment;
+        return this.environment;
     }
 
     protected boolean isForce() {
-        return force;
+        return this.force;
     }
 
     /**
@@ -138,11 +140,12 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
      */
     protected boolean isSkip() {
         if (this.skip && this.getLog().isInfoEnabled()) {
-            String[] args = { getBundle(locale).getString("migration.plugin.name") };
-            MessageFormat format = new MessageFormat(getBundle(locale).getString("migration.plugin.execution.command.skipped"));
-            getLog().info(format.format(args));
+            final String[] args = { this.getBundle(this.locale).getString("migration.plugin.name") };
+            final MessageFormat format = new MessageFormat(
+                    this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
+            this.getLog().info(format.format(args));
         }
-        return skip;
+        return this.skip;
     }
 
     /**
@@ -150,16 +153,16 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
      *
      * @param locale
      */
-    protected ResourceBundle getBundle(Locale locale) {
+    protected ResourceBundle getBundle(final Locale locale) {
         return ResourceBundle.getBundle("migration-plugin", locale, this.getClass().getClassLoader());
     }
 
     /**
      * Creates the specific mojo command.
-     * 
+     *
      * @return The command created.
      * @param options
      */
-    protected abstract T createCommandClass(SelectedOptions options);
+    protected abstract T createCommandClass(final SelectedOptions options);
 
 }
