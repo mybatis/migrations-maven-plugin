@@ -224,6 +224,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
      *
      * @return the noutput name.
      */
+    @Override
     public String getOutputName() {
         return "migration-status-analysis";
     }
@@ -233,6 +234,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
      *
      * @return the name of the report.
      */
+    @Override
     public String getName(Locale locale) {
         return getBundle(locale).getString("migration.status.report.name");
     }
@@ -242,6 +244,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
      *
      * @return the description of the report.
      */
+    @Override
     public String getDescription(Locale locale) {
         return getBundle(locale).getString("migration.status.report.description");
     }

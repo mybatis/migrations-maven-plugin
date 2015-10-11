@@ -57,6 +57,7 @@ public class MavenOutputStream extends OutputStream {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void write(byte[] b, int off, int len) throws IOException {
         for (int i = off; i < len; i++) {
             write((int) b[i]);
@@ -66,6 +67,7 @@ public class MavenOutputStream extends OutputStream {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void write(byte[] b) throws IOException {
         write(b, 0, b.length);
     }
@@ -73,6 +75,7 @@ public class MavenOutputStream extends OutputStream {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void write(int data) throws IOException {
         if (NEW_LINE == data) {
             if (this.log.isInfoEnabled()) {
@@ -87,6 +90,7 @@ public class MavenOutputStream extends OutputStream {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void flush() throws IOException {
         super.flush();
         this.buff.delete(0, this.buff.capacity());

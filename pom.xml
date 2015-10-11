@@ -56,7 +56,7 @@
   <distributionManagement>
     <site>
       <id>gh-pages</id>
-      <name>Mybatis Guice GitHub Pages</name>
+      <name>Mybatis GitHub Pages</name>
       <url>git:ssh://git@github.com/mybatis/migrations-maven-plugin.git?gh-pages#</url>
     </site>
   </distributionManagement>
