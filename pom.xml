@@ -184,6 +184,11 @@
       <artifactId>maven-reporting-api</artifactId>
       <version>3.0</version>
     </dependency>
+    <dependency>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-sink-api</artifactId>
+        <version>1.6</version>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.maven.reporting</groupId>
@@ -239,15 +244,20 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.maven.shared</groupId>
-      <artifactId>maven-shared-utils</artifactId>
-      <version>0.9</version>
+        <groupId>org.apache.maven.shared</groupId>
+        <artifactId>maven-shared-utils</artifactId>
+        <version>3.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.sonatype.sisu</groupId>
       <artifactId>sisu-guice</artifactId>
       <version>3.2.6</version>
       <classifier>no_aop</classifier>
+    </dependency>
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>18.0</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
