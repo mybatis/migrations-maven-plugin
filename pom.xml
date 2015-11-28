@@ -185,9 +185,9 @@
       <version>3.0</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.maven.doxia</groupId>
-        <artifactId>doxia-sink-api</artifactId>
-        <version>1.6</version>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-sink-api</artifactId>
+      <version>1.6</version>
     </dependency>
 
     <dependency>
@@ -195,10 +195,10 @@
       <artifactId>maven-reporting-impl</artifactId>
       <version>2.4</version>
       <exclusions>
-          <exclusion>
-              <artifactId>maven-project</artifactId>
-              <groupId>org.apache.maven</groupId>
-          </exclusion>
+        <exclusion>
+          <artifactId>maven-project</artifactId>
+          <groupId>org.apache.maven</groupId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -244,9 +244,9 @@
     </dependency>
 
     <dependency>
-        <groupId>org.apache.maven.shared</groupId>
-        <artifactId>maven-shared-utils</artifactId>
-        <version>3.0.0</version>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-shared-utils</artifactId>
+      <version>3.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.sonatype.sisu</groupId>
@@ -255,9 +255,9 @@
       <classifier>no_aop</classifier>
     </dependency>
     <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>18.0</version>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>18.0</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
