@@ -17,13 +17,17 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.StatusCommand;
 import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * @version $Id$
  */
+@Ignore
 public class StatusCommandMojoTest extends AbstractMigrateTestCase {
 
     @SuppressWarnings("unchecked")
+    @Test
     public void testStatusGoal() throws Exception {
         AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) rule.lookupMojo("status", testPom);
         Assert.assertNotNull(mojo);

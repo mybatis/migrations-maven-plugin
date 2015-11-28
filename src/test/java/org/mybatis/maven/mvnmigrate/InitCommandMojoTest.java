@@ -21,6 +21,7 @@ import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.commands.NewCommand;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @version $Id$
@@ -29,10 +30,11 @@ import org.junit.Before;
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
     @Before
-    protected void init() throws Exception {
+    public void init() throws Exception {
         initEnvironment();
     }
 
+    @Test
     public void testNewGoal() throws Exception {
         AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
         Assert.assertNotNull(mojo);
@@ -44,6 +46,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
         Assert.assertEquals(4, newRep.listFiles().length);
     }
 
+    @Test
     public void testnewGoalRequiredValue() throws Exception {
         try {
             AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
@@ -55,6 +58,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
         } catch (Exception e) {}
     }
 
+    @Test
     public void testnewGoalSetEmptyValue() throws Exception {
         try{
             AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
@@ -65,6 +69,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
         } catch (Exception e) {}
     }
 
+    @Test
     public void testnewGoalInitRepAlreadyExist() throws Exception {
         try{
             AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);

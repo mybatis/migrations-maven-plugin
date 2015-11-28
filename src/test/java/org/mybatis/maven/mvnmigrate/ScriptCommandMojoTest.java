@@ -19,6 +19,7 @@ import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
 import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @version $Id$
@@ -26,6 +27,7 @@ import org.junit.Assert;
 @SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 
+    @Test
     public void testScriptGoal() throws Exception {
         AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
         Assert.assertNotNull(mojo);
@@ -34,6 +36,7 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
         mojo.execute();
     }
 
+    @Test
     public void testScriptToFileGoal() throws Exception {
         AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
         Assert.assertNotNull(mojo);
