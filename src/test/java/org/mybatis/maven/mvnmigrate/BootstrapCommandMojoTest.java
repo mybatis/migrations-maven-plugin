@@ -17,13 +17,11 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.BootstrapCommand;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * @version $Id$
  */
-@Ignore
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
     @SuppressWarnings("unchecked")

@@ -20,6 +20,7 @@ import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which execute the ibatis migration version command.
@@ -31,10 +32,8 @@ public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand
 
     /**
      * Version string.
-     *
-     * @parameter property="migration.version"
-     * @required
      */
+    @Parameter(property="migration.version", required=true)
     private String version;
 
     /**
