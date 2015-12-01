@@ -20,13 +20,11 @@ import org.apache.ibatis.migration.commands.PendingCommand;
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * @version $Id$
  */
-@Ignore
 @SuppressWarnings("unchecked")
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
