@@ -65,7 +65,7 @@
     <subsection name="The migration:status goal">
         <p>
             This goal prints the current migration status of database. A tipical output could be:</p>
-            <pre><![CDATA[mvn migrate:status -Dmigration.path=/path/to/migration/repository
+            <pre><![CDATA[mvn migration:status -Dmigration.path=/path/to/migration/repository
 
   ...
 
