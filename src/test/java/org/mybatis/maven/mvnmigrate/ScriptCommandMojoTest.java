@@ -18,7 +18,9 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
+import org.apache.ibatis.migration.commands.UpCommand;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -45,6 +47,26 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
         rule.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
         mojo.execute();
         Assert.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
+    }
+
+    @Test
+    public void testScriptPending() throws Exception {
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "v1", "pending");
+        rule.setVariableValueToObject(mojo, "output", new File("target/script_pending.sql"));
+        mojo.execute();
+        Assert.assertTrue(new File("target/script_pending.sql").exists());
+    }
+
+    @Test
+    public void testScriptPendingUndo() throws Exception {
+        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+        Assert.assertNotNull(mojo);
+        rule.setVariableValueToObject(mojo, "v1", "pending_undo");
+        rule.setVariableValueToObject(mojo, "output", new File("target/script_pending_undo.sql"));
+        mojo.execute();
+        Assert.assertTrue(new File("target/script_pending_undo.sql").exists());
     }
 
 }

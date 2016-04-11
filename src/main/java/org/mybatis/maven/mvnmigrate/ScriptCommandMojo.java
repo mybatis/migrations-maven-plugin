@@ -37,13 +37,13 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
     /**
      * Initial version.
      */
-    @Parameter(property="migration.v1")
+    @Parameter(property="migration.v1", required=true)
     private String v1;
 
     /**
      * Final version.
      */
-    @Parameter(property="migration.v2",required=true)
+    @Parameter(property="migration.v2")
     private String v2;
 
     /**
@@ -90,9 +90,11 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
                 this.getCommand().setPrintStream(new PrintStream(this.output));
             }
 
-            this.getCommand().execute(this.v1
-                    + " "
-                    + this.v2);
+            StringBuilder cmdParams = new StringBuilder(v1);
+            if (v2 != null) {
+                cmdParams.append(" ").append(v2);
+            }
+            this.getCommand().execute(cmdParams.toString());
 
             if (this.getLog().isInfoEnabled()) {
                 if (this.output != null) {
