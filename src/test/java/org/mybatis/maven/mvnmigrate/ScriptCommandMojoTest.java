@@ -18,9 +18,7 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
-import org.apache.ibatis.migration.commands.UpCommand;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
