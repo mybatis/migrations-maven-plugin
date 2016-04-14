@@ -18,6 +18,7 @@ package org.mybatis.maven.mvnmigrate;
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which executes the MyBatis migration init command.
@@ -30,11 +31,20 @@ import org.apache.maven.plugins.annotations.Mojo;
 public final class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
 
     /**
+     * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
+     */
+    @Parameter(property="migration.idpattern")
+    private String idPattern;
+
+    /**
      * {@inheritDoc}
      * @param options
      */
     @Override
     protected InitializeCommand createCommandClass(SelectedOptions options) {
+        if (idPattern != null) {
+            options.setIdPattern(idPattern);
+        }
         return new InitializeCommand(options);
     }
 

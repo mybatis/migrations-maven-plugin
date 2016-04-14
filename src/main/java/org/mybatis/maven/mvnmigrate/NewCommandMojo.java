@@ -43,11 +43,20 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
     private String template;
 
     /**
+     * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
+     */
+    @Parameter(property="migration.idpattern")
+    private String idPattern;
+
+    /**
      * {@inheritDoc}
      * @param options
      */
     @Override
     protected NewCommand createCommandClass(SelectedOptions options) {
+        if (idPattern != null) {
+            options.setIdPattern(idPattern);
+        }
         return new NewCommand(options);
     }
 

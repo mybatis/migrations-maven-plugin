@@ -1,0 +1,18 @@
+import java.io.*;
+
+try
+{
+    File itRoot = new File( basedir, "target/itcase-rep/scripts" );
+    for (File f : itRoot.listFiles()) {
+        String fName = f.getName();
+        if (fName.equals("003_test1.sql")) {
+            return true;
+        }
+    }
+    return false;
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
