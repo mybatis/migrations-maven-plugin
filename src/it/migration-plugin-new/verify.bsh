@@ -2,8 +2,21 @@ import java.io.*;
 
 try
 {
-    File itRoot = new File( basedir, "target/itcase-rep" );
-    return itRoot.exists();
+    File itRoot = new File( basedir, "target/itcase-rep/scripts" );
+    for (File f : itRoot.listFiles()) {
+        String fName = f.getName();
+        if (fName.endsWith("_test1.sql")) {
+            BufferedReader reader = new BufferedReader(new FileReader(f));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("-- Test template")) {
+                    return true;
+                }
+            }
+            reader.close();
+        }
+    }
+    return false;
 }
 catch( Throwable t )
 {

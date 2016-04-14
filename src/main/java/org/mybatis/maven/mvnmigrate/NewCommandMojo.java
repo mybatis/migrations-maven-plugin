@@ -54,6 +54,9 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
      */
     @Override
     protected NewCommand createCommandClass(SelectedOptions options) {
+        if (template != null) {
+            options.setTemplate(template);
+        }
         if (idPattern != null) {
             options.setIdPattern(idPattern);
         }
