@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class StatusCommandMojoTest extends AbstractMigrateTestCase {
 
-    @SuppressWarnings("unchecked")
-    @Test
-    public void testStatusGoal() throws Exception {
-        AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) rule.lookupMojo("status", testPom);
-        Assert.assertNotNull(mojo);
-        mojo.execute();
-    }
+  @SuppressWarnings("unchecked")
+  @Test
+  public void testStatusGoal() throws Exception {
+    AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) rule.lookupMojo("status", testPom);
+    Assert.assertNotNull(mojo);
+    mojo.execute();
+  }
 
 }

@@ -27,12 +27,12 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "pending")
 public final class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected PendingCommand createCommandClass(SelectedOptions options) {
-        return new PendingCommand(options);
-    }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected PendingCommand createCommandClass(SelectedOptions options) {
+    return new PendingCommand(options);
+  }
 
 }

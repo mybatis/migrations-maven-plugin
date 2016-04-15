@@ -27,13 +27,14 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "bootstrap")
 public final class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {
 
-    /**
-     * {@inheritDoc}
-     * @param options
-     */
-    @Override
-    protected BootstrapCommand createCommandClass(SelectedOptions options) {
-        return new BootstrapCommand(options);
-    }
+  /**
+   * {@inheritDoc}
+   * 
+   * @param options
+   */
+  @Override
+  protected BootstrapCommand createCommandClass(SelectedOptions options) {
+    return new BootstrapCommand(options);
+  }
 
 }

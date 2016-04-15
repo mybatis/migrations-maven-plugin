@@ -27,44 +27,44 @@ import org.junit.Test;
 @SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 
-    @Test
-    public void testScriptGoal() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "v1", "20100400000001");
-        rule.setVariableValueToObject(mojo, "v2", "20100400000003");
-        mojo.execute();
-    }
+  @Test
+  public void testScriptGoal() throws Exception {
+    AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "v1", "20100400000001");
+    rule.setVariableValueToObject(mojo, "v2", "20100400000003");
+    mojo.execute();
+  }
 
-    @Test
-    public void testScriptToFileGoal() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "v1", "20100400000001");
-        rule.setVariableValueToObject(mojo, "v2", "20100400000003");
-        rule.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
-        mojo.execute();
-        Assert.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
-    }
+  @Test
+  public void testScriptToFileGoal() throws Exception {
+    AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "v1", "20100400000001");
+    rule.setVariableValueToObject(mojo, "v2", "20100400000003");
+    rule.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
+    mojo.execute();
+    Assert.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
+  }
 
-    @Test
-    public void testScriptPending() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "v1", "pending");
-        rule.setVariableValueToObject(mojo, "output", new File("target/script_pending.sql"));
-        mojo.execute();
-        Assert.assertTrue(new File("target/script_pending.sql").exists());
-    }
+  @Test
+  public void testScriptPending() throws Exception {
+    AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "v1", "pending");
+    rule.setVariableValueToObject(mojo, "output", new File("target/script_pending.sql"));
+    mojo.execute();
+    Assert.assertTrue(new File("target/script_pending.sql").exists());
+  }
 
-    @Test
-    public void testScriptPendingUndo() throws Exception {
-        AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "v1", "pending_undo");
-        rule.setVariableValueToObject(mojo, "output", new File("target/script_pending_undo.sql"));
-        mojo.execute();
-        Assert.assertTrue(new File("target/script_pending_undo.sql").exists());
-    }
+  @Test
+  public void testScriptPendingUndo() throws Exception {
+    AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "v1", "pending_undo");
+    rule.setVariableValueToObject(mojo, "output", new File("target/script_pending_undo.sql"));
+    mojo.execute();
+    Assert.assertTrue(new File("target/script_pending_undo.sql").exists());
+  }
 
 }

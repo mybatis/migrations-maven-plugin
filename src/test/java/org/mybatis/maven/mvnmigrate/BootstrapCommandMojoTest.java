@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
-    @SuppressWarnings("unchecked")
-    @Test
-    public void testBootstrapGoal() throws Exception {
-        AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) rule.lookupMojo("bootstrap", testPom);
-        Assert.assertNotNull(mojo);
-        mojo.execute();
-    }
+  @SuppressWarnings("unchecked")
+  @Test
+  public void testBootstrapGoal() throws Exception {
+    AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) rule.lookupMojo("bootstrap", testPom);
+    Assert.assertNotNull(mojo);
+    mojo.execute();
+  }
 
 }

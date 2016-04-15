@@ -30,31 +30,31 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "up")
 public final class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
 
-    /**
-     * Steps to do (default all steps).
-     */
-    @Parameter(property="migration.up.steps")
-    private String upSteps;
+  /**
+   * Steps to do (default all steps).
+   */
+  @Parameter(property = "migration.up.steps")
+  private String upSteps;
 
-    /**
-     * {@inheritDoc}
-     *
-     * @param options
-     */
-    @Override
-    protected UpCommand createCommandClass(SelectedOptions options) {
-        return new UpCommand(options);
+  /**
+   * {@inheritDoc}
+   *
+   * @param options
+   */
+  @Override
+  protected UpCommand createCommandClass(SelectedOptions options) {
+    return new UpCommand(options);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    if (isSkip()) {
+      return;
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) {
-            return;
-        }
-
-        init();
-        getCommand().execute(upSteps);
-    }
+    init();
+    getCommand().execute(upSteps);
+  }
 
 }

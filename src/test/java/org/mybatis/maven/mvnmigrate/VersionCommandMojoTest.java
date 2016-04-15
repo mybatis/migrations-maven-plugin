@@ -26,32 +26,32 @@ import org.junit.Test;
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
 
-    @Test
-    public void testUpVersionVersionDownGoal() throws Exception {
-        runUpGoal();
-        runVersionGoal();
-        runVersionDownGoal();
-    }
+  @Test
+  public void testUpVersionVersionDownGoal() throws Exception {
+    runUpGoal();
+    runVersionGoal();
+    runVersionDownGoal();
+  }
 
-    protected void runUpGoal() throws Exception {
-        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "upSteps", "1");
-        mojo.execute();
-    }
+  protected void runUpGoal() throws Exception {
+    AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "upSteps", "1");
+    mojo.execute();
+  }
 
-    protected void runVersionGoal() throws Exception {
-        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "version", "20100400000003");
-        mojo.execute();
-    }
+  protected void runVersionGoal() throws Exception {
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "version", "20100400000003");
+    mojo.execute();
+  }
 
-    protected void runVersionDownGoal() throws Exception {
-        AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "version", "20100400000001");
-        mojo.execute();
-    }
+  protected void runVersionDownGoal() throws Exception {
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "version", "20100400000001");
+    mojo.execute();
+  }
 
 }

@@ -30,31 +30,31 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "version")
 public final class VersionCommandMojo extends AbstractCommandMojo<VersionCommand> {
 
-    /**
-     * Version string.
-     */
-    @Parameter(property="migration.version", required=true)
-    private String version;
+  /**
+   * Version string.
+   */
+  @Parameter(property = "migration.version", required = true)
+  private String version;
 
-    /**
-     * {@inheritDoc}
-     *
-     * @param options
-     */
-    @Override
-    protected VersionCommand createCommandClass(SelectedOptions options) {
-        return new VersionCommand(options);
+  /**
+   * {@inheritDoc}
+   *
+   * @param options
+   */
+  @Override
+  protected VersionCommand createCommandClass(SelectedOptions options) {
+    return new VersionCommand(options);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    if (isSkip()) {
+      return;
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) {
-            return;
-        }
-
-        init();
-        getCommand().execute(this.version);
-    }
+    init();
+    getCommand().execute(this.version);
+  }
 
 }

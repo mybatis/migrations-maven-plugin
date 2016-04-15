@@ -28,44 +28,44 @@ import org.junit.Test;
 @SuppressWarnings("unchecked")
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
-    @Before
-    public void init() throws Exception {
-        initEnvironment();
-    }
+  @Before
+  public void init() throws Exception {
+    initEnvironment();
+  }
 
-    @Test
-    public void testUpPendingDownAllDown() throws Exception {
-      runUpGoal();
-      runPendingGoal();
-      runDownGoal();
-      runALLDownGoal();
-    }
+  @Test
+  public void testUpPendingDownAllDown() throws Exception {
+    runUpGoal();
+    runPendingGoal();
+    runDownGoal();
+    runALLDownGoal();
+  }
 
-    protected void runUpGoal() throws Exception {
-        AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "upSteps", null);
-        mojo.execute();
-    }
+  protected void runUpGoal() throws Exception {
+    AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "upSteps", null);
+    mojo.execute();
+  }
 
-    protected void runPendingGoal() throws Exception {
-        AbstractCommandMojo<PendingCommand> mojo = (AbstractCommandMojo<PendingCommand>) rule.lookupMojo("pending", testPom);
-        Assert.assertNotNull(mojo);
-        mojo.execute();
-    }
+  protected void runPendingGoal() throws Exception {
+    AbstractCommandMojo<PendingCommand> mojo = (AbstractCommandMojo<PendingCommand>) rule.lookupMojo("pending", testPom);
+    Assert.assertNotNull(mojo);
+    mojo.execute();
+  }
 
-    protected void runDownGoal() throws Exception {
-        AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) rule.lookupMojo("down", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "downSteps", "1");
-        mojo.execute();
-    }
+  protected void runDownGoal() throws Exception {
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) rule.lookupMojo("down", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "downSteps", "1");
+    mojo.execute();
+  }
 
-    protected void runALLDownGoal() throws Exception {
-        AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) rule.lookupMojo("down", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "downSteps", "ALL");
-        mojo.execute();
-    }
+  protected void runALLDownGoal() throws Exception {
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) rule.lookupMojo("down", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "downSteps", "ALL");
+    mojo.execute();
+  }
 
 }

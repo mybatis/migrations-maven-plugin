@@ -30,40 +30,40 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "down")
 public final class DownCommandMojo extends AbstractCommandMojo<DownCommand> {
 
-    /**
-     * Steps to do. (type ALL to apply all down steps, default: 1 step)
-     */
-    @Parameter(property="migration.down.steps")
-    private String downSteps;
+  /**
+   * Steps to do. (type ALL to apply all down steps, default: 1 step)
+   */
+  @Parameter(property = "migration.down.steps")
+  private String downSteps;
 
-    /**
-     * {@inheritDoc}
-     *
-     * @param options
-     */
-    @Override
-    protected DownCommand createCommandClass(SelectedOptions options) {
-        return new DownCommand(options);
+  /**
+   * {@inheritDoc}
+   *
+   * @param options
+   */
+  @Override
+  protected DownCommand createCommandClass(SelectedOptions options) {
+    return new DownCommand(options);
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    if (isSkip()) {
+      return;
+    }
+    init();
+
+    // default downsteps to 1 if not specified on command line
+    if (downSteps == null) {
+      downSteps = "1";
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) {
-            return;
-        }
-        init();
-
-        // default downsteps to 1 if not specified on command line
-        if (downSteps == null) {
-            downSteps = "1";
-        }
- 
-        if ("ALL".equalsIgnoreCase(downSteps)) {
-            downSteps = "999999";
-        }
-
-        getCommand().execute(downSteps);
+    if ("ALL".equalsIgnoreCase(downSteps)) {
+      downSteps = "999999";
     }
+
+    getCommand().execute(downSteps);
+  }
 
 }

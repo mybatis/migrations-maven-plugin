@@ -29,54 +29,57 @@ import org.junit.Test;
 @SuppressWarnings("unchecked")
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
 
-    @Before
-    public void init() throws Exception {
-        initEnvironment();
-    }
+  @Before
+  public void init() throws Exception {
+    initEnvironment();
+  }
 
-    @Test
-    public void testNewGoal() throws Exception {
-        AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-        Assert.assertNotNull(mojo);
-        rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
-        rule.setVariableValueToObject(mojo, "description", "test_script");
-        mojo.execute();
+  @Test
+  public void testNewGoal() throws Exception {
+    AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
+    Assert.assertNotNull(mojo);
+    rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
+    rule.setVariableValueToObject(mojo, "description", "test_script");
+    mojo.execute();
 
-        final File newRep = new File("target/init/scripts");
-        Assert.assertEquals(4, newRep.listFiles().length);
-    }
+    final File newRep = new File("target/init/scripts");
+    Assert.assertEquals(4, newRep.listFiles().length);
+  }
 
-    @Test
-    public void testnewGoalRequiredValue() throws Exception {
-        try {
-            AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-            Assert.assertNotNull(mojo);
-            rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
-            rule.setVariableValueToObject(mojo, "description", null);
-            mojo.execute();
-            Assert.fail();
-        } catch (Exception e) {}
+  @Test
+  public void testnewGoalRequiredValue() throws Exception {
+    try {
+      AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
+      Assert.assertNotNull(mojo);
+      rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      rule.setVariableValueToObject(mojo, "description", null);
+      mojo.execute();
+      Assert.fail();
+    } catch (Exception e) {
     }
+  }
 
-    @Test
-    public void testnewGoalSetEmptyValue() throws Exception {
-        try{
-            AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-            Assert.assertNotNull(mojo);
-            rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
-            rule.setVariableValueToObject(mojo, "description", "");
-            mojo.execute();
-        } catch (Exception e) {}
+  @Test
+  public void testnewGoalSetEmptyValue() throws Exception {
+    try {
+      AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
+      Assert.assertNotNull(mojo);
+      rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      rule.setVariableValueToObject(mojo, "description", "");
+      mojo.execute();
+    } catch (Exception e) {
     }
+  }
 
-    @Test
-    public void testnewGoalInitRepAlreadyExist() throws Exception {
-        try{
-            AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);
-            Assert.assertNotNull(mojo);
-            rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
-            mojo.execute();
-        } catch (Exception e) {}
+  @Test
+  public void testnewGoalInitRepAlreadyExist() throws Exception {
+    try {
+      AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);
+      Assert.assertNotNull(mojo);
+      rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      mojo.execute();
+    } catch (Exception e) {
     }
+  }
 
 }

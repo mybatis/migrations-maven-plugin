@@ -23,77 +23,77 @@ import org.apache.maven.plugin.logging.Log;
 /**
  * A custom {@link OutputStream}.
  *
- * Writes all complete line (ended with \n character) to a maven
- * logger.
+ * Writes all complete line (ended with \n character) to a maven logger.
  *
  * @version $Id$
  */
 public class MavenOutputStream extends OutputStream {
 
-    /**
-     * The new line '\n' char constant.
-     */
-    private static final char NEW_LINE = '\n';
+  /**
+   * The new line '\n' char constant.
+   */
+  private static final char NEW_LINE = '\n';
 
-    /**
-     * The buffer used to maintain the line
-     */
-    final private StringBuilder buff = new StringBuilder();
+  /**
+   * The buffer used to maintain the line
+   */
+  final private StringBuilder buff = new StringBuilder();
 
-    /**
-     * The maven {@link Log}
-     */
-    final private Log log;
+  /**
+   * The maven {@link Log}
+   */
+  final private Log log;
 
-    /**
-     * Creates a new instance of {@link MavenOutputStream}.
-     *
-     * @param log the maven logger L
-     */
-    public MavenOutputStream(final Log log) {
-        this.log = log;
+  /**
+   * Creates a new instance of {@link MavenOutputStream}.
+   *
+   * @param log
+   *          the maven logger L
+   */
+  public MavenOutputStream(final Log log) {
+    this.log = log;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void write(byte[] b, int off, int len) throws IOException {
+    for (int i = off; i < len; i++) {
+      write((int) b[i]);
     }
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void write(byte[] b, int off, int len) throws IOException {
-        for (int i = off; i < len; i++) {
-            write((int) b[i]);
-        }
-    }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void write(byte[] b) throws IOException {
+    write(b, 0, b.length);
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void write(byte[] b) throws IOException {
-        write(b, 0, b.length);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void write(int data) throws IOException {
+    if (NEW_LINE == data) {
+      if (this.log.isInfoEnabled()) {
+        this.log.info(buff.toString());
+      }
+      flush();
+    } else {
+      this.buff.append((char) data);
     }
+  }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void write(int data) throws IOException {
-        if (NEW_LINE == data) {
-            if (this.log.isInfoEnabled()) {
-                this.log.info(buff.toString());
-            }
-            flush();
-        } else {
-            this.buff.append((char) data);
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void flush() throws IOException {
-        super.flush();
-        this.buff.delete(0, this.buff.capacity());
-    }
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void flush() throws IOException {
+    super.flush();
+    this.buff.delete(0, this.buff.capacity());
+  }
 
 }

@@ -27,13 +27,14 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "status")
 public class StatusCommandMojo extends AbstractCommandMojo<StatusCommand> {
 
-    /**
-     * {@inheritDoc}
-     * @param options
-     */
-    @Override
-    protected StatusCommand createCommandClass(SelectedOptions options) {
-        return new StatusCommand(options);
-    }
+  /**
+   * {@inheritDoc}
+   * 
+   * @param options
+   */
+  @Override
+  protected StatusCommand createCommandClass(SelectedOptions options) {
+    return new StatusCommand(options);
+  }
 
 }

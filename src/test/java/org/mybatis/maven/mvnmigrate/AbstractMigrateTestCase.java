@@ -27,66 +27,66 @@ import org.junit.Rule;
  */
 public abstract class AbstractMigrateTestCase {
 
-    // TODO There is no BaseDir for Junit4 version.  Does not seem to be needed and maven site points to other method call that doesn't exist.
-    //      Leave this for now until we can determine this is needed or not.
-    // protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
-	protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+  // TODO There is no BaseDir for Junit4 version. Does not seem to be needed and maven site points to other method call that doesn't exist.
+  // Leave this for now until we can determine this is needed or not.
+  // protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+  protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
-    @Rule
-    public MojoRule rule = new MojoRule() {
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        protected void before() throws Exception {
-            cleanup();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        protected void after() {
-            try {
-                cleanup();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        protected void cleanup() throws Exception {
-            File initMigrationDbFolder;
-            initMigrationDbFolder = new File("target/init");
-            if (initMigrationDbFolder.exists()) {
-                deleteDir(initMigrationDbFolder);
-            }
-        }
-    };
-
-    protected static boolean deleteDir(File dir) {
-        if (dir.isDirectory()) {
-            String[] children = dir.list();
-            for (int i=0; i<children.length; i++) {
-                boolean success = deleteDir(new File(dir, children[i]));
-                if (!success) {
-                    return false;
-                }
-            }
-        }
-
-        // The directory is now empty so delete it
-        return dir.delete();
+  @Rule
+  public MojoRule rule = new MojoRule() {
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void before() throws Exception {
+      cleanup();
     }
 
-    @SuppressWarnings("unchecked")
-    protected void initEnvironment() throws Exception {
-        AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);
-        Assert.assertNotNull(mojo);
-
-        final File newRep = new File("target/init");
-        rule.setVariableValueToObject(mojo, "repository", newRep);
-        mojo.execute();
-        Assert.assertTrue(newRep.exists());
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void after() {
+      try {
+        cleanup();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
+
+    protected void cleanup() throws Exception {
+      File initMigrationDbFolder;
+      initMigrationDbFolder = new File("target/init");
+      if (initMigrationDbFolder.exists()) {
+        deleteDir(initMigrationDbFolder);
+      }
+    }
+  };
+
+  protected static boolean deleteDir(File dir) {
+    if (dir.isDirectory()) {
+      String[] children = dir.list();
+      for (int i = 0; i < children.length; i++) {
+        boolean success = deleteDir(new File(dir, children[i]));
+        if (!success) {
+          return false;
+        }
+      }
+    }
+
+    // The directory is now empty so delete it
+    return dir.delete();
+  }
+
+  @SuppressWarnings("unchecked")
+  protected void initEnvironment() throws Exception {
+    AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init", testPom);
+    Assert.assertNotNull(mojo);
+
+    final File newRep = new File("target/init");
+    rule.setVariableValueToObject(mojo, "repository", newRep);
+    mojo.execute();
+    Assert.assertTrue(newRep.exists());
+  }
 
 }

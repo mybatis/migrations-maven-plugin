@@ -30,50 +30,51 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "new")
 public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
 
-    /**
-     * New file description.
-     */
-	@Parameter(property="migration.description",required=true)
-    private String description;
+  /**
+   * New file description.
+   */
+  @Parameter(property = "migration.description", required = true)
+  private String description;
 
-    /**
-     * New file based on template.
-     */
-	@Parameter(property="migration.template")
-    private String template;
+  /**
+   * New file based on template.
+   */
+  @Parameter(property = "migration.template")
+  private String template;
 
-    /**
-     * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
-     */
-    @Parameter(property="migration.idpattern")
-    private String idPattern;
+  /**
+   * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
+   */
+  @Parameter(property = "migration.idpattern")
+  private String idPattern;
 
-    /**
-     * {@inheritDoc}
-     * @param options
-     */
-    @Override
-    protected NewCommand createCommandClass(SelectedOptions options) {
-        if (template != null) {
-            options.setTemplate(template);
-        }
-        if (idPattern != null) {
-            options.setIdPattern(idPattern);
-        }
-        return new NewCommand(options);
+  /**
+   * {@inheritDoc}
+   * 
+   * @param options
+   */
+  @Override
+  protected NewCommand createCommandClass(SelectedOptions options) {
+    if (template != null) {
+      options.setTemplate(template);
+    }
+    if (idPattern != null) {
+      options.setIdPattern(idPattern);
+    }
+    return new NewCommand(options);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    if (isSkip()) {
+      return;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (isSkip()) {
-            return;
-        }
-
-        init();
-        getCommand().execute(this.description);
-    }
+    init();
+    getCommand().execute(this.description);
+  }
 
 }

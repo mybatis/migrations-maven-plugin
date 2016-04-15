@@ -30,22 +30,23 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "init")
 public final class InitCommandMojo extends AbstractCommandMojo<InitializeCommand> {
 
-    /**
-     * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
-     */
-    @Parameter(property="migration.idpattern")
-    private String idPattern;
+  /**
+   * Sequential number for script prefix. (type 000 to generate 001_create_changelog)
+   */
+  @Parameter(property = "migration.idpattern")
+  private String idPattern;
 
-    /**
-     * {@inheritDoc}
-     * @param options
-     */
-    @Override
-    protected InitializeCommand createCommandClass(SelectedOptions options) {
-        if (idPattern != null) {
-            options.setIdPattern(idPattern);
-        }
-        return new InitializeCommand(options);
+  /**
+   * {@inheritDoc}
+   * 
+   * @param options
+   */
+  @Override
+  protected InitializeCommand createCommandClass(SelectedOptions options) {
+    if (idPattern != null) {
+      options.setIdPattern(idPattern);
     }
+    return new InitializeCommand(options);
+  }
 
 }

@@ -36,133 +36,130 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
  */
 abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 
-    private final Locale locale = Locale.ENGLISH;
+  private final Locale locale = Locale.ENGLISH;
 
-    /**
-     * Location of migrate repository.
-     */
-    @Parameter(property = "migration.path", defaultValue = ".")
-    private File repository;
+  /**
+   * Location of migrate repository.
+   */
+  @Parameter(property = "migration.path", defaultValue = ".")
+  private File repository;
 
-    /**
-     * Environment to configure. Default environment is 'development'.
-     */
-    @Parameter(property = "migration.env", defaultValue = "development")
-    private String environment;
+  /**
+   * Environment to configure. Default environment is 'development'.
+   */
+  @Parameter(property = "migration.env", defaultValue = "development")
+  private String environment;
 
-    /**
-     * Forces script to continue even if SQL errors are encountered.
-     */
-    @Parameter(property = "migration.force", defaultValue = "false")
-    private boolean force;
+  /**
+   * Forces script to continue even if SQL errors are encountered.
+   */
+  @Parameter(property = "migration.force", defaultValue = "false")
+  private boolean force;
 
-    /**
-     * Skip migration actions.
-     */
-    @Parameter(property = "migration.skip", defaultValue = "false")
-    private boolean skip;
+  /**
+   * Skip migration actions.
+   */
+  @Parameter(property = "migration.skip", defaultValue = "false")
+  private boolean skip;
 
-    /**
-     * The command to execute.
-     */
-    private T command;
+  /**
+   * The command to execute.
+   */
+  private T command;
 
-    /**
-     * execute the command.
-     */
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (this.isSkip()) {
-            return;
-        }
-        this.init();
-        this.command.execute();
+  /**
+   * execute the command.
+   */
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    if (this.isSkip()) {
+      return;
     }
+    this.init();
+    this.command.execute();
+  }
 
-    /**
-     * Initialize the MyBatis Migration command.
-     */
-    protected void init() throws MojoFailureException {
-        try {
-            final SelectedOptions options = new SelectedOptions();
-            options.getPaths().setBasePath(this.getRepository());
-            options.setEnvironment(this.getEnvironment());
-            options.setForce(this.isForce());
+  /**
+   * Initialize the MyBatis Migration command.
+   */
+  protected void init() throws MojoFailureException {
+    try {
+      final SelectedOptions options = new SelectedOptions();
+      options.getPaths().setBasePath(this.getRepository());
+      options.setEnvironment(this.getEnvironment());
+      options.setForce(this.isForce());
 
-            this.command = this.createCommandClass(options);
-            final PrintStream out = new PrintStream(new MavenOutputStream(this.getLog()));
-            this.command.setPrintStream(out);
-            this.command.setDriverClassLoader(this.getClass().getClassLoader());
+      this.command = this.createCommandClass(options);
+      final PrintStream out = new PrintStream(new MavenOutputStream(this.getLog()));
+      this.command.setPrintStream(out);
+      this.command.setDriverClassLoader(this.getClass().getClassLoader());
 
-            if (this.getLog().isInfoEnabled()) {
-                final String[] args = { this.command.getClass().getSimpleName(),
-                        this.getBundle(this.locale).getString("migration.plugin.name") };
-                final MessageFormat format = new MessageFormat(
-                        this.getBundle(this.locale).getString("migration.plugin.execution.command"));
-                this.getLog().info(format.format(args));
-            }
-        } catch (final RuntimeException e) {
-            throw e;
-        } catch (final Exception e) {
-            throw new MojoFailureException(this, e.getMessage(), e.getLocalizedMessage());
-        }
+      if (this.getLog().isInfoEnabled()) {
+        final String[] args = { this.command.getClass().getSimpleName(), this.getBundle(this.locale).getString("migration.plugin.name") };
+        final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command"));
+        this.getLog().info(format.format(args));
+      }
+    } catch (final RuntimeException e) {
+      throw e;
+    } catch (final Exception e) {
+      throw new MojoFailureException(this, e.getMessage(), e.getLocalizedMessage());
     }
+  }
 
-    protected Locale getLocale() {
-        return this.locale;
+  protected Locale getLocale() {
+    return this.locale;
+  }
+
+  protected File getRepository() {
+    return this.repository;
+  }
+
+  protected String getEnvironment() {
+    return this.environment;
+  }
+
+  protected boolean isForce() {
+    return this.force;
+  }
+
+  /**
+   * Return the command.
+   *
+   * @return {@link BaseCommand} the command created.
+   */
+  protected T getCommand() {
+    return this.command;
+  }
+
+  /**
+   * Test if the skip flag is setted.
+   *
+   * @return the skip flag.
+   */
+  protected boolean isSkip() {
+    if (this.skip && this.getLog().isInfoEnabled()) {
+      final String[] args = { this.getBundle(this.locale).getString("migration.plugin.name") };
+      final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
+      this.getLog().info(format.format(args));
     }
+    return this.skip;
+  }
 
-    protected File getRepository() {
-        return this.repository;
-    }
+  /**
+   * The current locale.
+   *
+   * @param locale
+   */
+  protected ResourceBundle getBundle(final Locale locale) {
+    return ResourceBundle.getBundle("migration-plugin", locale, this.getClass().getClassLoader());
+  }
 
-    protected String getEnvironment() {
-        return this.environment;
-    }
-
-    protected boolean isForce() {
-        return this.force;
-    }
-
-    /**
-     * Return the command.
-     *
-     * @return {@link BaseCommand} the command created.
-     */
-    protected T getCommand() {
-        return this.command;
-    }
-
-    /**
-     * Test if the skip flag is setted.
-     *
-     * @return the skip flag.
-     */
-    protected boolean isSkip() {
-        if (this.skip && this.getLog().isInfoEnabled()) {
-            final String[] args = { this.getBundle(this.locale).getString("migration.plugin.name") };
-            final MessageFormat format = new MessageFormat(
-                    this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
-            this.getLog().info(format.format(args));
-        }
-        return this.skip;
-    }
-
-    /**
-     * The current locale.
-     *
-     * @param locale
-     */
-    protected ResourceBundle getBundle(final Locale locale) {
-        return ResourceBundle.getBundle("migration-plugin", locale, this.getClass().getClassLoader());
-    }
-
-    /**
-     * Creates the specific mojo command.
-     *
-     * @return The command created.
-     * @param options
-     */
-    protected abstract T createCommandClass(final SelectedOptions options);
+  /**
+   * Creates the specific mojo command.
+   *
+   * @return The command created.
+   * @param options
+   */
+  protected abstract T createCommandClass(final SelectedOptions options);
 
 }
