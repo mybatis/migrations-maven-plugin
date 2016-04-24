@@ -21,9 +21,6 @@ import org.apache.ibatis.migration.commands.ScriptCommand;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @version $Id$
- */
 @SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 

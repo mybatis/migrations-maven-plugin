@@ -31,8 +31,6 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
 
 /**
  * Provides to an abstract class that extends {@link AbstractMojo}.
- *
- * @version $Id$
  */
 abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
 

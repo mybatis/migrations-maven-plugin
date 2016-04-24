@@ -15,7 +15,5 @@
  */
 /**
  * Contains myBatis migration command implementation for this plugin.
- *
- * @version $Id$
  */
 package org.mybatis.maven.mvnmigrate;

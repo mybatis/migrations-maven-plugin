@@ -19,9 +19,6 @@ import org.apache.ibatis.migration.commands.BootstrapCommand;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @version $Id$
- */
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
   @SuppressWarnings("unchecked")

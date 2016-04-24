@@ -41,8 +41,6 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
  * Extends {@link AbstractMavenReport}.
  * <p/>
  * Class to generate a Maven report.
- *
- * @version $Id$
  */
 @Mojo(name = "status-report")
 public final class StatusCommandReportMojo extends AbstractMavenReport {

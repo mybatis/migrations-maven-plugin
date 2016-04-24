@@ -15,7 +15,5 @@
  */
 /**
  * Contains migration plugins report classes.
- *
- * @version $Id$
  */
 package org.mybatis.maven.mvnmigrate.report;

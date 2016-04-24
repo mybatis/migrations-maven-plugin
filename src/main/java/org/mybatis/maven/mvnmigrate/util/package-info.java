@@ -15,7 +15,5 @@
  */
 /**
  * Contains migration plugins utils.
- *
- * @version $Id$
  */
 package org.mybatis.maven.mvnmigrate.util;

@@ -14,8 +14,6 @@
 --    limitations under the License.
 --
 
--- version: $Id: bootstrap.sql 107 2010-06-26 20:04:42Z simone.tripodi $
-
 --// Bootstrap.sql
 
 -- This is the only SQL script file that is NOT

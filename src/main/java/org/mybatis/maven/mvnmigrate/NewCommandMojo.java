@@ -24,8 +24,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which executes the ibatis migration new command.
- *
- * @version $Id$
  */
 @Mojo(name = "new")
 public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {

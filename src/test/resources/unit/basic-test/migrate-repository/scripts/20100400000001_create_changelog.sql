@@ -14,8 +14,6 @@
 --    limitations under the License.
 --
 
--- version: $Id: 20100400000001_create_changelog.sql 107 2010-06-26 20:04:42Z simone.tripodi $
-
 --// Create Changelog
 
 -- Default DDL for changelog table that will keep

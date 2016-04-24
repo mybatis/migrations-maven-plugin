@@ -26,8 +26,6 @@ import org.apache.maven.project.MavenProject;
 
 /**
  * View of status report.
- *
- * @version $Id$
  */
 public final class MigrationStatusReportView {
 

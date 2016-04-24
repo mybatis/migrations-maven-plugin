@@ -21,8 +21,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration bootstrap command.
- *
- * @version $Id$
  */
 @Mojo(name = "bootstrap")
 public final class BootstrapCommandMojo extends AbstractCommandMojo<BootstrapCommand> {

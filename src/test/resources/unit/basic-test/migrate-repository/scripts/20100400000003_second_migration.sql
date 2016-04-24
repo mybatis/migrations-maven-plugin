@@ -14,8 +14,6 @@
 --    limitations under the License.
 --
 
--- version: $Id: 20100400000003_second_migration.sql 107 2010-06-26 20:04:42Z simone.tripodi $
-
 --// First migration.
 -- Migration SQL that makes the change goes here.
 

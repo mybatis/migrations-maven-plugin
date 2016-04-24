@@ -21,8 +21,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration status command.
- *
- * @version $Id$
  */
 @Mojo(name = "status")
 public class StatusCommandMojo extends AbstractCommandMojo<StatusCommand> {
