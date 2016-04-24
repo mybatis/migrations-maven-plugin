@@ -22,9 +22,6 @@ import org.apache.maven.plugin.testing.MojoRule;
 import org.junit.Assert;
 import org.junit.Rule;
 
-/**
- * @version $Id$
- */
 public abstract class AbstractMigrateTestCase {
 
   // TODO There is no BaseDir for Junit4 version. Does not seem to be needed and maven site points to other method call that doesn't exist.

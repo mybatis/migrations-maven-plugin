@@ -20,9 +20,6 @@ import org.apache.ibatis.migration.commands.VersionCommand;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @version $Id$
- */
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
 

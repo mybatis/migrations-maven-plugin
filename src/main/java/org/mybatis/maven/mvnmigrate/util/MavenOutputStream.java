@@ -24,8 +24,6 @@ import org.apache.maven.plugin.logging.Log;
  * A custom {@link OutputStream}.
  *
  * Writes all complete line (ended with \n character) to a maven logger.
- *
- * @version $Id$
  */
 public class MavenOutputStream extends OutputStream {
 

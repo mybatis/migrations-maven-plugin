@@ -21,8 +21,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which execute the ibatis migration pending command.
- *
- * @version $Id$
  */
 @Mojo(name = "pending")
 public final class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {

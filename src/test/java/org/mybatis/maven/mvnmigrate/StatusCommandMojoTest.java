@@ -19,9 +19,6 @@ import org.apache.ibatis.migration.commands.StatusCommand;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @version $Id$
- */
 public class StatusCommandMojoTest extends AbstractMigrateTestCase {
 
   @SuppressWarnings("unchecked")

@@ -28,8 +28,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Goal which executes the ibatis migration script command.
- *
- * @version $Id$
  */
 @Mojo(name = "script")
 public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> {

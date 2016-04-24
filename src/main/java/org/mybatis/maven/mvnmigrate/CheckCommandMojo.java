@@ -28,8 +28,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 
 /**
  * Goal which check the presence of pending migration.
- *
- * @version $Id$
  */
 @Mojo(name = "check", defaultPhase = LifecyclePhase.TEST)
 public final class CheckCommandMojo extends StatusCommandMojo {
