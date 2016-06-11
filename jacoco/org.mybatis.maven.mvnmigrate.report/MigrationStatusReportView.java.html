@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MigrationStatusReportView.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Migrations Maven plugin</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.maven.mvnmigrate.report</a> &gt; <span class="el_source">MigrationStatusReportView.java</span></div><h1>MigrationStatusReportView.java</h1><pre class="source lang-java linenums">/**
+ *    Copyright 2010-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.maven.mvnmigrate.report;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.ResourceBundle;
+
+import org.apache.ibatis.migration.Change;
+import org.apache.maven.doxia.sink.Sink;
+import org.apache.maven.project.MavenProject;
+
+/**
+ * View of status report.
+ */
+<span class="nc" id="L30">public final class MigrationStatusReportView {</span>
+
+  /**
+   * Generates the report.
+   *
+   * @param changes
+   *          list of {@link Change}
+   * @param sink
+   *          the {@link Sink} instance
+   * @param bundle
+   *          the {@link ResourceBundle} instance
+   */
+  public void generateReport(Map&lt;MavenProject, List&lt;Change&gt;&gt; changes, Sink sink, ResourceBundle bundle, boolean isAggregate) {
+
+<span class="nc" id="L44">    sink.head();</span>
+<span class="nc" id="L45">    sink.title();</span>
+<span class="nc" id="L46">    sink.text(bundle.getString(&quot;migration.status.report.header&quot;));</span>
+<span class="nc" id="L47">    sink.title_();</span>
+<span class="nc" id="L48">    sink.head_();</span>
+<span class="nc" id="L49">    sink.body();</span>
+
+    // Generate title
+<span class="nc" id="L52">    sink.section1();</span>
+<span class="nc" id="L53">    sink.sectionTitle1();</span>
+<span class="nc" id="L54">    sink.text(bundle.getString(&quot;migration.status.report.mainTitle&quot;));</span>
+<span class="nc" id="L55">    sink.sectionTitle1_();</span>
+<span class="nc" id="L56">    sink.section1_();</span>
+<span class="nc" id="L57">    sink.lineBreak();</span>
+
+<span class="nc" id="L59">    sink.section2();</span>
+<span class="nc" id="L60">    sink.sectionTitle2();</span>
+<span class="nc" id="L61">    sink.text(bundle.getString(&quot;migration.status.report.secondSectionTitle&quot;));</span>
+<span class="nc" id="L62">    sink.sectionTitle2_();</span>
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">    for (Entry&lt;MavenProject, List&lt;Change&gt;&gt; entries : changes.entrySet()) {</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">      if (isAggregate) {</span>
+<span class="nc" id="L66">        sink.section3();</span>
+<span class="nc" id="L67">        sink.sectionTitle3();</span>
+<span class="nc" id="L68">        sink.text(bundle.getString(&quot;migration.status.report.moduleTitle&quot;) + entries.getKey().getName());</span>
+<span class="nc" id="L69">        sink.sectionTitle3_();</span>
+      }
+<span class="nc" id="L71">      generateStatisticsTable(sink, entries.getValue());</span>
+<span class="nc" id="L72">    }</span>
+
+<span class="nc" id="L74">    sink.section2_();</span>
+<span class="nc" id="L75">    sink.lineBreak();</span>
+
+<span class="nc" id="L77">    sink.section3();</span>
+<span class="nc" id="L78">    sink.sectionTitle2();</span>
+<span class="nc" id="L79">    sink.text(bundle.getString(&quot;migration.status.report.thirdSectionTitle&quot;));</span>
+<span class="nc" id="L80">    sink.sectionTitle2_();</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">    for (Entry&lt;MavenProject, List&lt;Change&gt;&gt; entries : changes.entrySet()) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">      if (isAggregate) {</span>
+<span class="nc" id="L83">        sink.section3();</span>
+<span class="nc" id="L84">        sink.sectionTitle3();</span>
+<span class="nc" id="L85">        sink.text(bundle.getString(&quot;migration.status.report.moduleTitle&quot;) + entries.getKey().getName());</span>
+<span class="nc" id="L86">        sink.sectionTitle3_();</span>
+      }
+      // Generate Unused declared dependencies:
+<span class="nc" id="L89">      generateChangesTable(sink, entries.getValue());</span>
+<span class="nc" id="L90">    }</span>
+
+<span class="nc" id="L92">    sink.section3_();</span>
+
+    // Closing the report
+<span class="nc" id="L95">    sink.body_();</span>
+<span class="nc" id="L96">    sink.flush();</span>
+<span class="nc" id="L97">    sink.close();</span>
+<span class="nc" id="L98">  }</span>
+
+  /**
+   * Generates statistic table.
+   *
+   * @param sink
+   * @param changes
+   */
+  private void generateStatisticsTable(Sink sink, List&lt;Change&gt; changes) {
+<span class="nc" id="L107">    sink.table();</span>
+
+<span class="nc" id="L109">    sink.tableRow();</span>
+<span class="nc" id="L110">    sink.tableCell();</span>
+<span class="nc" id="L111">    sink.text(&quot; Number of migration changes: &quot;);</span>
+<span class="nc" id="L112">    sink.tableCell_();</span>
+
+<span class="nc" id="L114">    sink.tableCell();</span>
+<span class="nc" id="L115">    sink.text(&quot;&quot; + changes.size());</span>
+<span class="nc" id="L116">    sink.tableCell_();</span>
+<span class="nc" id="L117">    sink.tableRow_();</span>
+
+<span class="nc" id="L119">    sink.tableRow();</span>
+<span class="nc" id="L120">    sink.tableCell();</span>
+<span class="nc" id="L121">    sink.text(&quot; Number of pending migrations: &quot;);</span>
+<span class="nc" id="L122">    sink.tableCell_();</span>
+
+<span class="nc" id="L124">    int nop = numberOfPending(changes);</span>
+
+<span class="nc" id="L126">    sink.tableCell();</span>
+<span class="nc" id="L127">    sink.text(nop + &quot;  (&quot; + calcPerc(changes.size(), nop) + &quot;)  &quot;);</span>
+<span class="nc" id="L128">    sink.nonBreakingSpace();</span>
+<span class="nc" id="L129">    sink.figure();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">    sink.figureGraphics(nop == 0 ? &quot;images/icon_success_sml.gif&quot; : &quot;images/icon_warning_sml.gif&quot;);</span>
+<span class="nc" id="L131">    sink.figure_();</span>
+<span class="nc" id="L132">    sink.tableCell_();</span>
+<span class="nc" id="L133">    sink.tableRow_();</span>
+
+<span class="nc" id="L135">    sink.table_();</span>
+<span class="nc" id="L136">  }</span>
+
+  /**
+   * Calculates the percentage.
+   *
+   * @param size
+   *          the {@link Sink} instance
+   * @param nop
+   * @return
+   */
+  private String calcPerc(int tot, int nop) {
+<span class="nc" id="L147">    return &quot;&quot; + ((100 * nop) / tot) + &quot;%&quot;;</span>
+  }
+
+  /**
+   * Return the number of pending change found.
+   *
+   * @param changes
+   *          list of {@link Change}
+   * @return Return the number of pending change found.
+   */
+  private int numberOfPending(List&lt;Change&gt; changes) {
+<span class="nc" id="L158">    int numberOfPending = 0;</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">    for (Change change : changes) {</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">      if (change.getAppliedTimestamp() == null) {</span>
+<span class="nc" id="L161">        numberOfPending++;</span>
+      }
+<span class="nc" id="L163">    }</span>
+<span class="nc" id="L164">    return numberOfPending;</span>
+  }
+
+  /**
+   * Generate a table for the given dependencies iterator.
+   *
+   * @param sink
+   *          the {@link Sink} instance
+   * @param iter
+   *          list of {@link Change}
+   */
+  public void generateChangesTable(Sink sink, List&lt;Change&gt; iter) {
+<span class="nc" id="L176">    sink.table();</span>
+
+<span class="nc" id="L178">    sink.tableRow();</span>
+<span class="nc" id="L179">    sink.tableCell();</span>
+<span class="nc" id="L180">    sink.bold();</span>
+<span class="nc" id="L181">    sink.text(&quot;ID&quot;);</span>
+<span class="nc" id="L182">    sink.bold_();</span>
+<span class="nc" id="L183">    sink.tableCell_();</span>
+
+<span class="nc" id="L185">    sink.tableCell();</span>
+<span class="nc" id="L186">    sink.bold();</span>
+<span class="nc" id="L187">    sink.text(&quot;Applied At&quot;);</span>
+<span class="nc" id="L188">    sink.bold_();</span>
+<span class="nc" id="L189">    sink.tableCell_();</span>
+
+<span class="nc" id="L191">    sink.tableCell();</span>
+<span class="nc" id="L192">    sink.bold();</span>
+<span class="nc" id="L193">    sink.text(&quot;Description&quot;);</span>
+<span class="nc" id="L194">    sink.bold_();</span>
+<span class="nc" id="L195">    sink.tableCell_();</span>
+
+<span class="nc" id="L197">    sink.tableCell();</span>
+<span class="nc" id="L198">    sink.bold();</span>
+<span class="nc" id="L199">    sink.text(&quot;Filename&quot;);</span>
+<span class="nc" id="L200">    sink.bold_();</span>
+<span class="nc" id="L201">    sink.tableCell_();</span>
+
+<span class="nc" id="L203">    sink.tableCell();</span>
+<span class="nc" id="L204">    sink.bold();</span>
+<span class="nc" id="L205">    sink.text(&quot;Status&quot;);</span>
+<span class="nc" id="L206">    sink.bold_();</span>
+<span class="nc" id="L207">    sink.tableCell_();</span>
+
+<span class="nc" id="L209">    sink.tableRow_();</span>
+
+<span class="nc bnc" id="L211" title="All 2 branches missed.">    for (Change change : iter) {</span>
+<span class="nc" id="L212">      sink.tableRow();</span>
+
+<span class="nc" id="L214">      sink.tableCell();</span>
+<span class="nc" id="L215">      sink.text(&quot;&quot; + change.getId());</span>
+<span class="nc" id="L216">      sink.tableCell_();</span>
+
+<span class="nc" id="L218">      sink.tableCell();</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">      sink.text(change.getAppliedTimestamp() == null ? &quot; ... pending ... &quot; : change.getAppliedTimestamp());</span>
+<span class="nc" id="L220">      sink.tableCell_();</span>
+
+<span class="nc" id="L222">      sink.tableCell();</span>
+<span class="nc" id="L223">      sink.text(change.getDescription());</span>
+<span class="nc" id="L224">      sink.tableCell_();</span>
+
+<span class="nc" id="L226">      sink.tableCell();</span>
+<span class="nc" id="L227">      sink.text(change.getFilename());</span>
+<span class="nc" id="L228">      sink.tableCell_();</span>
+
+<span class="nc" id="L230">      sink.tableCell();</span>
+<span class="nc" id="L231">      sink.figure();</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">      sink.figureGraphics(change.getAppliedTimestamp() != null ? &quot;images/icon_success_sml.gif&quot; : &quot;images/icon_warning_sml.gif&quot;);</span>
+<span class="nc" id="L233">      sink.figure_();</span>
+<span class="nc" id="L234">      sink.tableCell_();</span>
+
+<span class="nc" id="L236">      sink.tableRow_();</span>
+<span class="nc" id="L237">    }</span>
+
+<span class="nc" id="L239">    sink.table_();</span>
+<span class="nc" id="L240">    sink.horizontalRule();</span>
+<span class="nc" id="L241">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
