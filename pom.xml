@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2016 the original author or authors.
+       Copyright 2010-2017 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis-parent</artifactId>
-    <version>28</version>
+    <version>29-SNAPSHOT</version>
     <relativePath />
   </parent>
 
@@ -194,7 +194,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-migrations</artifactId>
-      <version>3.2.1</version>
+      <version>3.3.1</version>
     </dependency>
 
     <!-- Dependencies for Analyze-report mojo -->
