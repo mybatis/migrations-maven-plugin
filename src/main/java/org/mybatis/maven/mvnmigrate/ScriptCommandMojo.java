@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -50,19 +50,11 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
   @Parameter(property = "migration.output")
   private File output;
 
-  /**
-   * {@inheritDoc}
-   * 
-   * @param options
-   */
   @Override
   protected ScriptCommand createCommandClass(SelectedOptions options) {
     return new ScriptCommand(options);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     if (isSkip()) {
@@ -77,7 +69,8 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
         this.getCommand().setPrintStream(System.out);
         if (this.getLog().isInfoEnabled()) {
           String[] args = { this.v1, this.v2 };
-          MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
+          MessageFormat format = new MessageFormat(
+              getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
           this.getLog().info(format.format(args));
         }
         // Print out all generated script. This is the standard migration tool behavior.
@@ -98,11 +91,13 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
       if (this.getLog().isInfoEnabled()) {
         if (this.output != null) {
           File[] args = { this.output };
-          MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.create.file"));
+          MessageFormat format = new MessageFormat(
+              getBundle(this.getLocale()).getString("migration.plugin.execution.command.create.file"));
           this.getLog().info(format.format(args));
         } else {
           String[] args = { this.v1, this.v2 };
-          MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
+          MessageFormat format = new MessageFormat(
+              getBundle(this.getLocale()).getString("migration.plugin.execution.command.script.sqlscript"));
           this.getLog().info(format.format(args));
         }
       }

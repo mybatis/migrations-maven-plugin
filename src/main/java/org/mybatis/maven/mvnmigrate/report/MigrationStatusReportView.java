@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -39,7 +39,8 @@ public final class MigrationStatusReportView {
    * @param bundle
    *          the {@link ResourceBundle} instance
    */
-  public void generateReport(Map<MavenProject, List<Change>> changes, Sink sink, ResourceBundle bundle, boolean isAggregate) {
+  public void generateReport(Map<MavenProject, List<Change>> changes, Sink sink, ResourceBundle bundle,
+      boolean isAggregate) {
 
     sink.head();
     sink.title();
@@ -100,8 +101,8 @@ public final class MigrationStatusReportView {
   /**
    * Generates statistic table.
    *
-   * @param sink
-   * @param changes
+   * @param sink the sink
+   * @param changes the changes
    */
   private void generateStatisticsTable(Sink sink, List<Change> changes) {
     sink.table();
@@ -138,10 +139,9 @@ public final class MigrationStatusReportView {
   /**
    * Calculates the percentage.
    *
-   * @param size
-   *          the {@link Sink} instance
-   * @param nop
-   * @return
+   * @param tot the tot
+   * @param nop the nop
+   * @return the string
    */
   private String calcPerc(int tot, int nop) {
     return "" + ((100 * nop) / tot) + "%";
@@ -229,7 +229,8 @@ public final class MigrationStatusReportView {
 
       sink.tableCell();
       sink.figure();
-      sink.figureGraphics(change.getAppliedTimestamp() != null ? "images/icon_success_sml.gif" : "images/icon_warning_sml.gif");
+      sink.figureGraphics(
+          change.getAppliedTimestamp() != null ? "images/icon_success_sml.gif" : "images/icon_warning_sml.gif");
       sink.figure_();
       sink.tableCell_();
 

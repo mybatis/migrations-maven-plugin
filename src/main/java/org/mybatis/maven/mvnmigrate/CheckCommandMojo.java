@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -53,7 +53,8 @@ public final class CheckCommandMojo extends StatusCommandMojo {
       int pendings = operation.getPendingCount();
       if (pendings > 0) {
         Integer[] args = { pendings };
-        MessageFormat format = new MessageFormat(getBundle(this.getLocale()).getString("migration.plugin.execution.check.failed"));
+        MessageFormat format = new MessageFormat(
+            getBundle(this.getLocale()).getString("migration.plugin.execution.check.failed"));
         throw new MojoFailureException(this, LINE_SEPARATOR + format.format(args), createLongMessage(changes));
       }
     }

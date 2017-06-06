@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -93,8 +93,10 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
       this.command.setDriverClassLoader(this.getClass().getClassLoader());
 
       if (this.getLog().isInfoEnabled()) {
-        final String[] args = { this.command.getClass().getSimpleName(), this.getBundle(this.locale).getString("migration.plugin.name") };
-        final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command"));
+        final String[] args = { this.command.getClass().getSimpleName(),
+            this.getBundle(this.locale).getString("migration.plugin.name") };
+        final MessageFormat format = new MessageFormat(
+            this.getBundle(this.locale).getString("migration.plugin.execution.command"));
         this.getLog().info(format.format(args));
       }
     } catch (final RuntimeException e) {
@@ -137,7 +139,8 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
   protected boolean isSkip() {
     if (this.skip && this.getLog().isInfoEnabled()) {
       final String[] args = { this.getBundle(this.locale).getString("migration.plugin.name") };
-      final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
+      final MessageFormat format = new MessageFormat(
+          this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
       this.getLog().info(format.format(args));
     }
     return this.skip;
@@ -146,7 +149,8 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
   /**
    * The current locale.
    *
-   * @param locale
+   * @param locale the locale
+   * @return the bundle
    */
   protected ResourceBundle getBundle(final Locale locale) {
     return ResourceBundle.getBundle("migration-plugin", locale, this.getClass().getClassLoader());
@@ -155,8 +159,8 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
   /**
    * Creates the specific mojo command.
    *
+   * @param options the options
    * @return The command created.
-   * @param options
    */
   protected abstract T createCommandClass(final SelectedOptions options);
 

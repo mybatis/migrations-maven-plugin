@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -34,17 +34,11 @@ public final class UpCommandMojo extends AbstractCommandMojo<UpCommand> {
   @Parameter(property = "migration.up.steps")
   private String upSteps;
 
-  /**
-   * {@inheritDoc}
-   *
-   * @param options
-   */
   @Override
   protected UpCommand createCommandClass(SelectedOptions options) {
     return new UpCommand(options);
   }
 
-  /** {@inheritDoc} */
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     if (isSkip()) {
