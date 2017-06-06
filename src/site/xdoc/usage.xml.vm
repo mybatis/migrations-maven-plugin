@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2016 the original author or authors.
+       Copyright 2010-2017 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@
   <plugin>
       <groupId>org.mybatis.maven</groupId>
       <artifactId>migrations-maven-plugin</artifactId>
-      <version>X.X</version>
+      <version>${project.version}</version>
       <configuration>
           <repository> [migration repository path] </repository>
       </configuration>
@@ -85,7 +85,7 @@
             <source><![CDATA[<plugin>
   <groupId>org.mybatis.maven</groupId>
   <artifactId>migrations-maven-plugin</artifactId>
-  <version>X.X</version>
+  <version>${project.version}</version>
   <configuration>
       <repository> [migration repository path] </repository>
   </configuration>
@@ -123,7 +123,7 @@
     <plugin>
       <groupId>org.mybatis.maven</groupId>
       <artifactId>migrations-maven-plugin</artifactId>
-      <version>X.X</version>
+      <version>${project.version}</version>
       <configuration>
         <repository> [migration repository path] </repository>
       </configuration>
@@ -148,7 +148,7 @@
     <plugin>
       <groupId>org.mybatis.maven</groupId>
       <artifactId>migrations-maven-plugin</artifactId>
-      <version>X.X</version>
+      <version>${project.version}</version>
       <configuration>
         <repository> [migration repository path] </repository>
       </configuration>
@@ -172,7 +172,7 @@
     <plugin>
       <groupId>org.mybatis.maven</groupId>
       <artifactId>migrations-maven-plugin</artifactId>
-      <version>X.X</version>
+      <version>${project.version}</version>
       <configuration>
         <repository> [migration repository path] </repository>
       </configuration>
@@ -192,13 +192,13 @@
     <plugin>
        <groupId>org.apache.maven.plugins</groupId>
        <artifactId>maven-site-plugin</artifactId>
-       <version>3.0</version>
+       <version>3.6</version>
        <configuration>
          <reportPlugins>
            <plugin>
              <groupId>org.mybatis.maven</groupId>
              <artifactId>migrations-maven-plugin</artifactId>
-             <version>X.X</version>
+             <version>${project.version}</version>
              <configuration>
                <repository> [migration repository path] </repository>
              </configuration>
