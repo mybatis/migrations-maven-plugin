@@ -93,8 +93,10 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
       this.command.setDriverClassLoader(this.getClass().getClassLoader());
 
       if (this.getLog().isInfoEnabled()) {
-        final String[] args = { this.command.getClass().getSimpleName(), this.getBundle(this.locale).getString("migration.plugin.name") };
-        final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command"));
+        final String[] args = { this.command.getClass().getSimpleName(),
+            this.getBundle(this.locale).getString("migration.plugin.name") };
+        final MessageFormat format = new MessageFormat(
+            this.getBundle(this.locale).getString("migration.plugin.execution.command"));
         this.getLog().info(format.format(args));
       }
     } catch (final RuntimeException e) {
@@ -137,7 +139,8 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
   protected boolean isSkip() {
     if (this.skip && this.getLog().isInfoEnabled()) {
       final String[] args = { this.getBundle(this.locale).getString("migration.plugin.name") };
-      final MessageFormat format = new MessageFormat(this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
+      final MessageFormat format = new MessageFormat(
+          this.getBundle(this.locale).getString("migration.plugin.execution.command.skipped"));
       this.getLog().info(format.format(args));
     }
     return this.skip;

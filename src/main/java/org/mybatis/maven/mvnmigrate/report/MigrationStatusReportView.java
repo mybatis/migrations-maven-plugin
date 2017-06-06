@@ -39,7 +39,8 @@ public final class MigrationStatusReportView {
    * @param bundle
    *          the {@link ResourceBundle} instance
    */
-  public void generateReport(Map<MavenProject, List<Change>> changes, Sink sink, ResourceBundle bundle, boolean isAggregate) {
+  public void generateReport(Map<MavenProject, List<Change>> changes, Sink sink, ResourceBundle bundle,
+      boolean isAggregate) {
 
     sink.head();
     sink.title();
@@ -228,7 +229,8 @@ public final class MigrationStatusReportView {
 
       sink.tableCell();
       sink.figure();
-      sink.figureGraphics(change.getAppliedTimestamp() != null ? "images/icon_success_sml.gif" : "images/icon_warning_sml.gif");
+      sink.figureGraphics(
+          change.getAppliedTimestamp() != null ? "images/icon_success_sml.gif" : "images/icon_warning_sml.gif");
       sink.figure_();
       sink.tableCell_();
 

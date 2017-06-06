@@ -128,7 +128,8 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
     if (this.outputDirectory == null || !this.outputDirectory.exists()) {
       if (this.getLog().isInfoEnabled()) {
-        this.getLog().info(getBundle(locale).getString(getBundle(locale).getString("migration.status.report.skipped.no.target")));
+        this.getLog().info(
+            getBundle(locale).getString(getBundle(locale).getString("migration.status.report.skipped.no.target")));
       }
       return;
     }

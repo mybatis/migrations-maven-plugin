@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -38,14 +38,16 @@ public class VersionCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   protected void runVersionGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version",
+        testPom);
     Assert.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "version", "20100400000003");
     mojo.execute();
   }
 
   protected void runVersionDownGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version", testPom);
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version",
+        testPom);
     Assert.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "version", "20100400000001");
     mojo.execute();
