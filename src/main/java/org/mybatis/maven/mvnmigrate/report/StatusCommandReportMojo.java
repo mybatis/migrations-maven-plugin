@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -105,7 +105,6 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
   @Parameter(property = "migration.aggregate", defaultValue = "false")
   protected boolean aggregate;
 
-  /** {@inheritDoc} */
   @Override
   protected void executeReport(Locale locale) throws MavenReportException {
     if (aggregate && !project.isExecutionRoot()) {
@@ -193,7 +192,6 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     view.generateReport(aggregateReport, sink, bundle, aggregate);
   }
 
-  /** {@inheritDoc} */
   @Override
   protected String getOutputDirectory() {
     if (this.getLog().isInfoEnabled()) {
@@ -202,13 +200,11 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
     return this.outputDirectory.toString();
   }
 
-  /** {@inheritDoc} */
   @Override
   protected MavenProject getProject() {
     return this.project;
   }
 
-  /** {@inheritDoc} */
   @Override
   protected Renderer getSiteRenderer() {
     return this.siteRenderer;
@@ -217,7 +213,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
   /**
    * Return the output name of the report.
    *
-   * @return the noutput name.
+   * @return the output name.
    */
   @Override
   public String getOutputName() {

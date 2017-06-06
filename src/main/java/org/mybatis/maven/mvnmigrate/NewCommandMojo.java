@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -46,11 +46,6 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
   @Parameter(property = "migration.idpattern")
   private String idPattern;
 
-  /**
-   * {@inheritDoc}
-   * 
-   * @param options
-   */
   @Override
   protected NewCommand createCommandClass(SelectedOptions options) {
     if (template != null) {
@@ -62,9 +57,6 @@ public final class NewCommandMojo extends AbstractCommandMojo<NewCommand> {
     return new NewCommand(options);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     if (isSkip()) {

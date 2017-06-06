@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2016 the original author or authors.
+ *    Copyright 2010-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.apache.maven.plugin.logging.Log;
 /**
  * A custom {@link OutputStream}.
  *
- * Writes all complete line (ended with \n character) to a maven logger.
+ * <p>Writes all complete line (ended with \n character) to a maven logger.
  */
 public class MavenOutputStream extends OutputStream {
 
@@ -33,14 +33,14 @@ public class MavenOutputStream extends OutputStream {
   private static final char NEW_LINE = '\n';
 
   /**
-   * The buffer used to maintain the line
+   * The buffer used to maintain the line.
    */
-  final private StringBuilder buff = new StringBuilder();
+  private final StringBuilder buff = new StringBuilder();
 
   /**
-   * The maven {@link Log}
+   * The maven {@link Log}.
    */
-  final private Log log;
+  private final Log log;
 
   /**
    * Creates a new instance of {@link MavenOutputStream}.
@@ -52,9 +52,6 @@ public class MavenOutputStream extends OutputStream {
     this.log = log;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void write(byte[] b, int off, int len) throws IOException {
     for (int i = off; i < len; i++) {
@@ -62,17 +59,11 @@ public class MavenOutputStream extends OutputStream {
     }
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void write(byte[] b) throws IOException {
     write(b, 0, b.length);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void write(int data) throws IOException {
     if (NEW_LINE == data) {
@@ -85,9 +76,6 @@ public class MavenOutputStream extends OutputStream {
     }
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void flush() throws IOException {
     super.flush();
