@@ -117,8 +117,6 @@
         <version>3.5</version>
         <configuration>
           <goalPrefix>migration</goalPrefix>
-          <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
-          <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
         </configuration>
         <executions>
           <execution>
@@ -262,7 +260,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>20.0</version>
+      <version>22.0-android</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
