@@ -203,6 +203,14 @@
           <artifactId>maven-project</artifactId>
           <groupId>org.apache.maven</groupId>
         </exclusion>
+        <exclusion>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts-taglib</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
