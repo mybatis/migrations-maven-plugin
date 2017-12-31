@@ -307,7 +307,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[2.0.0,)</versionRange>
+                        <versionRange>[3.0.0,)</versionRange>
                         <goals>
                           <goal>install</goal>
                         </goals>
