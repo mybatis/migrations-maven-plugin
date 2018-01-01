@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2017 the original author or authors.
+       Copyright 2010-2018 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -39,6 +39,17 @@
 
   <properties>
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
+
+    <!-- Targeted patches -->
+    <beanutils.version>1.9.3</beanutils.version>
+    <chain.version>1.2</chain.version>
+    <codec.version>1.11</codec.version>
+    <collections.version>3.2.2</collections.version>
+    <digester.version>1.8.1</digester.version>
+    <io.version>2.6</io.version>
+    <lang.version>2.6</lang.version>
+    <lang3.version>3.7</lang3.version>
+    <validator.version>1.6</validator.version>
   </properties>
 
   <scm>
@@ -193,6 +204,40 @@
       <artifactId>doxia-sink-api</artifactId>
       <version>1.8</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-core</artifactId>
+      <version>1.8</version>
+      <exclusions>
+          <exclusion>
+              <groupId>com.google.collections</groupId>
+              <artifactId>google-collections</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-site-renderer</artifactId>
+      <version>1.8</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-core</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.maven.reporting</groupId>
@@ -204,12 +249,12 @@
           <groupId>org.apache.maven</groupId>
         </exclusion>
         <exclusion>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts-tiles</artifactId>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
         </exclusion>
         <exclusion>
-            <groupId>org.apache.struts</groupId>
-            <artifactId>struts-taglib</artifactId>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -263,6 +308,65 @@
       <artifactId>junit-vintage-engine</artifactId>
       <version>4.12.2</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+      <exclusions>
+          <exclusion>
+              <groupId>xml-apis</groupId>
+              <artifactId>xml-apis</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Commons Patches due to maven legacy usage and vulnerabilities in many cases -->
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>${beanutils.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-chain</groupId>
+      <artifactId>commons-chain</artifactId>
+      <version>${chain.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>${collections.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>${digester.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>${validator.version}</version>
     </dependency>
   </dependencies>
 
