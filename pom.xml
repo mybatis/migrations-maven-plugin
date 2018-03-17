@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2017 the original author or authors.
+       Copyright 2010-2018 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis-parent</artifactId>
-    <version>29</version>
+    <version>30</version>
     <relativePath />
   </parent>
 
@@ -39,6 +39,17 @@
 
   <properties>
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
+
+    <!-- Targeted patches -->
+    <beanutils.version>1.9.3</beanutils.version>
+    <chain.version>1.2</chain.version>
+    <codec.version>1.11</codec.version>
+    <collections.version>3.2.2</collections.version>
+    <digester.version>1.8.1</digester.version>
+    <io.version>2.6</io.version>
+    <lang.version>2.6</lang.version>
+    <lang3.version>3.7</lang3.version>
+    <validator.version>1.6</validator.version>
   </properties>
 
   <scm>
@@ -167,18 +178,13 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
-      <version>3.2.5</version>
+      <version>3.5.2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
       <artifactId>maven-plugin-annotations</artifactId>
       <version>3.5</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-aether-provider</artifactId>
-      <version>3.2.5</version>
     </dependency>
 
     <dependency>
@@ -196,17 +202,59 @@
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-sink-api</artifactId>
-      <version>1.7</version>
+      <version>1.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-core</artifactId>
+      <version>1.8</version>
+      <exclusions>
+          <exclusion>
+              <groupId>com.google.collections</groupId>
+              <artifactId>google-collections</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-site-renderer</artifactId>
+      <version>1.8</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-core</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.apache.maven.reporting</groupId>
       <artifactId>maven-reporting-impl</artifactId>
-      <version>2.4</version>
+      <version>3.0.0</version>
       <exclusions>
         <exclusion>
           <artifactId>maven-project</artifactId>
           <groupId>org.apache.maven</groupId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-tiles</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.struts</groupId>
+          <artifactId>struts-taglib</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -215,13 +263,6 @@
       <groupId>org.apache.maven.plugin-testing</groupId>
       <artifactId>maven-plugin-testing-harness</artifactId>
       <version>3.3.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.maven.shared</groupId>
-      <artifactId>maven-verifier</artifactId>
-      <version>1.6</version>
       <scope>test</scope>
     </dependency>
 
@@ -235,38 +276,97 @@
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
-      <version>3.0.24</version>
+      <version>3.1.0</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
-      <version>3.2.5</version>
+      <version>3.5.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-compat</artifactId>
-      <version>3.2.5</version>
+      <version>3.5.2</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.apache.maven.shared</groupId>
       <artifactId>maven-shared-utils</artifactId>
-      <version>3.0.1</version>
+      <version>3.2.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>22.0-android</version>
+      <version>23.6-android</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>4.12.2</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+      <exclusions>
+          <exclusion>
+              <groupId>xml-apis</groupId>
+              <artifactId>xml-apis</artifactId>
+          </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Commons Patches due to maven legacy usage and vulnerabilities in many cases -->
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>${beanutils.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-chain</groupId>
+      <artifactId>commons-chain</artifactId>
+      <version>${chain.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>${collections.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>${digester.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-validator</groupId>
+      <artifactId>commons-validator</artifactId>
+      <version>${validator.version}</version>
     </dependency>
   </dependencies>
 
@@ -307,7 +407,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[2.0.0,)</versionRange>
+                        <versionRange>[3.0.0,)</versionRange>
                         <goals>
                           <goal>install</goal>
                         </goals>
