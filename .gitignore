@@ -21,3 +21,4 @@ target/*
 .project
 .classpath
 projectFilesBackup/*
+.mvn/wrapper/maven-wrapper.jar
