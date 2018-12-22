@@ -3,7 +3,6 @@ language: java
 jdk:
   - oraclejdk11
   - oraclejdk8
-  - openjdk7
 
 install: "./mvnw install -DskipTests=true -Dinvoker.skip=true -B"
 
