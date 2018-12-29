@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2017 the original author or authors.
+ *    Copyright 2010-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -101,8 +101,10 @@ public final class MigrationStatusReportView {
   /**
    * Generates statistic table.
    *
-   * @param sink the sink
-   * @param changes the changes
+   * @param sink
+   *          the sink
+   * @param changes
+   *          the changes
    */
   private void generateStatisticsTable(Sink sink, List<Change> changes) {
     sink.table();
@@ -139,8 +141,10 @@ public final class MigrationStatusReportView {
   /**
    * Calculates the percentage.
    *
-   * @param tot the tot
-   * @param nop the nop
+   * @param tot
+   *          the tot
+   * @param nop
+   *          the nop
    * @return the string
    */
   private String calcPerc(int tot, int nop) {
