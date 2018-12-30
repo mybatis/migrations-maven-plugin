@@ -39,6 +39,7 @@
 
   <properties>
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
+    <module.name>org.mybatis.maven.migrations</module.name>
   </properties>
 
   <scm>
