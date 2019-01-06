@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2017 the original author or authors.
+ *    Copyright 2010-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ import org.apache.maven.plugin.logging.Log;
 /**
  * A custom {@link OutputStream}.
  *
- * <p>Writes all complete line (ended with \n character) to a maven logger.
+ * <p>
+ * Writes all complete line (ended with \n character) to a maven logger.
  */
 public class MavenOutputStream extends OutputStream {
 

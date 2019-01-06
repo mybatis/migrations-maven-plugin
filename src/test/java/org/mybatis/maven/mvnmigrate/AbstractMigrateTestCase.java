@@ -1,5 +1,5 @@
 /**
- *    Copyright 2010-2017 the original author or authors.
+ *    Copyright 2010-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ import org.junit.Rule;
 
 public abstract class AbstractMigrateTestCase {
 
-  // TODO There is no BaseDir for Junit4 version. Does not seem to be needed and maven site points to other method call that doesn't exist.
+  // TODO There is no BaseDir for Junit4 version. Does not seem to be needed and maven site points to other method call
+  // that doesn't exist.
   // Leave this for now until we can determine this is needed or not.
   // protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
   protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
