@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2018 the original author or authors.
+       Copyright 2010-2019 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -44,9 +44,9 @@
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
     <chain.version>1.2</chain.version>
-    <codec.version>1.11</codec.version>
+    <codec.version>1.12</codec.version>
     <collections.version>3.2.2</collections.version>
-    <digester.version>1.8.1</digester.version>
+    <digester.version>2.1</digester.version>
     <io.version>2.6</io.version>
     <lang.version>2.6</lang.version>
     <lang3.version>3.8.1</lang3.version>
@@ -96,7 +96,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-invoker-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.2.0</version>
         <configuration>
           <debug>false</debug>
           <projectsDirectory>src/it</projectsDirectory>
@@ -191,7 +191,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-migrations</artifactId>
-      <version>3.3.1</version>
+      <version>3.3.5</version>
     </dependency>
 
     <!-- Dependencies for Analyze-report mojo -->
@@ -203,12 +203,12 @@
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-sink-api</artifactId>
-      <version>1.8</version>
+      <version>1.9</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-core</artifactId>
-      <version>1.8</version>
+      <version>1.9</version>
       <exclusions>
           <exclusion>
               <groupId>com.google.collections</groupId>
@@ -219,7 +219,7 @@
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-site-renderer</artifactId>
-      <version>1.8.1</version>
+      <version>1.9.1</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.struts</groupId>
@@ -277,7 +277,7 @@
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
-      <version>3.1.1</version>
+      <version>3.2.1</version>
       <scope>compile</scope>
     </dependency>
 
@@ -302,7 +302,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>23.6-android</version>
+      <version>28.0-jre</version>
     </dependency>
     <dependency>
       <groupId>org.junit.vintage</groupId>
