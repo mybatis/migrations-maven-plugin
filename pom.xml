@@ -44,7 +44,7 @@
     <!-- Targeted patches -->
     <beanutils.version>1.9.3</beanutils.version>
     <chain.version>1.2</chain.version>
-    <codec.version>1.11</codec.version>
+    <codec.version>1.12</codec.version>
     <collections.version>3.2.2</collections.version>
     <digester.version>1.8.1</digester.version>
     <io.version>2.6</io.version>
