@@ -50,7 +50,7 @@
     <io.version>2.7</io.version>
     <lang.version>2.6</lang.version>
     <lang3.version>3.11</lang3.version>
-    <validator.version>1.6</validator.version>
+    <validator.version>1.7</validator.version>
   </properties>
 
   <scm>
