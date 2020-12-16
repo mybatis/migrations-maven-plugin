@@ -191,7 +191,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-migrations</artifactId>
-      <version>3.3.8</version>
+      <version>3.3.9</version>
     </dependency>
 
     <!-- Dependencies for Analyze-report mojo -->
