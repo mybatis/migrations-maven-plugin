@@ -49,7 +49,7 @@
     <digester.version>2.1</digester.version>
     <io.version>2.8.0</io.version>
     <lang.version>2.6</lang.version>
-    <lang3.version>3.11</lang3.version>
+    <lang3.version>3.12.0</lang3.version>
     <validator.version>1.7</validator.version>
   </properties>
 
