@@ -237,6 +237,10 @@
             <groupId>oro</groupId>
             <artifactId>oro</artifactId>
         </exclusion>
+        <exclusion>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -309,18 +313,6 @@
       <artifactId>junit-vintage-engine</artifactId>
       <version>5.8.2</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>dom4j</groupId>
-      <artifactId>dom4j</artifactId>
-      <version>1.6.1</version>
-      <exclusions>
-          <exclusion>
-              <groupId>xml-apis</groupId>
-              <artifactId>xml-apis</artifactId>
-          </exclusion>
-      </exclusions>
     </dependency>
 
     <!-- Commons Patches due to maven legacy usage and vulnerabilities in many cases -->
