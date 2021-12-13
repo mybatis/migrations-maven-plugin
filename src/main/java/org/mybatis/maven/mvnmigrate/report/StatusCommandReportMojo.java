@@ -38,8 +38,7 @@ import org.apache.maven.reporting.MavenReportException;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 
 /**
- * Extends {@link AbstractMavenReport}.
- * <p/>
+ * Extends {@link AbstractMavenReport}. <br>
  * Class to generate a Maven report.
  */
 @Mojo(name = "status-report")
