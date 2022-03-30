@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2021 the original author or authors.
+       Copyright 2010-2022 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
   <packaging>maven-plugin</packaging>
 
   <name>MyBatis Migrations Maven plugin</name>
-  <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
+  <description>Migration-plugin is a Apache Maven 3 plugin that aims to integrate into the maven life cycle,
   the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
   schema changes.</description>
   <url>http://www.mybatis.org/migrations-maven-plugin</url>
@@ -64,8 +64,8 @@
     <url>https://github.com/mybatis/migrations-maven-plugin/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/mybatis/migrations-maven-plugin</url>
+    <system>GitHub Actions</system>
+    <url>https://github.com/mybatis/migrations-maven-plugin/actions</url>
   </ciManagement>
   <distributionManagement>
     <site>
@@ -180,6 +180,7 @@
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
       <version>3.8.5</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.plugin-tools</groupId>
@@ -210,10 +211,10 @@
       <artifactId>doxia-core</artifactId>
       <version>1.11.1</version>
       <exclusions>
-          <exclusion>
-              <groupId>com.google.collections</groupId>
-              <artifactId>google-collections</artifactId>
-          </exclusion>
+        <exclusion>
+           <groupId>com.google.collections</groupId>
+           <artifactId>google-collections</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -222,24 +223,12 @@
       <version>1.11.1</version>
       <exclusions>
         <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-taglib</artifactId>
+          <groupId>oro</groupId>
+          <artifactId>oro</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-tiles</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-core</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -248,20 +237,6 @@
       <groupId>org.apache.maven.reporting</groupId>
       <artifactId>maven-reporting-impl</artifactId>
       <version>3.1.0</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>maven-project</artifactId>
-          <groupId>org.apache.maven</groupId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-tiles</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-taglib</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
@@ -287,15 +262,21 @@
 
     <dependency>
       <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>3.8.5</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
       <version>3.8.5</version>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-compat</artifactId>
       <version>3.8.5</version>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
