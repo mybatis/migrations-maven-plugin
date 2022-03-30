@@ -211,10 +211,10 @@
       <artifactId>doxia-core</artifactId>
       <version>1.11.1</version>
       <exclusions>
-          <exclusion>
-              <groupId>com.google.collections</groupId>
-              <artifactId>google-collections</artifactId>
-          </exclusion>
+        <exclusion>
+           <groupId>com.google.collections</groupId>
+           <artifactId>google-collections</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -223,24 +223,12 @@
       <version>1.11.1</version>
       <exclusions>
         <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-taglib</artifactId>
+          <groupId>oro</groupId>
+          <artifactId>oro</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-tiles</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-core</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -249,20 +237,6 @@
       <groupId>org.apache.maven.reporting</groupId>
       <artifactId>maven-reporting-impl</artifactId>
       <version>3.1.0</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>maven-project</artifactId>
-          <groupId>org.apache.maven</groupId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-tiles</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts-taglib</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
 
     <dependency>
