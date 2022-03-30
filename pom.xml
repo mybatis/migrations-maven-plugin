@@ -32,7 +32,7 @@
   <packaging>maven-plugin</packaging>
 
   <name>MyBatis Migrations Maven plugin</name>
-  <description>Migration-plugin is a Apache Maven 2 plugin that aims to integrate into the maven life cycle,
+  <description>Migration-plugin is a Apache Maven 3 plugin that aims to integrate into the maven life cycle,
   the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
   schema changes.</description>
   <url>http://www.mybatis.org/migrations-maven-plugin</url>
