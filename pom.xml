@@ -64,8 +64,8 @@
     <url>https://github.com/mybatis/migrations-maven-plugin/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/mybatis/migrations-maven-plugin</url>
+    <system>GitHub Actions</system>
+    <url>https://github.com/mybatis/migrations-maven-plugin/actions</url>
   </ciManagement>
   <distributionManagement>
     <site>
