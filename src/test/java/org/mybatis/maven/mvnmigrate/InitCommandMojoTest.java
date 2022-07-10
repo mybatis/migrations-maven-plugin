@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2021 the original author or authors.
+ *    Copyright 2010-2022 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -19,9 +19,9 @@ import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.commands.NewCommand;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 @SuppressWarnings("unchecked")
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
@@ -34,24 +34,24 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   @Test
   public void testNewGoal() throws Exception {
     AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
     rule.setVariableValueToObject(mojo, "description", "test_script");
     mojo.execute();
 
     final File newRep = new File("target/init/scripts");
-    Assert.assertEquals(4, newRep.listFiles().length);
+    Assertions.assertEquals(4, newRep.listFiles().length);
   }
 
   @Test
   public void testnewGoalRequiredValue() throws Exception {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-      Assert.assertNotNull(mojo);
+      Assertions.assertNotNull(mojo);
       rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
       rule.setVariableValueToObject(mojo, "description", null);
       mojo.execute();
-      Assert.fail();
+      Assertions.fail();
     } catch (Exception e) {
     }
   }
@@ -60,7 +60,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   public void testnewGoalSetEmptyValue() throws Exception {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) rule.lookupMojo("new", testPom);
-      Assert.assertNotNull(mojo);
+      Assertions.assertNotNull(mojo);
       rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
       rule.setVariableValueToObject(mojo, "description", "");
       mojo.execute();
@@ -73,7 +73,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
     try {
       AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init",
           testPom);
-      Assert.assertNotNull(mojo);
+      Assertions.assertNotNull(mojo);
       rule.setVariableValueToObject(mojo, "repository", new File("target/init"));
       mojo.execute();
     } catch (Exception e) {
