@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2021 the original author or authors.
+ *    Copyright 2010-2022 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 @SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
@@ -27,7 +27,7 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
   @Test
   public void testScriptGoal() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "v1", "20100400000001");
     rule.setVariableValueToObject(mojo, "v2", "20100400000003");
     mojo.execute();
@@ -36,32 +36,32 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
   @Test
   public void testScriptToFileGoal() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "v1", "20100400000001");
     rule.setVariableValueToObject(mojo, "v2", "20100400000003");
     rule.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
     mojo.execute();
-    Assert.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
+    Assertions.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
   }
 
   @Test
   public void testScriptPending() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "v1", "pending");
     rule.setVariableValueToObject(mojo, "output", new File("target/script_pending.sql"));
     mojo.execute();
-    Assert.assertTrue(new File("target/script_pending.sql").exists());
+    Assertions.assertTrue(new File("target/script_pending.sql").exists());
   }
 
   @Test
   public void testScriptPendingUndo() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) rule.lookupMojo("script", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     rule.setVariableValueToObject(mojo, "v1", "pending_undo");
     rule.setVariableValueToObject(mojo, "output", new File("target/script_pending_undo.sql"));
     mojo.execute();
-    Assert.assertTrue(new File("target/script_pending_undo.sql").exists());
+    Assertions.assertTrue(new File("target/script_pending_undo.sql").exists());
   }
 
 }

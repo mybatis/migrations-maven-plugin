@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2021 the original author or authors.
+ *    Copyright 2010-2022 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.maven.plugin.testing.MojoRule;
-import org.junit.Assert;
 import org.junit.Rule;
+import org.junit.jupiter.api.Assertions;
 
 public abstract class AbstractMigrateTestCase {
 
@@ -80,12 +80,12 @@ public abstract class AbstractMigrateTestCase {
   protected void initEnvironment() throws Exception {
     AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init",
         testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
 
     final File newRep = new File("target/init");
     rule.setVariableValueToObject(mojo, "repository", newRep);
     mojo.execute();
-    Assert.assertTrue(newRep.exists());
+    Assertions.assertTrue(newRep.exists());
   }
 
 }

@@ -295,6 +295,12 @@
       <version>5.8.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- Commons Patches due to maven legacy usage and vulnerabilities in many cases -->
     <dependency>

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2021 the original author or authors.
+ *    Copyright 2010-2022 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.StatusCommand;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class StatusCommandMojoTest extends AbstractMigrateTestCase {
 
@@ -25,7 +25,7 @@ public class StatusCommandMojoTest extends AbstractMigrateTestCase {
   @Test
   public void testStatusGoal() throws Exception {
     AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) rule.lookupMojo("status", testPom);
-    Assert.assertNotNull(mojo);
+    Assertions.assertNotNull(mojo);
     mojo.execute();
   }
 
