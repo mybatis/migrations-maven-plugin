@@ -18,14 +18,14 @@ package org.mybatis.maven.mvnmigrate;
 import org.apache.ibatis.migration.commands.DownCommand;
 import org.apache.ibatis.migration.commands.PendingCommand;
 import org.apache.ibatis.migration.commands.UpCommand;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 
 @SuppressWarnings("unchecked")
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
-  @Before
+  @BeforeEach
   public void init() throws Exception {
     initEnvironment();
   }
