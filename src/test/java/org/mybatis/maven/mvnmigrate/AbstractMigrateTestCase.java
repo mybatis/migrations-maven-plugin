@@ -18,7 +18,6 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
-import org.apache.maven.plugin.testing.MojoRule;
 import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 
@@ -31,50 +30,7 @@ public abstract class AbstractMigrateTestCase {
   protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
   @Rule
-  public MojoRule rule = new MojoRule() {
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void before() throws Exception {
-      cleanup();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void after() {
-      try {
-        cleanup();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-
-    protected void cleanup() throws Exception {
-      File initMigrationDbFolder;
-      initMigrationDbFolder = new File("target/init");
-      if (initMigrationDbFolder.exists()) {
-        deleteDir(initMigrationDbFolder);
-      }
-    }
-  };
-
-  protected static boolean deleteDir(File dir) {
-    if (dir.isDirectory()) {
-      String[] children = dir.list();
-      for (int i = 0; i < children.length; i++) {
-        boolean success = deleteDir(new File(dir, children[i]));
-        if (!success) {
-          return false;
-        }
-      }
-    }
-
-    // The directory is now empty so delete it
-    return dir.delete();
-  }
+  public MybatisMojoRule rule = new MybatisMojoRule();
 
   @SuppressWarnings("unchecked")
   protected void initEnvironment() throws Exception {
