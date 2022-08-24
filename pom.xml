@@ -23,7 +23,7 @@
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis-parent</artifactId>
     <version>35</version>
-    <relativePath />
+    <relativePath/>
   </parent>
 
   <groupId>org.mybatis.maven</groupId>
@@ -39,27 +39,11 @@
   </description>
   <url>http://www.mybatis.org/migrations-maven-plugin</url>
 
-  <properties>
-    <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
-    <module.name>org.mybatis.maven.migrations</module.name>
-
-    <!-- Targeted patches -->
-    <beanutils.version>1.9.4</beanutils.version>
-    <chain.version>1.2</chain.version>
-    <codec.version>1.15</codec.version>
-    <collections.version>3.2.2</collections.version>
-    <digester.version>2.1</digester.version>
-    <io.version>2.11.0</io.version>
-    <lang.version>2.6</lang.version>
-    <lang3.version>3.12.0</lang3.version>
-    <validator.version>1.7</validator.version>
-  </properties>
-
   <scm>
-    <url>http://github.com/mybatis/migrations-maven-plugin</url>
     <connection>scm:git:ssh://github.com/mybatis/migrations-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</developerConnection>
     <tag>HEAD</tag>
+    <url>http://github.com/mybatis/migrations-maven-plugin</url>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
@@ -77,116 +61,21 @@
     </site>
   </distributionManagement>
 
-  <build>
-    <resources>
-      <resource>
-        <directory>${project.basedir}</directory>
-        <targetPath>META-INF</targetPath>
-        <includes>
-          <include>LICENSE</include>
-          <include>NOTICE</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
-        <filtering>true</filtering>
-        <targetPath>.</targetPath>
-      </resource>
-    </resources>
+  <properties>
+    <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
+    <module.name>org.mybatis.maven.migrations</module.name>
 
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <configuration>
-          <rules>
-            <enforceBytecodeVersion>
-              <ignoredScopes>test</ignoredScopes>
-            </enforceBytecodeVersion>
-          </rules>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-invoker-plugin</artifactId>
-        <version>3.3.0</version>
-        <configuration>
-          <debug>false</debug>
-          <projectsDirectory>src/it</projectsDirectory>
-          <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
-          <pomIncludes>
-            <pomInclude>**/pom.xml</pomInclude>
-          </pomIncludes>
-          <pomExcludes>
-            <pomExclude>**/mod1/pom.xml</pomExclude>
-            <pomExclude>**/mod2/pom.xml</pomExclude>
-            <pomExclude>**/mod3/pom.xml</pomExclude>
-           </pomExcludes>
-          <postBuildHookScript>verify.bsh</postBuildHookScript>
-        </configuration>
-        <executions>
-          <execution>
-            <id>integration-test</id>
-            <goals>
-              <goal>install</goal>
-              <goal>integration-test</goal>
-              <goal>verify</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.6.4</version>
-        <configuration>
-          <goalPrefix>migration</goalPrefix>
-        </configuration>
-        <executions>
-          <execution>
-            <id>mojo-descriptor</id>
-            <goals>
-              <goal>descriptor</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>help-goal</id>
-            <goals>
-              <goal>helpmojo</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <systemProperties>
-            <property>
-              <name>migrationHome</name>
-              <value>${project.build.directory}</value>
-            </property>
-            <property>
-              <name>java.io.tmpdir</name>
-              <value>${project.build.directory}</value>
-            </property>
-          </systemProperties>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.6.4</version>
-      </plugin>
-    </plugins>
-  </reporting>
+    <!-- Targeted patches -->
+    <beanutils.version>1.9.4</beanutils.version>
+    <chain.version>1.2</chain.version>
+    <codec.version>1.15</codec.version>
+    <collections.version>3.2.2</collections.version>
+    <digester.version>2.1</digester.version>
+    <io.version>2.11.0</io.version>
+    <lang.version>2.6</lang.version>
+    <lang3.version>3.12.0</lang3.version>
+    <validator.version>1.7</validator.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -225,8 +114,8 @@
       <version>1.11.1</version>
       <exclusions>
         <exclusion>
-           <groupId>com.google.collections</groupId>
-           <artifactId>google-collections</artifactId>
+          <groupId>com.google.collections</groupId>
+          <artifactId>google-collections</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -369,6 +258,117 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <resources>
+      <resource>
+        <targetPath>META-INF</targetPath>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>LICENSE</include>
+          <include>NOTICE</include>
+        </includes>
+      </resource>
+      <resource>
+        <targetPath>.</targetPath>
+        <filtering>true</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <enforceBytecodeVersion>
+              <ignoredScopes>test</ignoredScopes>
+            </enforceBytecodeVersion>
+          </rules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <debug>false</debug>
+          <projectsDirectory>src/it</projectsDirectory>
+          <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+          <pomIncludes>
+            <pomInclude>**/pom.xml</pomInclude>
+          </pomIncludes>
+          <pomExcludes>
+            <pomExclude>**/mod1/pom.xml</pomExclude>
+            <pomExclude>**/mod2/pom.xml</pomExclude>
+            <pomExclude>**/mod3/pom.xml</pomExclude>
+          </pomExcludes>
+          <postBuildHookScript>verify.bsh</postBuildHookScript>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>install</goal>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>3.6.4</version>
+        <configuration>
+          <goalPrefix>migration</goalPrefix>
+        </configuration>
+        <executions>
+          <execution>
+            <id>mojo-descriptor</id>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>help-goal</id>
+            <goals>
+              <goal>helpmojo</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <systemProperties>
+            <property>
+              <name>migrationHome</name>
+              <value>${project.build.directory}</value>
+            </property>
+            <property>
+              <name>java.io.tmpdir</name>
+              <value>${project.build.directory}</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>3.6.4</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <profiles>
     <profile>
       <id>eclipse</id>
@@ -399,7 +399,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -412,7 +412,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
