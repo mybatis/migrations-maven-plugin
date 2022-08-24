@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2021 the original author or authors.
+ *    Copyright 2010-2022 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -151,6 +151,7 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
    *
    * @param locale
    *          the locale
+   *
    * @return the bundle
    */
   protected ResourceBundle getBundle(final Locale locale) {
@@ -162,6 +163,7 @@ abstract class AbstractCommandMojo<T extends BaseCommand> extends AbstractMojo {
    *
    * @param options
    *          the options
+   *
    * @return The command created.
    */
   protected abstract T createCommandClass(final SelectedOptions options);
