@@ -18,9 +18,9 @@ package org.mybatis.maven.mvnmigrate;
 import org.apache.ibatis.migration.commands.DownCommand;
 import org.apache.ibatis.migration.commands.PendingCommand;
 import org.apache.ibatis.migration.commands.UpCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
 public class PendingCommandMojoTest extends AbstractMigrateTestCase {

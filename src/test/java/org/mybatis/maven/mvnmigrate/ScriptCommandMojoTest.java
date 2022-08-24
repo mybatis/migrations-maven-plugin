@@ -18,8 +18,8 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
 public class ScriptCommandMojoTest extends AbstractMigrateTestCase {

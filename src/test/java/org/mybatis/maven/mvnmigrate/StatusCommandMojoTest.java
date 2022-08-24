@@ -16,8 +16,8 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.StatusCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class StatusCommandMojoTest extends AbstractMigrateTestCase {
 

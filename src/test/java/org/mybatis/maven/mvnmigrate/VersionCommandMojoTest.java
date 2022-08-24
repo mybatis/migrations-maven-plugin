@@ -17,8 +17,8 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.apache.ibatis.migration.commands.VersionCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {

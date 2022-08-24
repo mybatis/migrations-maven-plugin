@@ -19,9 +19,9 @@ import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.commands.NewCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
 public class InitCommandMojoTest extends AbstractMigrateTestCase {
