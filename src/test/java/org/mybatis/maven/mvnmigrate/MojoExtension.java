@@ -17,32 +17,19 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 
-import org.apache.maven.plugin.testing.MojoRule;
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
-public class MybatisMojoRule extends MojoRule {
+public class MojoExtension implements AfterEachCallback, BeforeEachCallback {
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected void before() throws Exception {
-    cleanup();
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  protected void after() {
-    try {
-      cleanup();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
+  // Make AbstractMojoTestCase concrete
+  protected AbstractMojoTestCase testCase = new AbstractMojoTestCase() {
+  };
 
   protected void cleanup() throws Exception {
-    final File initMigrationDbFolder = new File("target/init");
+    File initMigrationDbFolder;
+    initMigrationDbFolder = new File("target/init");
     if (initMigrationDbFolder.exists()) {
       deleteDir(initMigrationDbFolder);
     }
@@ -61,5 +48,17 @@ public class MybatisMojoRule extends MojoRule {
 
     // The directory is now empty so delete it
     return dir.delete();
+  }
+
+  @Override
+  public void beforeEach(ExtensionContext context) throws Exception {
+    // Setup test case
+    testCase.setUp();
+    cleanup();
+  }
+
+  @Override
+  public void afterEach(ExtensionContext context) throws Exception {
+    cleanup();
   }
 }
