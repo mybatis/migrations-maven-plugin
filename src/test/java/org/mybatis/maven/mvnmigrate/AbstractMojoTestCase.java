@@ -5,7 +5,7 @@
  *    you may not use this file except in compliance with the License.
  *    You may obtain a copy of the License at
  *
- *       http://www.apache.org/licenses/LICENSE-2.0
+ *       https://www.apache.org/licenses/LICENSE-2.0
  *
  *    Unless required by applicable law or agreed to in writing, software
  *    distributed under the License is distributed on an "AS IS" BASIS,
@@ -279,7 +279,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @param goal
    * @param pluginPom
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo lookupMojo(String goal, String pluginPom) throws Exception {
@@ -291,7 +293,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @param goal
    * @param pluginPom
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo lookupEmptyMojo(String goal, String pluginPom) throws Exception {
@@ -303,7 +307,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @param goal
    * @param pom
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo lookupMojo(String goal, File pom) throws Exception {
@@ -327,7 +333,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @param goal
    * @param pom
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo lookupEmptyMojo(String goal, File pom) throws Exception {
@@ -357,7 +365,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @param version
    * @param goal
    * @param pluginConfiguration
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo lookupMojo(String groupId, String artifactId, String version, String goal,
@@ -388,11 +398,13 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   *
    * @param project
    * @param goal
+   *
    * @return
+   *
    * @throws Exception
+   *
    * @since 2.0
    */
   protected Mojo lookupConfiguredMojo(MavenProject project, String goal) throws Exception {
@@ -400,12 +412,14 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   *
    * @param session
    * @param execution
+   *
    * @return
+   *
    * @throws Exception
    * @throws ComponentConfigurationException
+   *
    * @since 2.0
    */
   protected Mojo lookupConfiguredMojo(MavenSession session, MojoExecution execution)
@@ -439,9 +453,10 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   *
    * @param project
+   *
    * @return
+   *
    * @since 2.0
    */
   protected MavenSession newMavenSession(MavenProject project) {
@@ -456,9 +471,10 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   *
    * @param goal
+   *
    * @return
+   *
    * @since 2.0
    */
   protected MojoExecution newMojoExecution(String goal) {
@@ -513,7 +529,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   /**
    * @param artifactId
    * @param pom
+   *
    * @return the plexus configuration
+   *
    * @throws Exception
    */
   protected PlexusConfiguration extractPluginConfiguration(String artifactId, File pom) throws Exception {
@@ -527,7 +545,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   /**
    * @param artifactId
    * @param pomDom
+   *
    * @return the plexus configuration
+   *
    * @throws Exception
    */
   protected PlexusConfiguration extractPluginConfiguration(String artifactId, Xpp3Dom pomDom) throws Exception {
@@ -571,7 +591,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @param mojo
    * @param artifactId
    * @param pom
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo configureMojo(Mojo mojo, String artifactId, File pom) throws Exception {
@@ -591,7 +613,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @param mojo
    * @param pluginConfiguration
+   *
    * @return a Mojo instance
+   *
    * @throws Exception
    */
   protected Mojo configureMojo(Mojo mojo, PlexusConfiguration pluginConfiguration) throws Exception {
@@ -605,13 +629,14 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   * Convenience method to obtain the value of a variable on a mojo that might not have a getter.
-   *
-   * NOTE: the caller is responsible for casting to to what the desired type is.
+   * Convenience method to obtain the value of a variable on a mojo that might not have a getter. NOTE: the caller is
+   * responsible for casting to to what the desired type is.
    *
    * @param object
    * @param variable
+   *
    * @return object value of variable
+   *
    * @throws IllegalArgumentException
    */
   protected Object getVariableValueFromObject(Object object, String variable) throws IllegalAccessException {
@@ -623,11 +648,11 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   * Convenience method to obtain all variables and values from the mojo (including its superclasses)
-   *
-   * Note: the values in the map are of type Object so the caller is responsible for casting to desired types.
+   * Convenience method to obtain all variables and values from the mojo (including its superclasses) Note: the values
+   * in the map are of type Object so the caller is responsible for casting to desired types.
    *
    * @param object
+   *
    * @return map of variable names and values
    */
   protected Map<String, Object> getVariablesAndValuesFromObject(Object object) throws IllegalAccessException {
@@ -635,12 +660,12 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   * Convenience method to obtain all variables and values from the mojo (including its superclasses)
-   *
-   * Note: the values in the map are of type Object so the caller is responsible for casting to desired types.
+   * Convenience method to obtain all variables and values from the mojo (including its superclasses) Note: the values
+   * in the map are of type Object so the caller is responsible for casting to desired types.
    *
    * @param clazz
    * @param object
+   *
    * @return map of variable names and values
    */
   protected Map<String, Object> getVariablesAndValuesFromObject(Class<?> clazz, Object object)
@@ -670,6 +695,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @param object
    * @param variable
    * @param value
+   *
    * @throws IllegalAccessException
    */
   protected void setVariableValueToObject(Object object, String variable, Object value) throws IllegalAccessException {
@@ -681,13 +707,14 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   * sometimes the parent element might contain the correct value so generalize that access
-   *
-   * TODO find out where this is probably done elsewhere
+   * sometimes the parent element might contain the correct value so generalize that access TODO find out where this is
+   * probably done elsewhere
    *
    * @param pluginPomDom
    * @param element
+   *
    * @return
+   *
    * @throws Exception
    */
   private String resolveFromRootThenParent(Xpp3Dom pluginPomDom, String element) throws Exception {
@@ -715,7 +742,6 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
 
   /**
    * We should make sure this is called in each method that makes use of the container, otherwise we throw ugly NPE's
-   *
    * crops up when the subclassing code defines the setUp method but doesn't call super.setUp()
    *
    * @throws Exception
