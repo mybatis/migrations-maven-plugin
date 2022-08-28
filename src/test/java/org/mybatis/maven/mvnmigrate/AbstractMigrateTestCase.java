@@ -18,28 +18,32 @@ package org.mybatis.maven.mvnmigrate;
 import java.io.File;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
-import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
+@ExtendWith(MojoExtension.class)
 public abstract class AbstractMigrateTestCase {
 
-  // TODO There is no BaseDir for Junit4 version. Does not seem to be needed and maven site points to other method call
-  // that doesn't exist.
-  // Leave this for now until we can determine this is needed or not.
-  // protected File testPom = new File(getBasedir(), "src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+  @RegisterExtension
+  private static MojoExtension extension = new MojoExtension();
+
+  protected AbstractMojoTestCase testCase;
+
   protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
-  @Rule
-  public MybatisMojoRule rule = new MybatisMojoRule();
+  public AbstractMigrateTestCase() {
+    testCase = extension.testCase;
+  }
 
   @SuppressWarnings("unchecked")
   protected void initEnvironment() throws Exception {
-    AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) rule.lookupMojo("init",
+    AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) testCase.lookupMojo("init",
         testPom);
     Assertions.assertNotNull(mojo);
 
     final File newRep = new File("target/init");
-    rule.setVariableValueToObject(mojo, "repository", newRep);
+    testCase.setVariableValueToObject(mojo, "repository", newRep);
     mojo.execute();
     Assertions.assertTrue(newRep.exists());
   }

@@ -17,8 +17,8 @@ package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.UpCommand;
 import org.apache.ibatis.migration.commands.VersionCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
 public class VersionCommandMojoTest extends AbstractMigrateTestCase {
@@ -31,25 +31,25 @@ public class VersionCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   protected void runUpGoal() throws Exception {
-    AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) rule.lookupMojo("up", testPom);
+    AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) testCase.lookupMojo("up", testPom);
     Assertions.assertNotNull(mojo);
-    rule.setVariableValueToObject(mojo, "upSteps", "1");
+    testCase.setVariableValueToObject(mojo, "upSteps", "1");
     mojo.execute();
   }
 
   protected void runVersionGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version",
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) testCase.lookupMojo("version",
         testPom);
     Assertions.assertNotNull(mojo);
-    rule.setVariableValueToObject(mojo, "version", "20100400000003");
+    testCase.setVariableValueToObject(mojo, "version", "20100400000003");
     mojo.execute();
   }
 
   protected void runVersionDownGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) rule.lookupMojo("version",
+    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) testCase.lookupMojo("version",
         testPom);
     Assertions.assertNotNull(mojo);
-    rule.setVariableValueToObject(mojo, "version", "20100400000001");
+    testCase.setVariableValueToObject(mojo, "version", "20100400000001");
     mojo.execute();
   }
 

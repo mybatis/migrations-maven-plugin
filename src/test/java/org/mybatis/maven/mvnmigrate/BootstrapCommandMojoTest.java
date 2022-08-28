@@ -16,16 +16,16 @@
 package org.mybatis.maven.mvnmigrate;
 
 import org.apache.ibatis.migration.commands.BootstrapCommand;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
   @SuppressWarnings("unchecked")
   @Test
   public void testBootstrapGoal() throws Exception {
-    AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) rule.lookupMojo("bootstrap",
-        testPom);
+    AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) testCase
+        .lookupMojo("bootstrap", testPom);
     Assertions.assertNotNull(mojo);
     mojo.execute();
   }
