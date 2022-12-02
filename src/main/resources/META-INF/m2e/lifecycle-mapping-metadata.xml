@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <goals>
+          <goal>bootstrap</goal>
+          <goal>check</goal>
+          <goal>down</goal>
+          <goal>init</goal>
+          <goal>new</goal>
+          <goal>pending</goal>
+          <goal>redo</goal>
+          <goal>script</goal>
+          <goal>status</goal>
+          <goal>up</goal>
+          <goal>version</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+        <ignore/>
+      </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>
