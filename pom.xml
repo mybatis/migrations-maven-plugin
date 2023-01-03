@@ -65,6 +65,9 @@
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
     <module.name>org.mybatis.maven.migrations</module.name>
 
+    <!-- External Modules -->
+    <maven.version>3.8.7</maven.version>
+
     <!-- Targeted patches -->
     <beanutils.version>1.9.4</beanutils.version>
     <chain.version>1.2</chain.version>
@@ -84,7 +87,7 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
-      <version>3.8.7</version>
+      <version>${maven.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -168,19 +171,19 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-artifact</artifactId>
-      <version>3.8.7</version>
+      <version>${maven.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
-      <version>3.8.7</version>
+      <version>${maven.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-model</artifactId>
-      <version>3.8.7</version>
+      <version>${maven.version}</version>
       <scope>provided</scope>
     </dependency>
 
