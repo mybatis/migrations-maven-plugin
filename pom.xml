@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2010-2022 the original author or authors.
+       Copyright 2010-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -163,8 +163,8 @@
 
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-utils</artifactId>
-      <version>3.5.1</version>
+      <artifactId>plexus-xml</artifactId>
+      <version>4.0.0</version>
       <scope>compile</scope>
     </dependency>
 
@@ -337,7 +337,7 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugin-plugin</artifactId>
+        <artifactId>maven-plugin-report-plugin</artifactId>
         <version>3.9.0</version>
       </plugin>
     </plugins>
@@ -366,7 +366,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-plugin-plugin</artifactId>
-                        <versionRange>[3.6.0,)</versionRange>
+                        <versionRange>[3.9.0,)</versionRange>
                         <goals>
                           <goal>helpmojo</goal>
                           <goal>descriptor</goal>
@@ -380,7 +380,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[3.0.0,)</versionRange>
+                        <versionRange>[3.5.1,)</versionRange>
                         <goals>
                           <goal>install</goal>
                         </goals>
