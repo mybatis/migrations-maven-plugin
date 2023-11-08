@@ -331,6 +331,20 @@
           </systemProperties>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <configuration>
+          <licenseSets>
+            <licenseSet>
+              <excludes combine.children="append">
+                <exclude>**/README</exclude>
+                <exclude>**/verify.bsh</exclude>
+              </excludes>
+            </licenseSet>
+          </licenseSets>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
