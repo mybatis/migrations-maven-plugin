@@ -40,7 +40,7 @@
   <url>http://www.mybatis.org/migrations-maven-plugin</url>
 
   <scm>
-    <connection>scm:git:ssh://github.com/mybatis/migrations-maven-plugin.git</connection>
+    <connection>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</developerConnection>
     <tag>HEAD</tag>
     <url>http://github.com/mybatis/migrations-maven-plugin</url>
@@ -55,9 +55,9 @@
   </ciManagement>
   <distributionManagement>
     <site>
-      <id>gh-pages</id>
+      <id>gh-pages-scm</id>
       <name>Mybatis GitHub Pages</name>
-      <url>git:ssh://git@github.com/mybatis/migrations-maven-plugin.git?gh-pages#</url>
+      <url>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</url>
     </site>
   </distributionManagement>
 
@@ -147,6 +147,7 @@
       <version>3.2.0</version>
     </dependency>
 
+    <!-- TODO: Upadte to 4.0.0.alpha2 once out as fully supports junit 5 -->
     <dependency>
       <groupId>org.apache.maven.plugin-testing</groupId>
       <artifactId>maven-plugin-testing-harness</artifactId>
@@ -328,6 +329,20 @@
               <value>${project.build.directory}</value>
             </property>
           </systemProperties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <configuration>
+          <licenseSets>
+            <licenseSet>
+              <excludes combine.children="append">
+                <exclude>**/README</exclude>
+                <exclude>**/verify.bsh</exclude>
+              </excludes>
+            </licenseSet>
+          </licenseSets>
         </configuration>
       </plugin>
     </plugins>
