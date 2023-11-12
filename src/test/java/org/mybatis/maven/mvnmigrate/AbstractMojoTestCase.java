@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2023 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,10 +13,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.mybatis.maven.mvnmigrate;
-
-import com.google.inject.Module;
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -35,8 +31,13 @@ import com.google.inject.Module;
  * specific language governing permissions and limitations
  * under the License.
  */
+package org.mybatis.maven.mvnmigrate;
+
+import com.google.inject.Module;
+
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -44,7 +45,6 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -52,9 +52,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.commons.io.input.XmlStreamReader;
 import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.factory.ArtifactFactory;
+import org.apache.maven.artifact.DefaultArtifact;
+import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import org.apache.maven.execution.DefaultMavenExecutionRequest;
 import org.apache.maven.execution.DefaultMavenExecutionResult;
@@ -63,7 +63,6 @@ import org.apache.maven.execution.MavenExecutionResult;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.lifecycle.internal.MojoDescriptorCreator;
 import org.apache.maven.model.Plugin;
-import org.apache.maven.monitor.logging.DefaultLog;
 import org.apache.maven.plugin.Mojo;
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.PluginParameterExpressionEvaluator;
@@ -71,7 +70,6 @@ import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import org.apache.maven.plugin.descriptor.Parameter;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugin.descriptor.PluginDescriptorBuilder;
-import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.testing.ConfigurationException;
 import org.apache.maven.plugin.testing.ResolverExpressionEvaluatorStub;
 import org.apache.maven.project.MavenProject;
@@ -91,18 +89,18 @@ import org.codehaus.plexus.component.repository.ComponentDescriptor;
 import org.codehaus.plexus.configuration.PlexusConfiguration;
 import org.codehaus.plexus.configuration.xml.XmlPlexusConfiguration;
 import org.codehaus.plexus.context.Context;
-import org.codehaus.plexus.logging.LoggerManager;
 import org.codehaus.plexus.util.InterpolationFilterReader;
 import org.codehaus.plexus.util.ReaderFactory;
 import org.codehaus.plexus.util.ReflectionUtils;
 import org.codehaus.plexus.util.StringUtils;
+import org.codehaus.plexus.util.xml.XmlStreamReader;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
 
 /**
  * Mybatis: Borrowed from 'https://github.com/apache/maven-plugin-testing/blob/master/maven-plugin-testing-harness/src/main/java/org/apache/maven/plugin/testing/AbstractMojoTestCase.java'
- * Reason: Too restrictive to use directly for junit 5.  Only changes were to apply imports.
- * Git: From commit 7d6518b
+ * Reason: Too restrictive to use directly for junit 5.  Only changes were to add imports after inclusion from maven's test harness.
+ * Git: From release 4.0.0-alpha-2
  */
 
 /**
@@ -164,12 +162,11 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
 
       PluginDescriptor pluginDescriptor = new PluginDescriptorBuilder().build(interpolationReader);
 
-      Artifact artifact = lookup(ArtifactFactory.class).createBuildArtifact(pluginDescriptor.getGroupId(),
-          pluginDescriptor.getArtifactId(), pluginDescriptor.getVersion(), ".jar");
+      Artifact artifact = new DefaultArtifact(pluginDescriptor.getGroupId(), pluginDescriptor.getArtifactId(),
+          pluginDescriptor.getVersion(), null, "jar", null, new DefaultArtifactHandler("jar"));
 
       artifact.setFile(getPluginArtifactFile());
       pluginDescriptor.setPluginArtifact(artifact);
-      // noinspection ArraysAsListWithZeroOrOneArgument
       pluginDescriptor.setArtifacts(Arrays.asList(artifact));
 
       for (ComponentDescriptor<?> desc : pluginDescriptor.getComponents()) {
@@ -227,7 +224,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   protected InputStream getPublicDescriptorStream() throws Exception {
-    return Files.newInputStream(new File(getPluginDescriptorPath()).toPath());
+    return new FileInputStream(new File(getPluginDescriptorPath()));
   }
 
   protected String getPluginDescriptorPath() {
@@ -254,15 +251,17 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   /**
    * @since 3.0.0
    */
-  @SuppressWarnings("EmptyMethod")
   protected void addGuiceModules(List<Module> modules) {
     // no custom guice modules by default
   }
 
   protected ContainerConfiguration setupContainerConfiguration() {
-    return new DefaultContainerConfiguration()
-        .setClassWorld(new ClassWorld("plexus.core", Thread.currentThread().getContextClassLoader()))
+    ClassWorld classWorld = new ClassWorld("plexus.core", Thread.currentThread().getContextClassLoader());
+
+    ContainerConfiguration cc = new DefaultContainerConfiguration().setClassWorld(classWorld)
         .setClassPathScanning(PlexusConstants.SCANNING_INDEX).setAutoWiring(true).setName("maven");
+
+    return cc;
   }
 
   @Override
@@ -284,7 +283,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo lookupMojo(String goal, String pluginPom) throws Exception {
+  protected <T extends Mojo> T lookupMojo(String goal, String pluginPom) throws Exception {
     return lookupMojo(goal, new File(pluginPom));
   }
 
@@ -298,7 +297,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo lookupEmptyMojo(String goal, String pluginPom) throws Exception {
+  protected <T extends Mojo> T lookupEmptyMojo(String goal, String pluginPom) throws Exception {
     return lookupEmptyMojo(goal, new File(pluginPom));
   }
 
@@ -312,7 +311,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo lookupMojo(String goal, File pom) throws Exception {
+  protected <T extends Mojo> T lookupMojo(String goal, File pom) throws Exception {
     File pluginPom = new File(getBasedir(), "pom.xml");
 
     Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom));
@@ -338,7 +337,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo lookupEmptyMojo(String goal, File pom) throws Exception {
+  protected <T extends Mojo> T lookupEmptyMojo(String goal, File pom) throws Exception {
     File pluginPom = new File(getBasedir(), "pom.xml");
 
     Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom));
@@ -370,19 +369,13 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo lookupMojo(String groupId, String artifactId, String version, String goal,
+  protected <T extends Mojo> T lookupMojo(String groupId, String artifactId, String version, String goal,
       PlexusConfiguration pluginConfiguration) throws Exception {
     validateContainerStatus();
 
     // pluginkey = groupId : artifactId : version : goal
 
-    Mojo mojo = lookup(Mojo.class, groupId + ":" + artifactId + ":" + version + ":" + goal);
-
-    LoggerManager loggerManager = getContainer().lookup(LoggerManager.class);
-
-    Log mojoLogger = new DefaultLog(loggerManager.getLoggerForComponent(Mojo.ROLE));
-
-    mojo.setLog(mojoLogger);
+    T mojo = (T) lookup(Mojo.class, groupId + ":" + artifactId + ":" + version + ":" + goal);
 
     if (pluginConfiguration != null) {
       /*
@@ -407,7 +400,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @since 2.0
    */
-  protected Mojo lookupConfiguredMojo(MavenProject project, String goal) throws Exception {
+  protected <T extends Mojo> T lookupConfiguredMojo(MavenProject project, String goal) throws Exception {
     return lookupConfiguredMojo(newMavenSession(project), newMojoExecution(goal));
   }
 
@@ -422,12 +415,12 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @since 2.0
    */
-  protected Mojo lookupConfiguredMojo(MavenSession session, MojoExecution execution)
+  protected <T extends Mojo> T lookupConfiguredMojo(MavenSession session, MojoExecution execution)
       throws Exception, ComponentConfigurationException {
     MavenProject project = session.getCurrentProject();
     MojoDescriptor mojoDescriptor = execution.getMojoDescriptor();
 
-    Mojo mojo = (Mojo) lookup(mojoDescriptor.getRole(), mojoDescriptor.getRoleHint());
+    T mojo = (T) lookup(mojoDescriptor.getRole(), mojoDescriptor.getRoleHint());
 
     ExpressionEvaluator evaluator = new PluginParameterExpressionEvaluator(session, execution);
 
@@ -465,7 +458,6 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
 
     MavenSession session = new MavenSession(container, MavenRepositorySystemUtils.newSession(), request, result);
     session.setCurrentProject(project);
-    // noinspection ArraysAsListWithZeroOrOneArgument
     session.setProjects(Arrays.asList(project));
     return session;
   }
@@ -494,7 +486,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
       executionConfiguration = new Xpp3Dom("configuration");
     }
 
-    Xpp3Dom defaultConfiguration = MojoDescriptorCreator.convert(mojoDescriptor);
+    Xpp3Dom defaultConfiguration = new Xpp3Dom(MojoDescriptorCreator.convert(mojoDescriptor));
 
     Xpp3Dom finalConfiguration = new Xpp3Dom("configuration");
 
@@ -596,7 +588,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo configureMojo(Mojo mojo, String artifactId, File pom) throws Exception {
+  protected <T extends Mojo> T configureMojo(T mojo, String artifactId, File pom) throws Exception {
     validateContainerStatus();
 
     PlexusConfiguration pluginConfiguration = extractPluginConfiguration(artifactId, pom);
@@ -618,7 +610,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected Mojo configureMojo(Mojo mojo, PlexusConfiguration pluginConfiguration) throws Exception {
+  protected <T extends Mojo> T configureMojo(T mojo, PlexusConfiguration pluginConfiguration) throws Exception {
     validateContainerStatus();
 
     ExpressionEvaluator evaluator = new ResolverExpressionEvaluatorStub();
@@ -639,12 +631,12 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws IllegalArgumentException
    */
-  protected Object getVariableValueFromObject(Object object, String variable) throws IllegalAccessException {
+  protected <T> T getVariableValueFromObject(Object object, String variable) throws IllegalAccessException {
     Field field = ReflectionUtils.getFieldByNameIncludingSuperclasses(variable, object.getClass());
 
     field.setAccessible(true);
 
-    return field.get(object);
+    return (T) field.get(object);
   }
 
   /**
@@ -698,7 +690,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws IllegalAccessException
    */
-  protected void setVariableValueToObject(Object object, String variable, Object value) throws IllegalAccessException {
+  protected <T> void setVariableValueToObject(Object object, String variable, T value) throws IllegalAccessException {
     Field field = ReflectionUtils.getFieldByNameIncludingSuperclasses(variable, object.getClass());
 
     field.setAccessible(true);
