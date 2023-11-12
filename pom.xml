@@ -70,14 +70,9 @@
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.4</beanutils.version>
-    <chain.version>1.2</chain.version>
-    <codec.version>1.16.0</codec.version>
     <collections.version>3.2.2</collections.version>
-    <digester.version>2.1</digester.version>
     <io.version>2.15.0</io.version>
-    <lang.version>2.6</lang.version>
     <lang3.version>3.13.0</lang3.version>
-    <validator.version>1.7</validator.version>
 
     <!-- Reproducible Builds -->
     <project.build.outputTimestamp>1757561022</project.build.outputTimestamp>
@@ -219,24 +214,9 @@
       <version>${beanutils.version}</version>
     </dependency>
     <dependency>
-      <groupId>commons-chain</groupId>
-      <artifactId>commons-chain</artifactId>
-      <version>${chain.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>${codec.version}</version>
-    </dependency>
-    <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
       <version>${collections.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-digester</groupId>
-      <artifactId>commons-digester</artifactId>
-      <version>${digester.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
@@ -244,19 +224,9 @@
       <version>${io.version}</version>
     </dependency>
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>${lang.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>${lang3.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>commons-validator</groupId>
-      <artifactId>commons-validator</artifactId>
-      <version>${validator.version}</version>
     </dependency>
   </dependencies>
 
