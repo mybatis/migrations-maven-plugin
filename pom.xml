@@ -117,17 +117,7 @@
     <dependency>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-site-renderer</artifactId>
-      <version>1.11.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>oro</groupId>
-          <artifactId>oro</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>dom4j</groupId>
-          <artifactId>dom4j</artifactId>
-        </exclusion>
-      </exclusions>
+      <version>2.0.0-M13</version>
     </dependency>
 
     <dependency>
