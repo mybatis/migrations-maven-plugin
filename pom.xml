@@ -72,7 +72,7 @@
     <beanutils.version>1.9.4</beanutils.version>
     <collections.version>3.2.2</collections.version>
     <io.version>2.15.0</io.version>
-    <lang3.version>3.13.0</lang3.version>
+    <lang3.version>3.14.0</lang3.version>
 
     <!-- Reproducible Builds -->
     <project.build.outputTimestamp>1757561022</project.build.outputTimestamp>
