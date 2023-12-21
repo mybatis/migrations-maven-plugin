@@ -23,7 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
-public class PendingCommandMojoTest extends AbstractMigrateTestCase {
+class PendingCommandMojoTest extends AbstractMigrateTestCase {
 
   @BeforeEach
   public void init() throws Exception {
@@ -31,7 +31,7 @@ public class PendingCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testUpPendingDownAllDown() throws Exception {
+  void testUpPendingDownAllDown() throws Exception {
     runUpGoal();
     runPendingGoal();
     runDownGoal();

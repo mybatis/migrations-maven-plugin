@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
-public class VersionCommandMojoTest extends AbstractMigrateTestCase {
+class VersionCommandMojoTest extends AbstractMigrateTestCase {
 
   @Test
-  public void testUpVersionVersionDownGoal() throws Exception {
+  void testUpVersionVersionDownGoal() throws Exception {
     runUpGoal();
     runVersionGoal();
     runVersionDownGoal();

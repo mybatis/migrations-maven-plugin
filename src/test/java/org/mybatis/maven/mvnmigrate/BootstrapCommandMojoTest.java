@@ -19,11 +19,11 @@ import org.apache.ibatis.migration.commands.BootstrapCommand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
+class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
 
   @SuppressWarnings("unchecked")
   @Test
-  public void testBootstrapGoal() throws Exception {
+  void testBootstrapGoal() throws Exception {
     AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) testCase
         .lookupMojo("bootstrap", testPom);
     Assertions.assertNotNull(mojo);

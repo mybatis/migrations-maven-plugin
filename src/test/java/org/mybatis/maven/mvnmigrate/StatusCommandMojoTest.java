@@ -19,11 +19,11 @@ import org.apache.ibatis.migration.commands.StatusCommand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class StatusCommandMojoTest extends AbstractMigrateTestCase {
+class StatusCommandMojoTest extends AbstractMigrateTestCase {
 
   @SuppressWarnings("unchecked")
   @Test
-  public void testStatusGoal() throws Exception {
+  void testStatusGoal() throws Exception {
     AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) testCase.lookupMojo("status",
         testPom);
     Assertions.assertNotNull(mojo);
