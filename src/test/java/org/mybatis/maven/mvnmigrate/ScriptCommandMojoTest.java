@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
-public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
+class ScriptCommandMojoTest extends AbstractMigrateTestCase {
 
   @Test
-  public void testScriptGoal() throws Exception {
+  void testScriptGoal() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) testCase.lookupMojo("script",
         testPom);
     Assertions.assertNotNull(mojo);
@@ -35,7 +35,7 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testScriptToFileGoal() throws Exception {
+  void testScriptToFileGoal() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) testCase.lookupMojo("script",
         testPom);
     Assertions.assertNotNull(mojo);
@@ -47,7 +47,7 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testScriptPending() throws Exception {
+  void testScriptPending() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) testCase.lookupMojo("script",
         testPom);
     Assertions.assertNotNull(mojo);
@@ -58,7 +58,7 @@ public class ScriptCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testScriptPendingUndo() throws Exception {
+  void testScriptPendingUndo() throws Exception {
     AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) testCase.lookupMojo("script",
         testPom);
     Assertions.assertNotNull(mojo);

@@ -24,7 +24,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
-public class InitCommandMojoTest extends AbstractMigrateTestCase {
+class InitCommandMojoTest extends AbstractMigrateTestCase {
 
   @BeforeEach
   public void init() throws Exception {
@@ -32,7 +32,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testNewGoal() throws Exception {
+  void testNewGoal() throws Exception {
     AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
     Assertions.assertNotNull(mojo);
     testCase.setVariableValueToObject(mojo, "repository", new File("target/init"));
@@ -44,7 +44,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testnewGoalRequiredValue() throws Exception {
+  void testnewGoalRequiredValue() throws Exception {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
       Assertions.assertNotNull(mojo);
@@ -57,7 +57,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testnewGoalSetEmptyValue() throws Exception {
+  void testnewGoalSetEmptyValue() throws Exception {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
       Assertions.assertNotNull(mojo);
@@ -69,7 +69,7 @@ public class InitCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
-  public void testnewGoalInitRepAlreadyExist() throws Exception {
+  void testnewGoalInitRepAlreadyExist() throws Exception {
     try {
       AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) testCase.lookupMojo("init",
           testPom);
