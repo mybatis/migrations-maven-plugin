@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2014-03-17T19:27:51.422">
-<file name="/home/eduardo/git/migrations-maven-plugin/target/checkout/src/main/java/org/mybatis/maven/mvnmigrate/NewCommandMojo.java">
-<violation beginline="44" endline="44" begincolumn="20" endcolumn="27" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="org.mybatis.maven.mvnmigrate" class="NewCommandMojo" variable="template" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
-Avoid unused private fields such as 'template'.
-</violation>
-</file>
-</pmd>

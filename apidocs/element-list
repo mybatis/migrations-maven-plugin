@@ -1,0 +1,4 @@
+org.mybatis.maven.migrations_maven_plugin
+org.mybatis.maven.mvnmigrate
+org.mybatis.maven.mvnmigrate.report
+org.mybatis.maven.mvnmigrate.util
