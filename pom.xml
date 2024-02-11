@@ -37,13 +37,13 @@
     the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
     schema changes.
   </description>
-  <url>http://www.mybatis.org/migrations-maven-plugin</url>
+  <url>https://www.mybatis.org/migrations-maven-plugin/</url>
 
   <scm>
     <connection>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/mybatis/migrations-maven-plugin.git</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/mybatis/migrations-maven-plugin</url>
+    <url>https://github.com/mybatis/migrations-maven-plugin/</url>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
@@ -340,7 +340,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-plugin-plugin</artifactId>
-                        <versionRange>[3.9.0,)</versionRange>
+                        <versionRange>[3.11.0,)</versionRange>
                         <goals>
                           <goal>helpmojo</goal>
                           <goal>descriptor</goal>
@@ -354,7 +354,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[3.5.1,)</versionRange>
+                        <versionRange>[3.6.0,)</versionRange>
                         <goals>
                           <goal>install</goal>
                         </goals>
