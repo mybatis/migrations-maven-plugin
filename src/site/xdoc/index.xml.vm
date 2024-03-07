@@ -28,7 +28,7 @@
  <body>
   <section name="Why a Maven Plugin - Motivation">
         <p>
-            Being <i>Apache Maven</i> users to manage projects lyfecycle, and being at the same time
+            Being <i>Apache Maven</i> users to manage projects lifecycle, and being at the same time
             <i>MyBatis</i> framework and <i>MyBatis Migration tool</i> to maintain the
             database structure, in order to have a fully integrated tool we started implementing a solution that
             mixes the <i>MyBatis Migration tool</i> power into a standard <i>Apache Maven</i>
