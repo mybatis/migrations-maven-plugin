@@ -342,7 +342,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-plugin-plugin</artifactId>
-                        <versionRange>[3.11.0,)</versionRange>
+                        <versionRange>[3.13.1,)</versionRange>
                         <goals>
                           <goal>helpmojo</goal>
                           <goal>descriptor</goal>
@@ -356,7 +356,7 @@
                       <pluginExecutionFilter>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-invoker-plugin</artifactId>
-                        <versionRange>[3.6.0,)</versionRange>
+                        <versionRange>[3.7.0,)</versionRange>
                         <goals>
                           <goal>install</goal>
                         </goals>
