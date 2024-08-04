@@ -13,21 +13,8 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.mybatis.maven.mvnmigrate;
-
-import org.apache.ibatis.migration.commands.PendingCommand;
-import org.apache.ibatis.migration.options.SelectedOptions;
-import org.apache.maven.plugins.annotations.Mojo;
-
 /**
- * Goal which execute the ibatis migration pending command.
+ * Code borrowed from Maven Plugin Testing from 4.0.0-alpha-2 in order to support maven 3 with junit 5. Maven has since
+ * deleted all maven 3 support leaving no real option here.
  */
-@Mojo(name = "pending")
-public final class PendingCommandMojo extends AbstractCommandMojo<PendingCommand> {
-
-  @Override
-  protected PendingCommand createCommandClass(SelectedOptions options) {
-    return new PendingCommand(options);
-  }
-
-}
+package org.mybatis.maven.testing;

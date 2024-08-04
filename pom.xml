@@ -23,7 +23,7 @@
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis-parent</artifactId>
     <version>44</version>
-    <relativePath/>
+    <relativePath />
   </parent>
 
   <groupId>org.mybatis.maven</groupId>
@@ -32,11 +32,9 @@
   <packaging>maven-plugin</packaging>
 
   <name>MyBatis Migrations Maven plugin</name>
-  <description>
-    Migration-plugin is a Apache Maven 3 plugin that aims to integrate into the maven life cycle,
+  <description>Migration-plugin is a Apache Maven 3 plugin that aims to integrate into the maven life cycle,
     the myBatis 3 Migration tool. MyBatis 3 Migration Schema is a tool that helps you to manage database
-    schema changes.
-  </description>
+    schema changes.</description>
   <url>https://www.mybatis.org/migrations-maven-plugin/</url>
 
   <scm>
@@ -62,6 +60,10 @@
   </distributionManagement>
 
   <properties>
+    <!-- Java Usage -->
+    <java.version>8</java.version>
+    <java.release.version>8</java.release.version>
+
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
     <module.name>org.mybatis.maven.migrations</module.name>
 
@@ -347,7 +349,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -360,7 +362,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                   </pluginExecutions>

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2023 the original author or authors.
+ *    Copyright 2010-2024 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.mybatis.maven.mvnmigrate;
+package org.mybatis.maven.testing;
 
 import com.google.inject.Module;
 
@@ -70,8 +70,6 @@ import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import org.apache.maven.plugin.descriptor.Parameter;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugin.descriptor.PluginDescriptorBuilder;
-import org.apache.maven.plugin.testing.ConfigurationException;
-import org.apache.maven.plugin.testing.ResolverExpressionEvaluatorStub;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.repository.internal.MavenRepositorySystemUtils;
 import org.codehaus.plexus.ContainerConfiguration;
@@ -82,7 +80,6 @@ import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.PlexusContainerException;
 import org.codehaus.plexus.PlexusTestCase;
 import org.codehaus.plexus.classworlds.ClassWorld;
-import org.codehaus.plexus.component.configurator.ComponentConfigurationException;
 import org.codehaus.plexus.component.configurator.ComponentConfigurator;
 import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluator;
 import org.codehaus.plexus.component.repository.ComponentDescriptor;
@@ -99,7 +96,8 @@ import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
 
 /**
  * Mybatis: Borrowed from 'https://github.com/apache/maven-plugin-testing/blob/master/maven-plugin-testing-harness/src/main/java/org/apache/maven/plugin/testing/AbstractMojoTestCase.java'
- * Reason: Too restrictive to use directly for junit 5.  Only changes were to add imports after inclusion from maven's test harness.
+ * Reason: Too restrictive to use directly for junit 5.
+ * Changes: Imports added, method access expanded, removed some left over junk code
  * Git: From release 4.0.0-alpha-2
  */
 
@@ -146,9 +144,8 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * we are going to try and make an instance of the localrespository and assign that to either the project stub or into
    * the mojo directly with injection...not sure yet though.
    */
-  // private MavenProjectBuilder projectBuilder;
   @Override
-  protected void setUp() throws Exception {
+  public void setUp() throws Exception {
     assertTrue("Maven 3.2.4 or better is required",
         MAVEN_VERSION == null || new DefaultArtifactVersion("3.2.3").compareTo(MAVEN_VERSION) < 0);
 
@@ -311,7 +308,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected <T extends Mojo> T lookupMojo(String goal, File pom) throws Exception {
+  public <T extends Mojo> T lookupMojo(String goal, File pom) throws Exception {
     File pluginPom = new File(getBasedir(), "pom.xml");
 
     Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom));
@@ -351,11 +348,6 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
     return lookupMojo(groupId, artifactId, version, goal, null);
   }
 
-  /*
-   * protected Mojo lookupMojo( String groupId, String artifactId, String version, String goal, File pom ) throws
-   * Exception { PlexusConfiguration pluginConfiguration = extractPluginConfiguration( artifactId, pom ); return
-   * lookupMojo( groupId, artifactId, version, goal, pluginConfiguration ); }
-   */
   /**
    * lookup the mojo while we have all of the relavent information
    *
@@ -378,10 +370,6 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
     T mojo = (T) lookup(Mojo.class, groupId + ":" + artifactId + ":" + version + ":" + goal);
 
     if (pluginConfiguration != null) {
-      /*
-       * requires v10 of plexus container for lookup on expression evaluator ExpressionEvaluator evaluator =
-       * (ExpressionEvaluator) getContainer().lookup( ExpressionEvaluator.ROLE, "stub-evaluator" );
-       */
       ExpressionEvaluator evaluator = new ResolverExpressionEvaluatorStub();
 
       configurator.configureComponent(mojo, pluginConfiguration, evaluator, getContainer().getContainerRealm());
@@ -411,12 +399,10 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @return
    *
    * @throws Exception
-   * @throws ComponentConfigurationException
    *
    * @since 2.0
    */
-  protected <T extends Mojo> T lookupConfiguredMojo(MavenSession session, MojoExecution execution)
-      throws Exception, ComponentConfigurationException {
+  protected <T extends Mojo> T lookupConfiguredMojo(MavenSession session, MojoExecution execution) throws Exception {
     MavenProject project = session.getCurrentProject();
     MojoDescriptor mojoDescriptor = execution.getMojoDescriptor();
 
@@ -690,7 +676,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws IllegalAccessException
    */
-  protected <T> void setVariableValueToObject(Object object, String variable, T value) throws IllegalAccessException {
+  public <T> void setVariableValueToObject(Object object, String variable, T value) throws IllegalAccessException {
     Field field = ReflectionUtils.getFieldByNameIncludingSuperclasses(variable, object.getClass());
 
     field.setAccessible(true);
@@ -699,8 +685,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
   }
 
   /**
-   * sometimes the parent element might contain the correct value so generalize that access TODO find out where this is
-   * probably done elsewhere
+   * Sometimes the parent element might contain the correct value so generalize that access.
+   * <p>
+   * TODO find out where this is probably done elsewhere
    *
    * @param pluginPomDom
    * @param element

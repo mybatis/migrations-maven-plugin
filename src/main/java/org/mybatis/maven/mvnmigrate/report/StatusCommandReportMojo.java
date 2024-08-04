@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2024 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -133,11 +133,11 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
       return;
     }
 
-    Map<MavenProject, List<Change>> aggregateReport = new HashMap<MavenProject, List<Change>>();
+    Map<MavenProject, List<Change>> aggregateReport = new HashMap<>();
 
     for (MavenProject mavenProject : reactorProjects) {
 
-      Map<String, ReportPlugin> reportPluginMap = mavenProject.getReporting().getReportPluginsAsMap();
+      Map<String, ReportPlugin> reportPluginMap = mavenProject.getModel().getReporting().getReportPluginsAsMap();
       ReportPlugin plug = reportPluginMap.get(getBundle(locale).getString("migration.plugin.key"));
 
       Xpp3Dom configurationDom = (Xpp3Dom) plug.getConfiguration();

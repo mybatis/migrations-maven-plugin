@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2024 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import java.io.File;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.mybatis.maven.testing.AbstractMojoTestCase;
 
 public class MojoExtension implements AfterEachCallback, BeforeEachCallback {
 
@@ -27,7 +28,7 @@ public class MojoExtension implements AfterEachCallback, BeforeEachCallback {
   protected AbstractMojoTestCase testCase = new AbstractMojoTestCase() {
   };
 
-  protected void cleanup() throws Exception {
+  protected void cleanup() {
     File initMigrationDbFolder;
     initMigrationDbFolder = new File("target/init");
     if (initMigrationDbFolder.exists()) {
