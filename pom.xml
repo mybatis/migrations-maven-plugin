@@ -236,7 +236,7 @@
         <version>3.7.0</version>
         <configuration>
           <debug>false</debug>
-          <projectsDirectory>src/it</projectsDirectory>
+          <projectsDirectory>${project.basedir}/src/it</projectsDirectory>
           <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
           <pomIncludes>
             <pomInclude>**/pom.xml</pomInclude>
