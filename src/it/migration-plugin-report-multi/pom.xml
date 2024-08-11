@@ -27,6 +27,8 @@
     <name>Parent</name>
     <version>1</version>
 
+    <url>https://www.mybatis.org/migrations-maven-plugin/</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
