@@ -280,7 +280,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <systemProperties>
+          <systemPropertyVariables>
             <property>
               <name>migrationHome</name>
               <value>${project.build.directory}</value>
@@ -289,7 +289,7 @@
               <name>java.io.tmpdir</name>
               <value>${project.build.directory}</value>
             </property>
-          </systemProperties>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
       <plugin>
