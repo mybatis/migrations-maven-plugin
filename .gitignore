@@ -22,3 +22,5 @@ target/*
 .classpath
 projectFilesBackup/*
 .mvn/wrapper/maven-wrapper.jar
+pom.xml.releaseBackup
+release.properties
