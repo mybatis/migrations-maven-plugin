@@ -1,0 +1,17 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate.util,MavenOutputStream,7,58,1,5,2,16,2,6,1,4
+MyBatis Migrations Maven plugin,org.mybatis.maven.migrations_maven_plugin,HelpMojo,864,0,112,0,156,0,72,0,16,0
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,StatusCommandMojo,0,8,0,0,0,2,0,2,0,2
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,VersionCommandMojo,1,25,1,1,1,6,1,3,0,3
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,BootstrapCommandMojo,0,8,0,0,0,2,0,2,0,2
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,ScriptCommandMojo,12,169,4,10,5,32,4,6,0,3
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,NewCommandMojo,9,31,3,3,3,8,3,3,0,3
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,UpCommandMojo,1,25,1,1,1,6,1,3,0,3
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,CheckCommandMojo,126,0,8,0,26,0,9,0,5,0
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,RedoCommandMojo,26,0,2,0,7,0,4,0,3,0
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,InitCommandMojo,4,11,1,1,1,3,1,2,0,2
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,DownCommandMojo,4,36,2,4,2,9,2,4,0,3
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,AbstractCommandMojo,46,127,5,3,9,30,4,10,0,10
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate,PendingCommandMojo,0,8,0,0,0,2,0,2,0,2
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate.report,MigrationStatusReportView,406,0,20,0,128,0,16,0,6,0
+MyBatis Migrations Maven plugin,org.mybatis.maven.mvnmigrate.report,StatusCommandReportMojo,286,0,38,0,67,0,29,0,10,0

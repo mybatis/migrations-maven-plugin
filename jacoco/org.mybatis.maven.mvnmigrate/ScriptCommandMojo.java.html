@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ScriptCommandMojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Migrations Maven plugin</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.maven.mvnmigrate</a> &gt; <span class="el_source">ScriptCommandMojo.java</span></div><h1>ScriptCommandMojo.java</h1><pre class="source lang-java linenums">/*
+ *    Copyright 2010-2022 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.maven.mvnmigrate;
+
+import java.io.File;
+import java.io.PrintStream;
+import java.text.MessageFormat;
+
+import org.apache.ibatis.migration.commands.ScriptCommand;
+import org.apache.ibatis.migration.options.SelectedOptions;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+
+/**
+ * Goal which executes the ibatis migration script command.
+ */
+@Mojo(name = &quot;script&quot;)
+<span class="fc" id="L33">public final class ScriptCommandMojo extends AbstractCommandMojo&lt;ScriptCommand&gt; {</span>
+
+  /**
+   * Initial version.
+   */
+  @Parameter(property = &quot;migration.v1&quot;, required = true)
+  private String v1;
+
+  /**
+   * Final version.
+   */
+  @Parameter(property = &quot;migration.v2&quot;)
+  private String v2;
+
+  /**
+   * The output file to be create.
+   */
+  @Parameter(property = &quot;migration.output&quot;)
+  private File output;
+
+  @Override
+  protected ScriptCommand createCommandClass(SelectedOptions options) {
+<span class="fc" id="L55">    return new ScriptCommand(options);</span>
+  }
+
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">    if (isSkip()) {</span>
+<span class="nc" id="L61">      return;</span>
+    }
+
+    try {
+<span class="fc" id="L65">      init();</span>
+
+<span class="fc bfc" id="L67" title="All 2 branches covered.">      if (this.output == null) {</span>
+        // Set the default System.out PrintStream
+<span class="fc" id="L69">        this.getCommand().setPrintStream(System.out);</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if (this.getLog().isInfoEnabled()) {</span>
+<span class="fc" id="L71">          String[] args = { this.v1, this.v2 };</span>
+<span class="fc" id="L72">          MessageFormat format = new MessageFormat(</span>
+<span class="fc" id="L73">              getBundle(this.getLocale()).getString(&quot;migration.plugin.execution.command.script.sqlscript&quot;));</span>
+<span class="fc" id="L74">          this.getLog().info(format.format(args));</span>
+        }
+        // Print out all generated script. This is the standard migration tool behavior.
+<span class="fc" id="L77">        System.out.println(&quot;  --- CUT HERE ---&quot;);</span>
+      } else {
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">        if (!this.output.exists()) {</span>
+<span class="fc" id="L80">          new File(this.output.getParent()).mkdirs();</span>
+        }
+<span class="fc" id="L82">        this.getCommand().setPrintStream(new PrintStream(this.output));</span>
+      }
+
+<span class="fc" id="L85">      StringBuilder cmdParams = new StringBuilder(v1);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">      if (v2 != null) {</span>
+<span class="fc" id="L87">        cmdParams.append(&quot; &quot;).append(v2);</span>
+      }
+<span class="fc" id="L89">      this.getCommand().execute(cmdParams.toString());</span>
+
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">      if (this.getLog().isInfoEnabled()) {</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (this.output != null) {</span>
+<span class="fc" id="L93">          File[] args = { this.output };</span>
+<span class="fc" id="L94">          MessageFormat format = new MessageFormat(</span>
+<span class="fc" id="L95">              getBundle(this.getLocale()).getString(&quot;migration.plugin.execution.command.create.file&quot;));</span>
+<span class="fc" id="L96">          this.getLog().info(format.format(args));</span>
+<span class="fc" id="L97">        } else {</span>
+<span class="fc" id="L98">          String[] args = { this.v1, this.v2 };</span>
+<span class="fc" id="L99">          MessageFormat format = new MessageFormat(</span>
+<span class="fc" id="L100">              getBundle(this.getLocale()).getString(&quot;migration.plugin.execution.command.script.sqlscript&quot;));</span>
+<span class="fc" id="L101">          this.getLog().info(format.format(args));</span>
+        }
+      }
+<span class="nc" id="L104">    } catch (RuntimeException e) {</span>
+<span class="nc" id="L105">      throw e;</span>
+<span class="nc" id="L106">    } catch (Exception e) {</span>
+<span class="nc" id="L107">      throw new MojoExecutionException(e.getMessage(), e);</span>
+<span class="fc" id="L108">    }</span>
+<span class="fc" id="L109">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
