@@ -68,7 +68,7 @@
     <module.name>org.mybatis.maven.migrations</module.name>
 
     <!-- External Modules -->
-    <maven.version>3.9.8</maven.version>
+    <maven.version>3.9.9</maven.version>
 
     <!-- Targeted patches -->
     <beanutils.version>1.9.4</beanutils.version>
