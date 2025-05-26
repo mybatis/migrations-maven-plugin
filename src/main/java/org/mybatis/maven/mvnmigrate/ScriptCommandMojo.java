@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -17,6 +17,8 @@ package org.mybatis.maven.mvnmigrate;
 
 import java.io.File;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.MessageFormat;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
@@ -77,7 +79,7 @@ public final class ScriptCommandMojo extends AbstractCommandMojo<ScriptCommand> 
         System.out.println("  --- CUT HERE ---");
       } else {
         if (!this.output.exists()) {
-          new File(this.output.getParent()).mkdirs();
+          Files.createDirectories(Path.of(this.output.getParent()));
         }
         this.getCommand().setPrintStream(new PrintStream(this.output));
       }
