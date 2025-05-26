@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.junit.jupiter.api.Assertions;
@@ -31,7 +32,7 @@ public abstract class AbstractMigrateTestCase {
 
   protected AbstractMojoTestCase testCase;
 
-  protected File testPom = new File("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
+  protected Path testPom = Path.of("src/test/resources/unit/basic-test/basic-test-plugin-config.xml");
 
   public AbstractMigrateTestCase() {
     testCase = extension.testCase;
@@ -43,10 +44,10 @@ public abstract class AbstractMigrateTestCase {
         testPom);
     Assertions.assertNotNull(mojo);
 
-    final File newRep = new File("target/init");
-    testCase.setVariableValueToObject(mojo, "repository", newRep);
+    final Path newRep = Path.of("target/init");
+    testCase.setVariableValueToObject(mojo, "repository", newRep.toFile());
     mojo.execute();
-    Assertions.assertTrue(newRep.exists());
+    Assertions.assertTrue(Files.exists(newRep));
   }
 
 }

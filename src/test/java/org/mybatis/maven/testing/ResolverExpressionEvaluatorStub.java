@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@
 package org.mybatis.maven.testing;
 
 import java.io.File;
+import java.nio.file.Path;
 
 import org.apache.maven.artifact.repository.MavenArtifactRepository;
 import org.apache.maven.artifact.repository.layout.DefaultRepositoryLayout;
@@ -101,8 +102,8 @@ public class ResolverExpressionEvaluatorStub implements ExpressionEvaluator {
       }
       return value;
     } else if ("localRepository".equals(expression)) {
-      File localRepo = new File(PlexusTestCase.getBasedir(), "target/local-repo");
-      return new MavenArtifactRepository("localRepository", "file://" + localRepo.getAbsolutePath(),
+      Path localRepo = Path.of(PlexusTestCase.getBasedir(), "target/local-repo");
+      return new MavenArtifactRepository("localRepository", "file://" + localRepo.toFile().getAbsolutePath(),
           new DefaultRepositoryLayout(), null, null);
     } else {
       return expr;
@@ -125,7 +126,7 @@ public class ResolverExpressionEvaluatorStub implements ExpressionEvaluator {
     } else if (file.isAbsolute()) {
       return file;
     } else {
-      return new File(PlexusTestCase.getBasedir(), file.getPath());
+      return Path.of(PlexusTestCase.getBasedir(), file.getPath()).toFile();
     }
   }
 }

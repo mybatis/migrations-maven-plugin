@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.apache.ibatis.migration.commands.ScriptCommand;
 import org.junit.jupiter.api.Assertions;
@@ -41,9 +42,10 @@ class ScriptCommandMojoTest extends AbstractMigrateTestCase {
     Assertions.assertNotNull(mojo);
     testCase.setVariableValueToObject(mojo, "v1", "20100400000001");
     testCase.setVariableValueToObject(mojo, "v2", "20100400000003");
-    testCase.setVariableValueToObject(mojo, "output", new File("target/script_20100400000001-20100400000003.sql"));
+    testCase.setVariableValueToObject(mojo, "output",
+        Path.of("target/script_20100400000001-20100400000003.sql").toFile());
     mojo.execute();
-    Assertions.assertTrue(new File("target/script_20100400000001-20100400000003.sql").exists());
+    Assertions.assertTrue(Files.exists(Path.of("target/script_20100400000001-20100400000003.sql")));
   }
 
   @Test
@@ -52,9 +54,9 @@ class ScriptCommandMojoTest extends AbstractMigrateTestCase {
         testPom);
     Assertions.assertNotNull(mojo);
     testCase.setVariableValueToObject(mojo, "v1", "pending");
-    testCase.setVariableValueToObject(mojo, "output", new File("target/script_pending.sql"));
+    testCase.setVariableValueToObject(mojo, "output", Path.of("target/script_pending.sql").toFile());
     mojo.execute();
-    Assertions.assertTrue(new File("target/script_pending.sql").exists());
+    Assertions.assertTrue(Files.exists(Path.of("target/script_pending.sql")));
   }
 
   @Test
@@ -63,9 +65,9 @@ class ScriptCommandMojoTest extends AbstractMigrateTestCase {
         testPom);
     Assertions.assertNotNull(mojo);
     testCase.setVariableValueToObject(mojo, "v1", "pending_undo");
-    testCase.setVariableValueToObject(mojo, "output", new File("target/script_pending_undo.sql"));
+    testCase.setVariableValueToObject(mojo, "output", Path.of("target/script_pending_undo.sql").toFile());
     mojo.execute();
-    Assertions.assertTrue(new File("target/script_pending_undo.sql").exists());
+    Assertions.assertTrue(Files.exists(Path.of("target/script_pending_undo.sql")));
   }
 
 }

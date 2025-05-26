@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -29,18 +30,17 @@ public class MojoExtension implements AfterEachCallback, BeforeEachCallback {
   };
 
   protected void cleanup() {
-    File initMigrationDbFolder;
-    initMigrationDbFolder = new File("target/init");
-    if (initMigrationDbFolder.exists()) {
+    Path initMigrationDbFolder = Path.of("target/init");
+    if (Files.exists(initMigrationDbFolder)) {
       deleteDir(initMigrationDbFolder);
     }
   }
 
-  protected static boolean deleteDir(File dir) {
-    if (dir.isDirectory()) {
-      String[] children = dir.list();
+  protected static boolean deleteDir(Path dir) {
+    if (Files.isDirectory(dir)) {
+      String[] children = dir.toFile().list();
       for (int i = 0; i < children.length; i++) {
-        boolean success = deleteDir(new File(dir, children[i]));
+        boolean success = deleteDir(dir.resolve(children[i]));
         if (!success) {
           return false;
         }
@@ -48,7 +48,7 @@ public class MojoExtension implements AfterEachCallback, BeforeEachCallback {
     }
 
     // The directory is now empty so delete it
-    return dir.delete();
+    return dir.toFile().delete();
   }
 
   @Override

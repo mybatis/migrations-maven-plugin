@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -16,11 +16,14 @@
 package org.mybatis.maven.mvnmigrate.report;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+import javax.inject.Inject;
 
 import org.apache.ibatis.migration.Change;
 import org.apache.ibatis.migration.commands.StatusCommand;
@@ -29,7 +32,6 @@ import org.apache.ibatis.migration.options.SelectedOptions;
 import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.model.ReportPlugin;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -44,7 +46,7 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
 @Mojo(name = "status-report")
 public final class StatusCommandReportMojo extends AbstractMavenReport {
 
-  private static final File DEFAULT_REPO = new File(".");
+  private static final Path DEFAULT_REPO = Path.of(".");
 
   private static final String DEFAULT_ENVIRONMENT = "development";
 
@@ -71,7 +73,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
   /**
    * The project site renderer.
    */
-  @Component(role = Renderer.class)
+  @Inject
   private Renderer siteRenderer;
 
   /**
@@ -142,7 +144,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
 
       Xpp3Dom configurationDom = (Xpp3Dom) plug.getConfiguration();
 
-      File reactorRepo = DEFAULT_REPO;
+      Path reactorRepo = DEFAULT_REPO;
       String reactorEnv = DEFAULT_ENVIRONMENT;
       boolean reactorForce = DEFAULT_FORCE;
       boolean skipStatusCommand = false;
@@ -150,7 +152,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
       for (int i = 0; i < configurationDom.getChildCount(); i++) {
         Xpp3Dom child = configurationDom.getChild(i);
         if ("repository".equalsIgnoreCase(child.getName())) {
-          reactorRepo = new File(child.getValue());
+          reactorRepo = Path.of(child.getValue());
         } else if ("environment".equalsIgnoreCase(child.getName())) {
           reactorEnv = child.getValue();
         } else if ("force".equalsIgnoreCase(child.getName())) {
@@ -165,7 +167,7 @@ public final class StatusCommandReportMojo extends AbstractMavenReport {
       }
 
       final SelectedOptions options = new SelectedOptions();
-      options.getPaths().setBasePath(reactorRepo);
+      options.getPaths().setBasePath(reactorRepo.toFile());
       options.setEnvironment(reactorEnv);
       options.setForce(reactorForce);
 

@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
-import java.io.File;
+import java.nio.file.Path;
 
 import org.apache.ibatis.migration.commands.InitializeCommand;
 import org.apache.ibatis.migration.commands.NewCommand;
@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test;
 class InitCommandMojoTest extends AbstractMigrateTestCase {
 
   @BeforeEach
-  public void init() throws Exception {
+  void init() throws Exception {
     initEnvironment();
   }
 
@@ -35,12 +35,12 @@ class InitCommandMojoTest extends AbstractMigrateTestCase {
   void testNewGoal() throws Exception {
     AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
     Assertions.assertNotNull(mojo);
-    testCase.setVariableValueToObject(mojo, "repository", new File("target/init"));
+    testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
     testCase.setVariableValueToObject(mojo, "description", "test_script");
     mojo.execute();
 
-    final File newRep = new File("target/init/scripts");
-    Assertions.assertEquals(4, newRep.listFiles().length);
+    final Path newRep = Path.of("target/init/scripts");
+    Assertions.assertEquals(4, newRep.toFile().listFiles().length);
   }
 
   @Test
@@ -48,7 +48,7 @@ class InitCommandMojoTest extends AbstractMigrateTestCase {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
       Assertions.assertNotNull(mojo);
-      testCase.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
       testCase.setVariableValueToObject(mojo, "description", null);
       mojo.execute();
       Assertions.fail();
@@ -61,7 +61,7 @@ class InitCommandMojoTest extends AbstractMigrateTestCase {
     try {
       AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
       Assertions.assertNotNull(mojo);
-      testCase.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
       testCase.setVariableValueToObject(mojo, "description", "");
       mojo.execute();
     } catch (Exception e) {
@@ -74,7 +74,7 @@ class InitCommandMojoTest extends AbstractMigrateTestCase {
       AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) testCase.lookupMojo("init",
           testPom);
       Assertions.assertNotNull(mojo);
-      testCase.setVariableValueToObject(mojo, "repository", new File("target/init"));
+      testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
       mojo.execute();
     } catch (Exception e) {
     }
