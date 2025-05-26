@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2024 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ import com.google.inject.Module;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -45,6 +44,8 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -187,14 +188,14 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
     final String pluginDescriptorLocation = getPluginDescriptorLocation();
     final URL resource = getClass().getResource("/" + pluginDescriptorLocation);
 
-    File file = null;
+    Path file = null;
 
     // attempt to resolve relative to META-INF/maven/plugin.xml first
     if (resource != null) {
       if ("file".equalsIgnoreCase(resource.getProtocol())) {
         String path = resource.getPath();
         if (path.endsWith(pluginDescriptorLocation)) {
-          file = new File(path.substring(0, path.length() - pluginDescriptorLocation.length()));
+          file = Path.of(path.substring(0, path.length() - pluginDescriptorLocation.length()).replace(":", ""));
         }
       } else if ("jar".equalsIgnoreCase(resource.getProtocol())) {
         // TODO is there a helper for this somewhere?
@@ -203,7 +204,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
           if ("file".equalsIgnoreCase(jarfile.getProtocol())) {
             String path = jarfile.getPath();
             if (path.endsWith(pluginDescriptorLocation)) {
-              file = new File(path.substring(0, path.length() - pluginDescriptorLocation.length() - 2));
+              file = Path.of(path.substring(0, path.length() - pluginDescriptorLocation.length() - 2).replace(":", ""));
             }
           }
         } catch (MalformedURLException e) {
@@ -213,15 +214,15 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
     }
 
     // fallback to test project basedir if couldn't resolve relative to META-INF/maven/plugin.xml
-    if (file == null || !file.exists()) {
-      file = new File(getBasedir());
+    if (file == null || Files.notExists(file)) {
+      file = Path.of(getBasedir());
     }
 
-    return file.getCanonicalFile();
+    return file.toFile().getCanonicalFile();
   }
 
   protected InputStream getPublicDescriptorStream() throws Exception {
-    return new FileInputStream(new File(getPluginDescriptorPath()));
+    return Files.newInputStream(Path.of(getPluginDescriptorPath()));
   }
 
   protected String getPluginDescriptorPath() {
@@ -281,7 +282,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @throws Exception
    */
   protected <T extends Mojo> T lookupMojo(String goal, String pluginPom) throws Exception {
-    return lookupMojo(goal, new File(pluginPom));
+    return lookupMojo(goal, Path.of(pluginPom));
   }
 
   /**
@@ -295,7 +296,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @throws Exception
    */
   protected <T extends Mojo> T lookupEmptyMojo(String goal, String pluginPom) throws Exception {
-    return lookupEmptyMojo(goal, new File(pluginPom));
+    return lookupEmptyMojo(goal, Path.of(pluginPom).toFile());
   }
 
   /**
@@ -308,10 +309,10 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  public <T extends Mojo> T lookupMojo(String goal, File pom) throws Exception {
-    File pluginPom = new File(getBasedir(), "pom.xml");
+  public <T extends Mojo> T lookupMojo(String goal, Path pom) throws Exception {
+    Path pluginPom = Path.of(getBasedir(), "pom.xml");
 
-    Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom));
+    Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom.toFile()));
 
     String artifactId = pluginPomDom.getChild("artifactId").getValue();
 
@@ -335,9 +336,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    * @throws Exception
    */
   protected <T extends Mojo> T lookupEmptyMojo(String goal, File pom) throws Exception {
-    File pluginPom = new File(getBasedir(), "pom.xml");
+    Path pluginPom = Path.of(getBasedir(), "pom.xml");
 
-    Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom));
+    Xpp3Dom pluginPomDom = Xpp3DomBuilder.build(ReaderFactory.newXmlReader(pluginPom.toFile()));
 
     String artifactId = pluginPomDom.getChild("artifactId").getValue();
 
@@ -512,9 +513,9 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected PlexusConfiguration extractPluginConfiguration(String artifactId, File pom) throws Exception {
+  protected PlexusConfiguration extractPluginConfiguration(String artifactId, Path pom) throws Exception {
 
-    try (Reader reader = ReaderFactory.newXmlReader(pom)) {
+    try (Reader reader = ReaderFactory.newXmlReader(pom.toFile())) {
       Xpp3Dom pomDom = Xpp3DomBuilder.build(reader);
       return extractPluginConfiguration(artifactId, pomDom);
     }
@@ -574,7 +575,7 @@ public abstract class AbstractMojoTestCase extends PlexusTestCase {
    *
    * @throws Exception
    */
-  protected <T extends Mojo> T configureMojo(T mojo, String artifactId, File pom) throws Exception {
+  protected <T extends Mojo> T configureMojo(T mojo, String artifactId, Path pom) throws Exception {
     validateContainerStatus();
 
     PlexusConfiguration pluginConfiguration = extractPluginConfiguration(artifactId, pom);
