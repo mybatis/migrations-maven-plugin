@@ -71,7 +71,7 @@
     <maven.version>3.9.9</maven.version>
 
     <!-- Targeted patches -->
-    <beanutils.version>1.10.1</beanutils.version>
+    <beanutils.version>1.11.0</beanutils.version>
     <collections.version>3.2.2</collections.version>
     <io.version>2.19.0</io.version>
     <lang3.version>3.17.0</lang3.version>
