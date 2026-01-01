@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.mybatis.maven.migrations_maven_plugin"},{"l":"org.mybatis.maven.mvnmigrate"},{"l":"org.mybatis.maven.mvnmigrate.report"},{"l":"org.mybatis.maven.mvnmigrate.util"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"org.mybatis.maven.migrations_maven_plugin"},{"l":"org.mybatis.maven.mvnmigrate"},{"l":"org.mybatis.maven.mvnmigrate.report"},{"l":"org.mybatis.maven.mvnmigrate.util"}];updateSearchResults();
