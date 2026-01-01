@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatusCommandReportMojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Migrations Maven plugin</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.maven.mvnmigrate.report</a> &gt; <span class="el_source">StatusCommandReportMojo.java</span></div><h1>StatusCommandReportMojo.java</h1><pre class="source lang-java linenums">/*
+ *    Copyright 2010-2025 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package org.mybatis.maven.mvnmigrate.report;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.migration.Change;
+import org.apache.ibatis.migration.commands.StatusCommand;
+import org.apache.ibatis.migration.operations.StatusOperation;
+import org.apache.ibatis.migration.options.SelectedOptions;
+import org.apache.maven.doxia.sink.Sink;
+import org.apache.maven.doxia.siterenderer.Renderer;
+import org.apache.maven.model.ReportPlugin;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
+import org.apache.maven.reporting.AbstractMavenReport;
+import org.apache.maven.reporting.MavenReportException;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
+
+/**
+ * Extends {@link AbstractMavenReport}. &lt;br&gt;
+ * Class to generate a Maven report.
+ */
+@Mojo(name = &quot;status-report&quot;)
+<span class="nc" id="L47">public final class StatusCommandReportMojo extends AbstractMavenReport {</span>
+
+<span class="nc" id="L49">  private static final Path DEFAULT_REPO = Path.of(&quot;.&quot;);</span>
+
+  private static final String DEFAULT_ENVIRONMENT = &quot;development&quot;;
+
+  private static final boolean DEFAULT_FORCE = false;
+
+  /**
+   * The Maven project to analyze.
+   */
+  @Parameter(property = &quot;project&quot;, required = true, readonly = true)
+  private MavenProject project;
+
+  /**
+   * Target folder.
+   */
+  @Parameter(property = &quot;project.build.directory&quot;, readonly = true)
+  private File outputDirectory;
+
+  /**
+   * The projects in the reactor for aggregation report.
+   */
+  @Parameter(property = &quot;reactorProjects&quot;, readonly = true)
+  protected List&lt;MavenProject&gt; reactorProjects;
+
+  /**
+   * The project site renderer.
+   */
+  @Inject
+  private Renderer siteRenderer;
+
+  /**
+   * Location of migrate repository.
+   */
+  @Parameter(property = &quot;migration.path&quot;, defaultValue = &quot;.&quot;)
+  protected File repository;
+
+  /**
+   * Environment to configure. Default environment is 'development'.
+   */
+  @Parameter(property = &quot;migration.env&quot;, defaultValue = &quot;development&quot;)
+  protected String environment;
+
+  /**
+   * Forces script to continue even if SQL errors are encountered.
+   */
+  @Parameter(property = &quot;migration.force&quot;, defaultValue = &quot;false&quot;)
+  protected boolean force;
+
+  /**
+   * Skip migration actions.
+   */
+  @Parameter(property = &quot;migration.skip&quot;, defaultValue = &quot;false&quot;)
+  protected boolean skip;
+
+  /**
+   * Aggregate report results.
+   */
+  @Parameter(property = &quot;migration.aggregate&quot;, defaultValue = &quot;false&quot;)
+  protected boolean aggregate;
+
+  @Override
+  protected void executeReport(Locale locale) throws MavenReportException {
+<span class="nc bnc" id="L111" title="All 4 branches missed.">    if (aggregate &amp;&amp; !project.isExecutionRoot()) {</span>
+<span class="nc" id="L112">      return;</span>
+    }
+
+<span class="nc bnc" id="L115" title="All 4 branches missed.">    if (skip &amp;&amp; !aggregate) {</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">      if (this.getLog().isInfoEnabled()) {</span>
+<span class="nc" id="L117">        this.getLog().info(getBundle(locale).getString(&quot;migration.status.report.skipped&quot;));</span>
+      }
+<span class="nc" id="L119">      return;</span>
+    }
+
+    // Step 0: Checking pom availability
+<span class="nc bnc" id="L123" title="All 4 branches missed.">    if (&quot;pom&quot;.equals(this.project.getPackaging()) &amp;&amp; !aggregate) {</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">      if (this.getLog().isInfoEnabled()) {</span>
+<span class="nc" id="L125">        this.getLog().info(&quot;migration.status.report.skipped.pom&quot;);</span>
+      }
+<span class="nc" id="L127">      return;</span>
+    }
+
+<span class="nc bnc" id="L130" title="All 4 branches missed.">    if (this.outputDirectory == null || !this.outputDirectory.exists()) {</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">      if (this.getLog().isInfoEnabled()) {</span>
+<span class="nc" id="L132">        this.getLog().info(</span>
+<span class="nc" id="L133">            getBundle(locale).getString(getBundle(locale).getString(&quot;migration.status.report.skipped.no.target&quot;)));</span>
+      }
+<span class="nc" id="L135">      return;</span>
+    }
+
+<span class="nc" id="L138">    Map&lt;MavenProject, List&lt;Change&gt;&gt; aggregateReport = new HashMap&lt;&gt;();</span>
+
+<span class="nc bnc" id="L140" title="All 2 branches missed.">    for (MavenProject mavenProject : reactorProjects) {</span>
+
+<span class="nc" id="L142">      Map&lt;String, ReportPlugin&gt; reportPluginMap = mavenProject.getModel().getReporting().getReportPluginsAsMap();</span>
+<span class="nc" id="L143">      ReportPlugin plug = reportPluginMap.get(getBundle(locale).getString(&quot;migration.plugin.key&quot;));</span>
+
+<span class="nc" id="L145">      Xpp3Dom configurationDom = (Xpp3Dom) plug.getConfiguration();</span>
+
+<span class="nc" id="L147">      Path reactorRepo = DEFAULT_REPO;</span>
+<span class="nc" id="L148">      String reactorEnv = DEFAULT_ENVIRONMENT;</span>
+<span class="nc" id="L149">      boolean reactorForce = DEFAULT_FORCE;</span>
+<span class="nc" id="L150">      boolean skipStatusCommand = false;</span>
+
+<span class="nc bnc" id="L152" title="All 2 branches missed.">      for (int i = 0; i &lt; configurationDom.getChildCount(); i++) {</span>
+<span class="nc" id="L153">        Xpp3Dom child = configurationDom.getChild(i);</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if (&quot;repository&quot;.equalsIgnoreCase(child.getName())) {</span>
+<span class="nc" id="L155">          reactorRepo = Path.of(child.getValue());</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        } else if (&quot;environment&quot;.equalsIgnoreCase(child.getName())) {</span>
+<span class="nc" id="L157">          reactorEnv = child.getValue();</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        } else if (&quot;force&quot;.equalsIgnoreCase(child.getName())) {</span>
+<span class="nc" id="L159">          reactorForce = Boolean.valueOf(child.getValue());</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">        } else if (&quot;skip&quot;.equalsIgnoreCase(child.getName())) {</span>
+<span class="nc" id="L161">          skipStatusCommand = Boolean.valueOf(child.getValue());</span>
+        }
+      }
+
+<span class="nc bnc" id="L165" title="All 2 branches missed.">      if (skipStatusCommand) {</span>
+<span class="nc" id="L166">        continue;</span>
+      }
+
+<span class="nc" id="L169">      final SelectedOptions options = new SelectedOptions();</span>
+<span class="nc" id="L170">      options.getPaths().setBasePath(reactorRepo.toFile());</span>
+<span class="nc" id="L171">      options.setEnvironment(reactorEnv);</span>
+<span class="nc" id="L172">      options.setForce(reactorForce);</span>
+
+<span class="nc" id="L174">      StatusCommand analyzer = new StatusCommand(options);</span>
+      try {
+<span class="nc" id="L176">        analyzer.execute();</span>
+<span class="nc" id="L177">        StatusOperation operation = analyzer.getOperation();</span>
+<span class="nc" id="L178">        List&lt;Change&gt; analysis = operation.getCurrentStatus();</span>
+
+<span class="nc" id="L180">        aggregateReport.put(mavenProject, analysis);</span>
+<span class="nc" id="L181">      } catch (RuntimeException e) {</span>
+<span class="nc" id="L182">        throw e;</span>
+<span class="nc" id="L183">      } catch (Exception e) {</span>
+<span class="nc" id="L184">        throw new MavenReportException(getBundle(locale).getString(&quot;migration.status.report.error&quot;), e);</span>
+<span class="nc" id="L185">      }</span>
+<span class="nc" id="L186">    }</span>
+
+    // Step 2: Create sink and bundle
+<span class="nc" id="L189">    Sink sink = getSink();</span>
+<span class="nc" id="L190">    ResourceBundle bundle = getBundle(locale);</span>
+
+    // Step 3: Generate the report
+<span class="nc" id="L193">    MigrationStatusReportView view = new MigrationStatusReportView();</span>
+<span class="nc" id="L194">    view.generateReport(aggregateReport, sink, bundle, aggregate);</span>
+<span class="nc" id="L195">  }</span>
+
+  @Override
+  protected String getOutputDirectory() {
+<span class="nc bnc" id="L199" title="All 2 branches missed.">    if (this.getLog().isInfoEnabled()) {</span>
+<span class="nc" id="L200">      this.getLog().info(outputDirectory.toString());</span>
+    }
+<span class="nc" id="L202">    return this.outputDirectory.toString();</span>
+  }
+
+  @Override
+  protected MavenProject getProject() {
+<span class="nc" id="L207">    return this.project;</span>
+  }
+
+  @Override
+  protected Renderer getSiteRenderer() {
+<span class="nc" id="L212">    return this.siteRenderer;</span>
+  }
+
+  /**
+   * Return the output name of the report.
+   *
+   * @return the output name.
+   */
+  @Override
+  public String getOutputName() {
+<span class="nc" id="L222">    return &quot;migration-status-analysis&quot;;</span>
+  }
+
+  /**
+   * Return the name of the report.
+   *
+   * @return the name of the report.
+   */
+  @Override
+  public String getName(Locale locale) {
+<span class="nc" id="L232">    return getBundle(locale).getString(&quot;migration.status.report.name&quot;);</span>
+  }
+
+  /**
+   * Return the description of the report.
+   *
+   * @return the description of the report.
+   */
+  @Override
+  public String getDescription(Locale locale) {
+<span class="nc" id="L242">    return getBundle(locale).getString(&quot;migration.status.report.description&quot;);</span>
+  }
+
+  /**
+   * Return the {@link ResourceBundle} given the current locale.
+   *
+   * @param locale
+   *          the current locale.
+   */
+  protected ResourceBundle getBundle(Locale locale) {
+<span class="nc" id="L252">    return ResourceBundle.getBundle(&quot;migration-report&quot;, locale, this.getClass().getClassLoader());</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

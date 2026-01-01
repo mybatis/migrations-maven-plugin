@@ -27,9 +27,9 @@
 
         <div id="breadcrumbs">
           <ul class="breadcrumb">
-        <li id="publishDate">Last Published: 11 Aug 2024<span class="divider">|</span>
+        <li id="publishDate">Last Published: 01 Jan 2026<span class="divider">|</span>
 </li>
-          <li id="projectVersion">Version: 1.2.1-SNAPSHOT</li>
+          <li id="projectVersion">Version: 1.3.0</li>
           </ul>
         </div>
       </header>
@@ -50,7 +50,6 @@
       <li><a href="apidocs/index.html">Javadoc</a></li>
       <li><a href="xref/index.html">Source Xref</a></li>
       <li><a href="xref-test/index.html">Test Source Xref</a></li>
-      <li><a href="spotbugs.html">SpotBugs</a></li>
       <li><a href="surefire.html">Surefire</a></li>
       <li class="active"><a>Checkstyle</a></li>
       <li><a href="cpd.html">CPD</a></li>
@@ -61,6 +60,7 @@
       <li><a href="parent-updates-report.html">Parent Updates Report</a></li>
       <li><a href="plugin-updates-report.html">Plugin Updates Report</a></li>
       <li><a href="property-updates-report.html">Property Updates Report</a></li>
+      <li><a href="jacoco/index.html">JaCoCo</a></li>
       <li><a href="plugin-info.html">Plugin Details</a></li>
      </ul></li>
   </ul>
@@ -85,9 +85,9 @@
 <th><img src="images/icon_warning_sml.gif" />&#160;Warnings</th>
 <th><img src="images/icon_error_sml.gif" />&#160;Errors</th></tr>
 <tr class="b">
-<td>53</td>
+<td>93</td>
 <td>0</td>
-<td>12</td>
+<td>592</td>
 <td>0</td></tr></table></section><section><a id="Files"></a>
 <h2>Files</h2>
 <table class="table table-striped">
@@ -97,36 +97,41 @@
 <th><img src="images/icon_warning_sml.gif" />&#160;W</th>
 <th><img src="images/icon_error_sml.gif" />&#160;E</th></tr>
 <tr class="b">
+<td><a href="#org.2Fmybatis.2Fmaven.2Fmigrations_maven_plugin.2FHelpMojo.java">org/mybatis/maven/migrations_maven_plugin/HelpMojo.java</a></td>
+<td>0</td>
+<td>580</td>
+<td>0</td></tr>
+<tr class="a">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FAbstractCommandMojo.java">org/mybatis/maven/mvnmigrate/AbstractCommandMojo.java</a></td>
 <td>0</td>
 <td>1</td>
 <td>0</td></tr>
-<tr class="a">
+<tr class="b">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FCheckCommandMojo.java">org/mybatis/maven/mvnmigrate/CheckCommandMojo.java</a></td>
 <td>0</td>
 <td>2</td>
 <td>0</td></tr>
-<tr class="b">
+<tr class="a">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FInitCommandMojo.java">org/mybatis/maven/mvnmigrate/InitCommandMojo.java</a></td>
 <td>0</td>
 <td>2</td>
 <td>0</td></tr>
-<tr class="a">
+<tr class="b">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FScriptCommandMojo.java">org/mybatis/maven/mvnmigrate/ScriptCommandMojo.java</a></td>
 <td>0</td>
 <td>1</td>
 <td>0</td></tr>
-<tr class="b">
+<tr class="a">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2Freport.2FMigrationStatusReportView.java">org/mybatis/maven/mvnmigrate/report/MigrationStatusReportView.java</a></td>
 <td>0</td>
 <td>1</td>
 <td>0</td></tr>
-<tr class="a">
+<tr class="b">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2Freport.2FStatusCommandReportMojo.java">org/mybatis/maven/mvnmigrate/report/StatusCommandReportMojo.java</a></td>
 <td>0</td>
 <td>2</td>
 <td>0</td></tr>
-<tr class="b">
+<tr class="a">
 <td><a href="#org.2Fmybatis.2Fmaven.2Fmvnmigrate.2Futil.2FMavenOutputStream.java">org/mybatis/maven/mvnmigrate/util/MavenOutputStream.java</a></td>
 <td>0</td>
 <td>3</td>
@@ -139,6 +144,53 @@
 <th>Violations</th>
 <th>Severity</th></tr>
 <tr class="b">
+<td>blocks</td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/blocks/leftcurly.html">LeftCurly</a>
+<ul>
+<li>tokens: <code>&quot;LITERAL_CASE, LITERAL_DEFAULT&quot;</code></li>
+<li>id: <code>&quot;LeftCurlyNl&quot;</code></li>
+<li>option: <code>&quot;nl&quot;</code></li></ul></td>
+<td>62</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/blocks/leftcurly.html">LeftCurly</a>
+<ul>
+<li>tokens: <code>&quot;ANNOTATION_DEF, CLASS_DEF, CTOR_DEF, ENUM_CONSTANT_DEF, ENUM_DEF,                     INTERFACE_DEF, LAMBDA, LITERAL_CATCH,                     LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY, LITERAL_FOR, LITERAL_IF,                     LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, METHOD_DEF,                     OBJBLOCK, STATIC_INIT, RECORD_DEF, COMPACT_CTOR_DEF&quot;</code></li>
+<li>id: <code>&quot;LeftCurlyEol&quot;</code></li></ul></td>
+<td>62</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="b">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/blocks/rightcurly.html">RightCurly</a>
+<ul>
+<li>tokens: <code>&quot;CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, STATIC_INIT,                     INSTANCE_INIT, ANNOTATION_DEF, ENUM_DEF, INTERFACE_DEF, RECORD_DEF,                     COMPACT_CTOR_DEF, LITERAL_SWITCH, LITERAL_CASE, LITERAL_FINALLY,                     LITERAL_CATCH&quot;</code></li>
+<li>id: <code>&quot;RightCurlyAlone&quot;</code></li>
+<li>option: <code>&quot;alone&quot;</code></li></ul></td>
+<td>9</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/blocks/rightcurly.html">RightCurly</a>
+<ul>
+<li>tokens: <code>&quot;LITERAL_TRY, LITERAL_CATCH, LITERAL_IF, LITERAL_ELSE,                     LITERAL_DO&quot;</code></li>
+<li>id: <code>&quot;RightCurlySame&quot;</code></li></ul></td>
+<td>9</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="b">
+<td>coding</td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/coding/matchxpath.html">MatchXpath</a>
+<ul>
+<li>query: <code>&quot;//SINGLE_LINE_COMMENT[./COMMENT_CONTENT[not(starts-with(@text, ' '))                        and not(starts-with(@text, '/'))                        and not(@text = '\n') and not(ends-with(@text, '//\n'))]]&quot;</code></li>
+<li>id: <code>&quot;singleLineCommentStartWithSpace&quot;</code></li></ul></td>
+<td>1</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/coding/variabledeclarationusagedistance.html">VariableDeclarationUsageDistance</a></td>
+<td>1</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="b">
 <td>imports</td>
 <td><a class="externalLink" href="https://checkstyle.org/checks/imports/customimportorder.html">CustomImportOrder</a>
 <ul>
@@ -146,14 +198,31 @@
 <li>sortImportsInGroupAlphabetically: <code>&quot;true&quot;</code></li>
 <li>customImportOrderRules: <code>&quot;STATIC###THIRD_PARTY_PACKAGE&quot;</code></li>
 <li>tokens: <code>&quot;IMPORT, STATIC_IMPORT, PACKAGE_DEF&quot;</code></li></ul></td>
-<td>7</td>
+<td>16</td>
 <td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
 <tr class="a">
+<td>indentation</td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/indentation/indentation.html">Indentation</a>
+<ul>
+<li>throwsIndent: <code>&quot;4&quot;</code></li>
+<li>arrayInitIndent: <code>&quot;2&quot;</code></li>
+<li>caseIndent: <code>&quot;2&quot;</code></li>
+<li>basicOffset: <code>&quot;2&quot;</code></li>
+<li>braceAdjustment: <code>&quot;2&quot;</code></li>
+<li>lineWrappingIndentation: <code>&quot;4&quot;</code></li></ul></td>
+<td>152</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="b">
 <td>javadoc</td>
 <td><a class="externalLink" href="https://checkstyle.org/checks/javadoc/javadocparagraph.html">JavadocParagraph</a>
 <ul>
 <li>allowNewlineParagraph: <code>&quot;false&quot;</code></li></ul></td>
-<td>4</td>
+<td>5</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/javadoc/requireemptylinebeforeblocktaggroup.html">RequireEmptyLineBeforeBlockTagGroup</a></td>
+<td>1</td>
 <td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
 <tr class="b">
 <td></td>
@@ -161,8 +230,3517 @@
 <ul>
 <li>forbiddenSummaryFragments: <code>&quot;^@return the *|^This method returns |^A [{]@code [a-zA-Z0-9]+[}]( is a )&quot;</code></li></ul></td>
 <td>1</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td>naming</td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/naming/localvariablename.html">LocalVariableName</a>
+<ul>
+<li>format: <code>&quot;^[a-z]([a-z0-9][a-zA-Z0-9]*)?$&quot;</code></li></ul></td>
+<td>1</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="b">
+<td></td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/naming/packagename.html">PackageName</a>
+<ul>
+<li>format: <code>&quot;^[a-z]+(\.[a-z][a-z0-9]*)*$&quot;</code></li></ul></td>
+<td>1</td>
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr>
+<tr class="a">
+<td>whitespace</td>
+<td><a class="externalLink" href="https://checkstyle.org/checks/whitespace/parenpad.html">ParenPad</a>
+<ul>
+<li>tokens: <code>&quot;ANNOTATION, ANNOTATION_FIELD_DEF, CTOR_CALL, CTOR_DEF, DOT, ENUM_CONSTANT_DEF,                     EXPR, LITERAL_CATCH, LITERAL_DO, LITERAL_FOR, LITERAL_IF, LITERAL_NEW,                     LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_WHILE, METHOD_CALL,                     METHOD_DEF, QUESTION, RESOURCE_SPECIFICATION, SUPER_CTOR_CALL, LAMBDA,                     RECORD_DEF, RECORD_PATTERN_DEF&quot;</code></li></ul></td>
+<td>342</td>
 <td><img src="images/icon_warning_sml.gif" />&#160;Warning</td></tr></table></section><section><a id="Details"></a>
-<h2>Details</h2><section><a id="org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FAbstractCommandMojo.java"></a>
+<h2>Details</h2><section><a id="org.2Fmybatis.2Fmaven.2Fmigrations_maven_plugin.2FHelpMojo.java"></a>
+<h3>org/mybatis/maven/migrations_maven_plugin/HelpMojo.java</h3>
+<table class="table table-striped">
+<tr class="a">
+<th>Severity</th>
+<th>Category</th>
+<th>Rule</th>
+<th>Message</th>
+<th>Line</th></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>naming</td>
+<td>PackageName</td>
+<td>Package name 'org.mybatis.maven.migrations_maven_plugin' must match pattern '^[a-z]+(\.[a-z][a-z0-9]*)*$'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L1">1</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Extra separation in import group before 'org.w3c.dom.Document'</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L8">8</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Extra separation in import group before 'javax.xml.parsers.DocumentBuilder'</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L14">14</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'javax.xml.parsers.DocumentBuilder' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L14">14</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'javax.xml.parsers.DocumentBuilderFactory' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L15">15</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'javax.xml.parsers.ParserConfigurationException' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L16">16</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'java.io.IOException' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L17">17</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'java.io.InputStream' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L18">18</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'java.util.ArrayList' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L19">19</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>imports</td>
+<td>CustomImportOrder</td>
+<td>Wrong lexicographical order for 'java.util.List' import. Should be before 'org.xml.sax.SAXException'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L20">20</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>javadoc</td>
+<td>RequireEmptyLineBeforeBlockTagGroup</td>
+<td>Javadoc tag '@author' should be preceded with an empty line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L25">25</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L27">27</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L27">27</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'class def lcurly' has incorrect indentation level 0, expected level should be 2.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L30">30</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 1 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L30">30</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L35">35</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L35">35</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L42">42</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L42">42</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L49">49</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L49">49</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L56">56</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L56">56</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L67">67</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L68">68</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L68">68</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L68">68</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'try' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L69">69</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L69">69</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L69">69</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L69">69</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L69">69</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L70">70</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L71">71</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L71">71</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L71">71</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L72">72</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L73">73</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L73">73</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L73">73</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'try' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L75">75</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'try' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L76">76</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>naming</td>
+<td>LocalVariableName</td>
+<td>Local variable name 'dBuilder' must match pattern '^[a-z]([a-z0-9][a-zA-Z0-9]*)?$'.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L76">76</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'try' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L77">77</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L77">77</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L77">77</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 9 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L78">78</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L79">79</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L79">79</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L79">79</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L80">80</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L81">81</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L81">81</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L81">81</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 9 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L82">82</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L83">83</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L83">83</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L83">83</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L84">84</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L85">85</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L85">85</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L85">85</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 9 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L86">86</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L87">87</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L87">87</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L87">87</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L88">88</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'catch' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L89">89</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L89">89</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L89">89</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L99">99</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L100">100</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L100">100</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L100">100</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L101">101</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L102">102</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L102">102</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L102">102</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L103">103</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L105">105</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L105">105</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L105">105</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L106">106</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L107">107</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L107">107</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L107">107</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L108">108</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L111">111</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L113">113</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L114">114</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L114">114</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L114">114</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L117">117</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L117">117</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L117">117</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L118">118</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L118">118</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L118">118</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L119">119</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L119">119</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L119">119</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L119">119</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L119">119</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L120">120</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L121">121</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L122">122</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L122">122</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L122">122</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 9 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L123">123</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L124">124</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L125">125</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L126">126</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L126">126</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L126">126</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L126">126</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L126">126</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L127">127</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L128">128</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L128">128</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L128">128</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 13 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L129">129</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L130">130</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L131">131</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L132">132</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L132">132</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L132">132</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L135">135</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L135">135</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L135">135</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L135">135</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L135">135</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L136">136</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L136">136</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L136">136</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>coding</td>
+<td>MatchXpath</td>
+<td>'//' must be followed by a whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L138">138</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L139">139</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L139">139</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L139">139</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L141">141</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L141">141</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L141">141</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L143">143</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L143">143</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L143">143</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L145">145</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L145">145</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L145">145</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L146">146</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L147">147</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L147">147</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L147">147</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L147">147</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L147">147</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L148">148</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L148">148</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L148">148</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L151">151</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L151">151</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L151">151</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L152">152</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L153">153</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L153">153</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L153">153</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L156">156</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L156">156</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L156">156</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L157">157</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L158">158</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L158">158</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L158">158</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L163">163</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L163">163</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L164">164</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L165">165</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L168">168</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L168">168</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L170">170</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L171">171</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L171">171</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L171">171</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L174">174</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L174">174</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L176">176</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L177">177</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L177">177</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L177">177</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L178">178</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L178">178</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L178">178</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L179">179</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L180">180</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L180">180</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L180">180</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L182">182</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L182">182</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L182">182</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L183">183</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L184">184</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L184">184</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L184">184</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L186">186</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L186">186</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L186">186</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L189">189</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L189">189</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L190">190</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L191">191</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L192">192</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L193">193</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L193">193</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L193">193</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L194">194</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L195">195</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L195">195</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L195">195</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L196">196</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L196">196</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L196">196</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L196">196</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L196">196</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L197">197</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L198">198</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L198">198</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L198">198</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L201">201</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L204">204</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L204">204</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L206">206</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L207">207</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L207">207</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L207">207</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L208">208</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L208">208</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L208">208</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L209">209</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L210">210</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L212">212</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L212">212</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L212">212</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L213">213</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L214">214</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L214">214</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L214">214</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L216">216</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L216">216</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L216">216</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L219">219</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L219">219</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L221">221</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L222">222</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L222">222</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L222">222</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L223">223</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L223">223</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L223">223</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L224">224</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L224">224</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L224">224</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L225">225</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L225">225</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L225">225</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L225">225</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L225">225</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L226">226</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L227">227</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L227">227</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L227">227</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L228">228</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L228">228</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L228">228</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L229">229</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L230">230</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L231">231</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L231">231</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L231">231</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L232">232</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L232">232</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L232">232</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L233">233</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L234">234</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L234">234</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L234">234</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L235">235</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L235">235</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L235">235</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 13 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L237">237</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L238">238</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L238">238</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L238">238</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L239">239</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L240">240</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L240">240</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L240">240</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L242">242</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L242">242</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L242">242</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L244">244</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L244">244</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L244">244</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L245">245</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L246">246</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L246">246</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L246">246</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L247">247</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L247">247</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L247">247</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L248">248</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L248">248</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L248">248</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L249">249</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L249">249</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L249">249</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L251">251</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L251">251</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L251">251</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L252">252</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L253">253</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L253">253</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L253">253</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L259">259</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L259">259</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L261">261</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L262">262</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L262">262</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L262">262</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>coding</td>
+<td>VariableDeclarationUsageDistance</td>
+<td>Distance between variable 'parameterDescription' declaration and its first usage is 5, but allowed 3.  Consider making that variable final if you still need to store its value in advance (before method calls that might have side effects on the original value).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L263">263</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L263">263</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L263">263</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L263">263</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L265">265</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L266">266</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L266">266</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L266">266</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L267">267</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L268">268</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L268">268</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L271">271</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L272">272</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L272">272</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L272">272</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L272">272</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L272">272</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L273">273</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L274">274</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L274">274</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L274">274</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L276">276</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L276">276</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L276">276</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L277">277</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L277">277</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L277">277</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L278">278</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L279">279</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L280">280</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L280">280</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L280">280</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L281">281</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L281">281</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L281">281</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L283">283</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L283">283</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L283">283</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L283">283</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L283">283</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be 8.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L284">284</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L284">284</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L284">284</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if rcurly' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L285">285</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L286">286</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L287">287</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L288">288</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L288">288</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L288">288</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L290">290</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L291">291</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L292">292</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L292">292</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L292">292</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L293">293</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L293">293</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L293">293</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L296">296</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L296">296</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L296">296</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>javadoc</td>
+<td>JavadocParagraph</td>
+<td>Redundant &lt;p&gt; tag.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L300">300</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L308">308</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L308">308</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L309">309</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L310">310</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L310">310</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L310">310</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L312">312</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L312">312</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L312">312</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L313">313</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L314">314</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L314">314</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L314">314</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L317">317</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L328">328</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L328">328</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L329">329</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L330">330</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L330">330</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L330">330</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L330">330</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L330">330</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L331">331</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L332">332</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L332">332</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L332">332</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L332">332</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L332">332</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L346">346</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L346">346</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L347">347</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L348">348</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L350">350</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L350">350</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L350">350</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L352">352</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L352">352</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L352">352</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L354">354</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L354">354</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L354">354</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L355">355</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L356">356</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L356">356</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L356">356</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L359">359</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L370">370</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L370">370</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L371">371</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L372">372</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L372">372</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L372">372</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L373">373</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L373">373</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L373">373</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L375">375</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L375">375</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L375">375</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L377">377</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L377">377</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L377">377</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L378">378</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L379">379</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L379">379</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L379">379</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L380">380</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L381">381</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L381">381</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L381">381</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L382">382</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L383">383</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L383">383</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L383">383</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L384">384</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L384">384</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L384">384</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L385">385</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L385">385</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L385">385</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L385">385</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L385">385</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L386">386</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L387">387</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L388">388</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L389">389</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L389">389</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L389">389</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L393">393</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L393">393</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L393">393</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L394">394</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L395">395</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L395">395</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L395">395</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L396">396</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L396">396</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L396">396</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L397">397</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L398">398</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L398">398</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L398">398</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L398">398</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L398">398</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L399">399</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L400">400</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L400">400</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L400">400</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L401">401</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L402">402</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L402">402</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L402">402</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>RightCurly</td>
+<td>'}' at column 17 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally).</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L403">403</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L404">404</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 17 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L405">405</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'else' child has incorrect indentation level 20, expected level should be one of the following: 16, 18.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L406">406</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L406">406</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L406">406</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L410">410</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L410">410</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L410">410</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L419">419</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L419">419</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L420">420</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L421">421</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L422">422</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L422">422</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L422">422</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L422">422</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L422">422</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L423">423</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L424">424</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'for' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L426">426</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L426">426</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L426">426</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L427">427</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L428">428</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L428">428</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L428">428</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L428">428</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L428">428</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 13 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L429">429</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L430">430</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 16, expected level should be one of the following: 12, 14.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L431">431</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L434">434</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L437">437</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L437">437</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 5 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L438">438</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L439">439</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L440">440</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L440">440</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L440">440</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L440">440</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L440">440</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>blocks</td>
+<td>LeftCurly</td>
+<td>'{' at column 9 should be on the previous line.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L441">441</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'if' child has incorrect indentation level 12, expected level should be one of the following: 8, 10.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L443">443</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>'(' is followed by whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L443">443</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>whitespace</td>
+<td>ParenPad</td>
+<td>')' is preceded with whitespace.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L443">443</a></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'method def' child has incorrect indentation level 8, expected level should be 6.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L446">446</a></td></tr>
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" />&#160;Warning</td>
+<td>indentation</td>
+<td>Indentation</td>
+<td>'class def rcurly' has incorrect indentation level 0, expected level should be 2.</td>
+<td><a href="./xref/org/mybatis/maven/migrations_maven_plugin/HelpMojo.html#L448">448</a></td></tr></table></section><section><a id="org.2Fmybatis.2Fmaven.2Fmvnmigrate.2FAbstractCommandMojo.java"></a>
 <h3>org/mybatis/maven/mvnmigrate/AbstractCommandMojo.java</h3>
 <table class="table table-striped">
 <tr class="a">
