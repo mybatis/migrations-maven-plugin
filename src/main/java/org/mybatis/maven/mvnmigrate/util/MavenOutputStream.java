@@ -54,7 +54,7 @@ public class MavenOutputStream extends OutputStream {
 
   @Override
   public void write(byte[] b, int off, int len) throws IOException {
-    for (int i = off; i < len; i++) {
+    for (int i = off; i < off + len; i++) {
       write(b[i]);
     }
   }

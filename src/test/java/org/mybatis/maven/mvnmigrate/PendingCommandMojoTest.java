@@ -38,6 +38,23 @@ class PendingCommandMojoTest extends AbstractMigrateTestCase {
     runALLDownGoal();
   }
 
+  @Test
+  void testDownGoalSkip() throws Exception {
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) testCase.lookupMojo("down", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
+  @Test
+  void testDownGoalDefaultSteps() throws Exception {
+    runUpGoal();
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) testCase.lookupMojo("down", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "downSteps", null);
+    mojo.execute();
+  }
+
   protected void runUpGoal() throws Exception {
     AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) testCase.lookupMojo("up", testPom);
     Assertions.assertNotNull(mojo);

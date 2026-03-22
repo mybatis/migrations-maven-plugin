@@ -69,6 +69,50 @@ class InitCommandMojoTest extends AbstractMigrateTestCase {
   }
 
   @Test
+  void testNewGoalWithIdPattern() throws Exception {
+    AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
+    testCase.setVariableValueToObject(mojo, "description", "test_script_with_id_pattern");
+    testCase.setVariableValueToObject(mojo, "idPattern", "000");
+    mojo.execute();
+  }
+
+  @Test
+  void testNewGoalWithTemplate() throws Exception {
+    AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "repository", Path.of("target/init").toFile());
+    testCase.setVariableValueToObject(mojo, "description", "test_script_with_template");
+    testCase.setVariableValueToObject(mojo, "template",
+        "src/test/resources/unit/basic-test/migrate-repository/scripts/20100400000002_first_migration.sql");
+    mojo.execute();
+  }
+
+  @Test
+  void testNewGoalSkip() throws Exception {
+    AbstractCommandMojo<NewCommand> mojo = (AbstractCommandMojo<NewCommand>) testCase.lookupMojo("new", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
+  @Test
+  void testInitGoalWithIdPattern() throws Exception {
+    Path newRep = Path.of("target/init-idpattern");
+    if (newRep.toFile().exists()) {
+      MojoExtension.deleteDir(newRep);
+    }
+    AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) testCase.lookupMojo("init",
+        testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "repository", newRep.toFile());
+    testCase.setVariableValueToObject(mojo, "idPattern", "000");
+    mojo.execute();
+    Assertions.assertTrue(newRep.toFile().exists());
+  }
+
+  @Test
   void testnewGoalInitRepAlreadyExist() throws Exception {
     try {
       AbstractCommandMojo<InitializeCommand> mojo = (AbstractCommandMojo<InitializeCommand>) testCase.lookupMojo("init",

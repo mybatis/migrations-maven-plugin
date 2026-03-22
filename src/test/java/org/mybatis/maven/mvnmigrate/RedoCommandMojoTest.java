@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2026 the original author or authors.
+ *    Copyright 2010-2025 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -15,35 +15,40 @@
  */
 package org.mybatis.maven.mvnmigrate;
 
+import org.apache.ibatis.migration.commands.RedoCommand;
 import org.apache.ibatis.migration.commands.UpCommand;
-import org.apache.ibatis.migration.commands.VersionCommand;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("unchecked")
-class VersionCommandMojoTest extends AbstractMigrateTestCase {
+class RedoCommandMojoTest extends AbstractMigrateTestCase {
 
-  @Test
-  void testUpVersionVersionDownGoal() throws Exception {
-    runUpGoal();
-    runVersionGoal();
-    runVersionDownGoal();
+  @BeforeEach
+  void init() throws Exception {
+    initEnvironment();
   }
 
   @Test
-  void testUpGoalSkip() throws Exception {
-    AbstractCommandMojo<UpCommand> mojo = (AbstractCommandMojo<UpCommand>) testCase.lookupMojo("up", testPom);
+  void testRedoGoalSkip() throws Exception {
+    AbstractCommandMojo<RedoCommand> mojo = (AbstractCommandMojo<RedoCommand>) testCase.lookupMojo("redo", testPom);
     Assertions.assertNotNull(mojo);
     testCase.setVariableValueToObject(mojo, "skip", true);
     mojo.execute();
   }
 
   @Test
-  void testVersionGoalSkip() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) testCase.lookupMojo("version",
-        testPom);
+  void testRedoGoal() throws Exception {
+    runUpGoal();
+    runRedoGoal();
+  }
+
+  @Test
+  void testRedoGoalWithSteps() throws Exception {
+    runUpGoal();
+    AbstractCommandMojo<RedoCommand> mojo = (AbstractCommandMojo<RedoCommand>) testCase.lookupMojo("redo", testPom);
     Assertions.assertNotNull(mojo);
-    testCase.setVariableValueToObject(mojo, "skip", true);
+    testCase.setVariableValueToObject(mojo, "redoSteps", "1");
     mojo.execute();
   }
 
@@ -54,19 +59,9 @@ class VersionCommandMojoTest extends AbstractMigrateTestCase {
     mojo.execute();
   }
 
-  protected void runVersionGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) testCase.lookupMojo("version",
-        testPom);
+  protected void runRedoGoal() throws Exception {
+    AbstractCommandMojo<RedoCommand> mojo = (AbstractCommandMojo<RedoCommand>) testCase.lookupMojo("redo", testPom);
     Assertions.assertNotNull(mojo);
-    testCase.setVariableValueToObject(mojo, "version", "20100400000003");
-    mojo.execute();
-  }
-
-  protected void runVersionDownGoal() throws Exception {
-    AbstractCommandMojo<VersionCommand> mojo = (AbstractCommandMojo<VersionCommand>) testCase.lookupMojo("version",
-        testPom);
-    Assertions.assertNotNull(mojo);
-    testCase.setVariableValueToObject(mojo, "version", "20100400000001");
     mojo.execute();
   }
 

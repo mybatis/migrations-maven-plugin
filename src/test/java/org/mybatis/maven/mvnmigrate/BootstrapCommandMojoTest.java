@@ -30,4 +30,14 @@ class BootstrapCommandMojoTest extends AbstractMigrateTestCase {
     mojo.execute();
   }
 
+  @SuppressWarnings("unchecked")
+  @Test
+  void testBootstrapGoalSkip() throws Exception {
+    AbstractCommandMojo<BootstrapCommand> mojo = (AbstractCommandMojo<BootstrapCommand>) testCase
+        .lookupMojo("bootstrap", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
 }

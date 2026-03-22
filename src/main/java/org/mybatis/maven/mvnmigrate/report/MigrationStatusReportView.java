@@ -149,6 +149,9 @@ public final class MigrationStatusReportView {
    * @return the string
    */
   private String calcPerc(int tot, int nop) {
+    if (tot == 0) {
+      return "0%";
+    }
     return "" + ((100 * nop) / tot) + "%";
   }
 

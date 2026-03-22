@@ -70,4 +70,13 @@ class ScriptCommandMojoTest extends AbstractMigrateTestCase {
     Assertions.assertTrue(Files.exists(Path.of("target/script_pending_undo.sql")));
   }
 
+  @Test
+  void testScriptGoalSkip() throws Exception {
+    AbstractCommandMojo<ScriptCommand> mojo = (AbstractCommandMojo<ScriptCommand>) testCase.lookupMojo("script",
+        testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
 }

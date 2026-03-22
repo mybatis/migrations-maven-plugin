@@ -30,4 +30,14 @@ class StatusCommandMojoTest extends AbstractMigrateTestCase {
     mojo.execute();
   }
 
+  @SuppressWarnings("unchecked")
+  @Test
+  void testStatusGoalSkip() throws Exception {
+    AbstractCommandMojo<StatusCommand> mojo = (AbstractCommandMojo<StatusCommand>) testCase.lookupMojo("status",
+        testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
 }
