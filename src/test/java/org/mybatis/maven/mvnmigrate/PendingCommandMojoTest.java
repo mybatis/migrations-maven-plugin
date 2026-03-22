@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2025 the original author or authors.
+ *    Copyright 2010-2026 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -36,6 +36,23 @@ class PendingCommandMojoTest extends AbstractMigrateTestCase {
     runPendingGoal();
     runDownGoal();
     runALLDownGoal();
+  }
+
+  @Test
+  void testDownGoalSkip() throws Exception {
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) testCase.lookupMojo("down", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "skip", true);
+    mojo.execute();
+  }
+
+  @Test
+  void testDownGoalDefaultSteps() throws Exception {
+    runUpGoal();
+    AbstractCommandMojo<DownCommand> mojo = (AbstractCommandMojo<DownCommand>) testCase.lookupMojo("down", testPom);
+    Assertions.assertNotNull(mojo);
+    testCase.setVariableValueToObject(mojo, "downSteps", null);
+    mojo.execute();
   }
 
   protected void runUpGoal() throws Exception {
