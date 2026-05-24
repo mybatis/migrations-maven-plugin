@@ -61,8 +61,8 @@
 
   <properties>
     <!-- Java Usage -->
-    <java.version>21</java.version>
-    <java.release.version>21</java.release.version>
+    <java.version>11</java.version>
+    <java.release.version>11</java.release.version>
 
     <findbugs.onlyAnalyze>org.mybatis.maven.mvnmigrate.*</findbugs.onlyAnalyze>
     <module.name>org.mybatis.maven.migrations</module.name>
