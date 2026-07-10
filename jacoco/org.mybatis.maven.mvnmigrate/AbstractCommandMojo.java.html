@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractCommandMojo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyBatis Migrations Maven plugin</a> &gt; <a href="index.source.html" class="el_package">org.mybatis.maven.mvnmigrate</a> &gt; <span class="el_source">AbstractCommandMojo.java</span></div><h1>AbstractCommandMojo.java</h1><pre class="source lang-java linenums">/*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2026 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -70,8 +70,8 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
    */
   @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">    if (this.isSkip()) {</span>
-<span class="nc" id="L74">      return;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (this.isSkip()) {</span>
+<span class="fc" id="L74">      return;</span>
     }
 <span class="fc" id="L76">    this.init();</span>
 <span class="fc" id="L77">    this.command.execute();</span>
@@ -137,11 +137,11 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
    * @return the skip flag.
    */
   protected boolean isSkip() {
-<span class="pc bpc" id="L140" title="3 of 4 branches missed.">    if (this.skip &amp;&amp; this.getLog().isInfoEnabled()) {</span>
-<span class="nc" id="L141">      final String[] args = { this.getBundle(this.locale).getString(&quot;migration.plugin.name&quot;) };</span>
-<span class="nc" id="L142">      final MessageFormat format = new MessageFormat(</span>
-<span class="nc" id="L143">          this.getBundle(this.locale).getString(&quot;migration.plugin.execution.command.skipped&quot;));</span>
-<span class="nc" id="L144">      this.getLog().info(format.format(args));</span>
+<span class="pc bpc" id="L140" title="1 of 4 branches missed.">    if (this.skip &amp;&amp; this.getLog().isInfoEnabled()) {</span>
+<span class="fc" id="L141">      final String[] args = { this.getBundle(this.locale).getString(&quot;migration.plugin.name&quot;) };</span>
+<span class="fc" id="L142">      final MessageFormat format = new MessageFormat(</span>
+<span class="fc" id="L143">          this.getBundle(this.locale).getString(&quot;migration.plugin.execution.command.skipped&quot;));</span>
+<span class="fc" id="L144">      this.getLog().info(format.format(args));</span>
     }
 <span class="fc" id="L146">    return this.skip;</span>
   }
@@ -169,4 +169,4 @@ import org.mybatis.maven.mvnmigrate.util.MavenOutputStream;
   protected abstract T createCommandClass(final SelectedOptions options);
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
